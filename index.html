@@ -34,7 +34,7 @@
     <title>Bán Hàng</title>
     <!-- Giao diện (Tailwind biên dịch sẵn) + biểu tượng: nhúng thẳng, không tải thư viện lúc mở app → mở nhanh.
          Bảng màu "Đỏ – Thổ": đỏ son (Hỏa sinh Thổ) + vàng đất, nâu ấm; tránh xanh lá. Sửa màu ở build/tw.mjs -->
-    <style id="tw-css">/*! tailwindcss v4.3.3 | MIT License | https://tailwindcss.com */@layer properties;@layer theme,base,components,utilities;@layer theme{:root,:host{--font-sans: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;--font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;--spacing: .25rem;--container-xs: 20rem;--container-sm: 24rem;--container-md: 28rem;--container-lg: 32rem;--container-xl: 36rem;--container-2xl: 42rem;--container-3xl: 48rem;--container-5xl: 64rem;--container-7xl: 80rem;--text-xs: .75rem;--text-xs--line-height: calc(1 / .75);--text-sm: .875rem;--text-sm--line-height: calc(1.25 / .875);--text-base: 1rem;--text-base--line-height: 1.5 ;--text-lg: 1.125rem;--text-lg--line-height: calc(1.75 / 1.125);--text-xl: 1.25rem;--text-xl--line-height: calc(1.75 / 1.25);--text-2xl: 1.5rem;--text-2xl--line-height: calc(2 / 1.5);--text-3xl: 1.875rem;--text-3xl--line-height: 1.2 ;--text-4xl: 2.25rem;--text-4xl--line-height: calc(2.5 / 2.25);--font-weight-normal: 400;--font-weight-medium: 500;--font-weight-semibold: 600;--font-weight-bold: 700;--font-weight-extrabold: 800;--font-weight-black: 900;--tracking-wide: .025em;--leading-tight: 1.25;--leading-snug: 1.375;--radius-md: .375rem;--radius-lg: .5rem;--radius-xl: .75rem;--radius-2xl: 1rem;--radius-3xl: 1.5rem;--blur-sm: 8px;--default-transition-duration: .15s;--default-transition-timing-function: cubic-bezier(.4, 0, .2, 1);--default-font-family: var(--font-sans);--default-mono-font-family: var(--font-mono);--shadow: 0 1px 3px 0 rgb(0 0 0 / .1), 0 1px 2px -1px rgb(0 0 0 / .1);--color-white: #fff;--color-blue-50: #FEF2F1;--color-blue-100: #FDE2DF;--color-blue-300: #F5A097;--color-blue-600: #B3261E;--color-blue-700: #921D17;--color-blue-800: #771A15;--color-indigo-50: #FEF2F1;--color-indigo-600: #B3261E;--color-indigo-700: #921D17;--color-sky-50: #FEF2F1;--color-sky-100: #FDE2DF;--color-sky-200: #FBC8C2;--color-sky-500: #D6402F;--color-sky-600: #B3261E;--color-sky-700: #921D17;--color-sky-800: #771A15;--color-rose-50: #FEF2F1;--color-rose-100: #FDE2DF;--color-rose-200: #FBC8C2;--color-rose-300: #F5A097;--color-rose-500: #D6402F;--color-rose-600: #B3261E;--color-rose-700: #921D17;--color-rose-800: #771A15;--color-rose-900: #5E1713;--color-red-50: #FEF2F1;--color-red-600: #B3261E;--color-red-700: #921D17;--color-purple-500: #D6402F;--color-purple-600: #B3261E;--color-purple-700: #921D17;--color-emerald-50: #FDF8EC;--color-emerald-100: #FAEDC9;--color-emerald-300: #E9C25F;--color-emerald-400: #DDA93A;--color-emerald-500: #C68F22;--color-emerald-600: #A6731A;--color-emerald-700: #855A17;--color-emerald-800: #6B4818;--color-teal-50: #FDF8EC;--color-teal-200: #F3DA95;--color-teal-600: #A6731A;--color-teal-700: #855A17;--color-teal-950: #33220C;--color-cyan-50: #FDF8EC;--color-cyan-100: #FAEDC9;--color-cyan-200: #F3DA95;--color-cyan-600: #A6731A;--color-cyan-700: #855A17;--color-cyan-800: #6B4818;--color-slate-50: #FBF7F2;--color-slate-100: #F5EDE4;--color-slate-200: #EADDD0;--color-slate-300: #D8C6B6;--color-slate-400: #B09A89;--color-slate-500: #86705F;--color-slate-600: #6B5547;--color-slate-700: #533F33;--color-slate-800: #3D2B22;--color-slate-900: #2A1B14;--color-slate-950: #1A100B;--color-gray-200: #EADDD0;--color-gray-400: #B09A89;--color-violet-100: #F5EDE4;--color-violet-500: #86705F;--color-violet-600: #6B5547;--color-violet-700: #533F33;--color-violet-800: #3D2B22;--color-amber-50: #fffbeb;--color-amber-100: #fef3c7;--color-amber-200: #fde68a;--color-amber-300: #fcd34d;--color-amber-400: #fbbf24;--color-amber-500: #f59e0b;--color-amber-600: #d97706;--color-amber-700: #b45309;--color-amber-800: #92400e;--color-amber-900: #78350f;--color-orange-500: #f97316;--color-orange-600: #ea580c;--color-orange-700: #c2410c}}@layer base{*,:after,:before,::backdrop,::file-selector-button{box-sizing:border-box;margin:0;padding:0;border:0 solid}html,:host{line-height:1.5;-webkit-text-size-adjust:100%;tab-size:4;font-family:var(--default-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");font-feature-settings:var(--default-font-feature-settings, normal);font-variation-settings:var(--default-font-variation-settings, normal);-webkit-tap-highlight-color:transparent}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;-webkit-text-decoration:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);font-feature-settings:var(--default-mono-font-feature-settings, normal);font-variation-settings:var(--default-mono-font-variation-settings, normal);font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}:-moz-focusring:where(:not(iframe)){outline:auto}progress{vertical-align:baseline}summary{display:list-item}ol,ul,menu{list-style:none}img,svg,video,canvas,audio,iframe,embed,object{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}button,input,select,optgroup,textarea,::file-selector-button{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;border-radius:0;background-color:transparent;opacity:1}:where(select:is([multiple],[size])) optgroup{font-weight:bolder}:where(select:is([multiple],[size])) optgroup option{padding-inline-start:20px}::file-selector-button{margin-inline-end:4px}::placeholder{opacity:1}@supports (not (-webkit-appearance: -apple-pay-button)) or (contain-intrinsic-size: 1px){::placeholder{color:currentcolor;@supports (color: color-mix(in lab,red,red)){color:color-mix(in oklab,currentcolor 50%,transparent)}}}textarea{resize:vertical}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-date-and-time-value{min-height:1lh;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-datetime-edit,::-webkit-datetime-edit-year-field,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute-field,::-webkit-datetime-edit-second-field,::-webkit-datetime-edit-millisecond-field,::-webkit-datetime-edit-meridiem-field{padding-block:0}::-webkit-calendar-picker-indicator{line-height:1}:-moz-ui-invalid{box-shadow:none}button,input:where([type=button],[type=reset],[type=submit]),::file-selector-button{appearance:button}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[hidden]:where(:not([hidden=until-found])){display:none!important}}@layer utilities{.visible{visibility:visible}.absolute{position:absolute}.fixed{position:fixed}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0}.top-0{top:0}.top-1\.5{top:calc(var(--spacing) * 1.5)}.top-1\/2{top:50%}.top-5{top:calc(var(--spacing) * 5)}.top-full{top:100%}.right-0{right:0}.right-1\.5{right:calc(var(--spacing) * 1.5)}.right-3{right:calc(var(--spacing) * 3)}.right-4{right:calc(var(--spacing) * 4)}.right-5{right:calc(var(--spacing) * 5)}.-bottom-6{bottom:calc(var(--spacing) * -6)}.bottom-4{bottom:calc(var(--spacing) * 4)}.bottom-full{bottom:100%}.left-0{left:0}.left-1\/2{left:50%}.left-4{left:calc(var(--spacing) * 4)}.z-10{z-index:10}.z-40{z-index:40}.z-50{z-index:50}.z-\[55\]{z-index:55}.z-\[60\]{z-index:60}.order-first{order:-9999}.col-span-2{grid-column:span 2 / span 2}.col-span-6{grid-column:span 6 / span 6}.-mx-4{margin-inline:calc(var(--spacing) * -4)}.-mx-6{margin-inline:calc(var(--spacing) * -6)}.mx-auto{margin-inline:auto}.my-4{margin-block:calc(var(--spacing) * 4)}.-mt-1{margin-top:calc(var(--spacing) * -1)}.mt-0\.5{margin-top:calc(var(--spacing) * .5)}.mt-1{margin-top:var(--spacing)}.mt-1\.5{margin-top:calc(var(--spacing) * 1.5)}.mt-2{margin-top:calc(var(--spacing) * 2)}.mt-3{margin-top:calc(var(--spacing) * 3)}.mt-auto{margin-top:auto}.mr-0\.5{margin-right:calc(var(--spacing) * .5)}.mr-1{margin-right:var(--spacing)}.mr-1\.5{margin-right:calc(var(--spacing) * 1.5)}.mr-2{margin-right:calc(var(--spacing) * 2)}.-mb-6{margin-bottom:calc(var(--spacing) * -6)}.mb-1{margin-bottom:var(--spacing)}.mb-1\.5{margin-bottom:calc(var(--spacing) * 1.5)}.mb-4{margin-bottom:calc(var(--spacing) * 4)}.ml-1{margin-left:var(--spacing)}.ml-2{margin-left:calc(var(--spacing) * 2)}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.inline-block{display:inline-block}.inline-flex{display:inline-flex}.table{display:table}.h-2{height:calc(var(--spacing) * 2)}.h-4{height:calc(var(--spacing) * 4)}.h-5{height:calc(var(--spacing) * 5)}.h-6{height:calc(var(--spacing) * 6)}.h-8{height:calc(var(--spacing) * 8)}.h-9{height:calc(var(--spacing) * 9)}.h-10{height:calc(var(--spacing) * 10)}.h-11{height:calc(var(--spacing) * 11)}.h-12{height:calc(var(--spacing) * 12)}.h-14{height:calc(var(--spacing) * 14)}.h-28{height:calc(var(--spacing) * 28)}.h-44{height:calc(var(--spacing) * 44)}.h-full{height:100%}.max-h-64{max-height:calc(var(--spacing) * 64)}.max-h-\[75vh\]{max-height:75vh}.max-h-\[85vh\]{max-height:85vh}.max-h-\[calc\(100vh-2rem\)\]{max-height:calc(100vh - 2rem)}.min-h-\[42px\]{min-height:42px}.min-h-screen{min-height:100vh}.w-2{width:calc(var(--spacing) * 2)}.w-5{width:calc(var(--spacing) * 5)}.w-6{width:calc(var(--spacing) * 6)}.w-8{width:calc(var(--spacing) * 8)}.w-10{width:calc(var(--spacing) * 10)}.w-11{width:calc(var(--spacing) * 11)}.w-12{width:calc(var(--spacing) * 12)}.w-14{width:calc(var(--spacing) * 14)}.w-28{width:calc(var(--spacing) * 28)}.w-32{width:calc(var(--spacing) * 32)}.w-44{width:calc(var(--spacing) * 44)}.w-\[96px\]{width:96px}.w-fit{width:fit-content}.w-full{width:100%}.max-w-2xl{max-width:var(--container-2xl)}.max-w-3xl{max-width:var(--container-3xl)}.max-w-5xl{max-width:var(--container-5xl)}.max-w-7xl{max-width:var(--container-7xl)}.max-w-full{max-width:100%}.max-w-lg{max-width:var(--container-lg)}.max-w-md{max-width:var(--container-md)}.max-w-sm{max-width:var(--container-sm)}.max-w-xl{max-width:var(--container-xl)}.max-w-xs{max-width:var(--container-xs)}.min-w-0{min-width:0px}.min-w-\[2\.25rem\]{min-width:2.25rem}.min-w-\[130px\]{min-width:130px}.flex-1{flex:1}.shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x: -50% ;translate:var(--tw-translate-x) var(--tw-translate-y)}.-translate-y-1\/2{--tw-translate-y: -50% ;translate:var(--tw-translate-x) var(--tw-translate-y)}.rotate-180{rotate:180deg}.transform{transform:var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,)}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.grid-cols-6{grid-template-columns:repeat(6,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-nowrap{flex-wrap:nowrap}.flex-wrap{flex-wrap:wrap}.items-baseline{align-items:baseline}.items-center{align-items:center}.items-end{align-items:flex-end}.items-start{align-items:flex-start}.items-stretch{align-items:stretch}.justify-between{justify-content:space-between}.justify-center{justify-content:center}.justify-end{justify-content:flex-end}.gap-0\.5{gap:calc(var(--spacing) * .5)}.gap-1{gap:var(--spacing)}.gap-1\.5{gap:calc(var(--spacing) * 1.5)}.gap-2{gap:calc(var(--spacing) * 2)}.gap-2\.5{gap:calc(var(--spacing) * 2.5)}.gap-3{gap:calc(var(--spacing) * 3)}.gap-4{gap:calc(var(--spacing) * 4)}.gap-5{gap:calc(var(--spacing) * 5)}.gap-6{gap:calc(var(--spacing) * 6)}:where(.space-y-0\.5>:not(:last-child)){--tw-space-y-reverse: 0;margin-block-start:calc(calc(var(--spacing) * .5) * var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing) * .5) * calc(1 - var(--tw-space-y-reverse)))}:where(.space-y-1>:not(:last-child)){--tw-space-y-reverse: 0;margin-block-start:calc(var(--spacing) * var(--tw-space-y-reverse));margin-block-end:calc(var(--spacing) * calc(1 - var(--tw-space-y-reverse)))}:where(.space-y-1\.5>:not(:last-child)){--tw-space-y-reverse: 0;margin-block-start:calc(calc(var(--spacing) * 1.5) * var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing) * 1.5) * calc(1 - var(--tw-space-y-reverse)))}:where(.space-y-2>:not(:last-child)){--tw-space-y-reverse: 0;margin-block-start:calc(calc(var(--spacing) * 2) * var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-y-reverse)))}:where(.space-y-2\.5>:not(:last-child)){--tw-space-y-reverse: 0;margin-block-start:calc(calc(var(--spacing) * 2.5) * var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing) * 2.5) * calc(1 - var(--tw-space-y-reverse)))}:where(.space-y-3>:not(:last-child)){--tw-space-y-reverse: 0;margin-block-start:calc(calc(var(--spacing) * 3) * var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-y-reverse)))}:where(.space-y-4>:not(:last-child)){--tw-space-y-reverse: 0;margin-block-start:calc(calc(var(--spacing) * 4) * var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-y-reverse)))}:where(.space-y-5>:not(:last-child)){--tw-space-y-reverse: 0;margin-block-start:calc(calc(var(--spacing) * 5) * var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing) * 5) * calc(1 - var(--tw-space-y-reverse)))}:where(.space-y-6>:not(:last-child)){--tw-space-y-reverse: 0;margin-block-start:calc(calc(var(--spacing) * 6) * var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse)))}:where(.space-y-8>:not(:last-child)){--tw-space-y-reverse: 0;margin-block-start:calc(calc(var(--spacing) * 8) * var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing) * 8) * calc(1 - var(--tw-space-y-reverse)))}.gap-x-2{column-gap:calc(var(--spacing) * 2)}.gap-x-3{column-gap:calc(var(--spacing) * 3)}.gap-x-6{column-gap:calc(var(--spacing) * 6)}:where(.space-x-1>:not(:last-child)){--tw-space-x-reverse: 0;margin-inline-start:calc(var(--spacing) * var(--tw-space-x-reverse));margin-inline-end:calc(var(--spacing) * calc(1 - var(--tw-space-x-reverse)))}.gap-y-1\.5{row-gap:calc(var(--spacing) * 1.5)}.gap-y-2\.5{row-gap:calc(var(--spacing) * 2.5)}.gap-y-4{row-gap:calc(var(--spacing) * 4)}:where(.divide-y>:not(:last-child)){--tw-divide-y-reverse: 0;border-bottom-style:var(--tw-border-style);border-top-style:var(--tw-border-style);border-top-width:calc(1px * var(--tw-divide-y-reverse));border-bottom-width:calc(1px * calc(1 - var(--tw-divide-y-reverse)))}:where(.divide-white\/20>:not(:last-child)){border-color:color-mix(in srgb,#fff 20%,transparent);@supports (color: color-mix(in lab,red,red)){border-color:color-mix(in oklab,var(--color-white) 20%,transparent)}}.self-start{align-self:flex-start}.justify-self-start{justify-self:flex-start}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.overflow-auto{overflow:auto}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.overscroll-contain{overscroll-behavior:contain}.rounded{border-radius:.25rem}.rounded-2xl{border-radius:var(--radius-2xl)}.rounded-3xl{border-radius:var(--radius-3xl)}.rounded-\[10px\]{border-radius:10px}.rounded-full{border-radius:calc(infinity * 1px)}.rounded-lg{border-radius:var(--radius-lg)}.rounded-md{border-radius:var(--radius-md)}.rounded-xl{border-radius:var(--radius-xl)}.border{border-style:var(--tw-border-style);border-width:1px}.border-2{border-style:var(--tw-border-style);border-width:2px}.border-t{border-top-style:var(--tw-border-style);border-top-width:1px}.border-b{border-bottom-style:var(--tw-border-style);border-bottom-width:1px}.border-l-4{border-left-style:var(--tw-border-style);border-left-width:4px}.border-dashed{--tw-border-style: dashed;border-style:dashed}.border-\[\#D8C6B6\]{border-color:#d8c6b6}.border-\[\#EADDD0\]{border-color:#eaddd0}.border-amber-200{border-color:var(--color-amber-200)}.border-amber-300{border-color:var(--color-amber-300)}.border-amber-400{border-color:var(--color-amber-400)}.border-amber-500{border-color:var(--color-amber-500)}.border-blue-300{border-color:var(--color-blue-300)}.border-cyan-200{border-color:var(--color-cyan-200)}.border-cyan-600{border-color:var(--color-cyan-600)}.border-emerald-300{border-color:var(--color-emerald-300)}.border-emerald-600{border-color:var(--color-emerald-600)}.border-rose-200{border-color:var(--color-rose-200)}.border-rose-300{border-color:var(--color-rose-300)}.border-sky-200{border-color:var(--color-sky-200)}.border-slate-100{border-color:var(--color-slate-100)}.border-slate-200{border-color:var(--color-slate-200)}.border-slate-300{border-color:var(--color-slate-300)}.border-slate-900{border-color:var(--color-slate-900)}.border-teal-200{border-color:var(--color-teal-200)}.border-l-emerald-500{border-left-color:var(--color-emerald-500)}.border-l-purple-500{border-left-color:var(--color-purple-500)}.border-l-rose-500{border-left-color:var(--color-rose-500)}.bg-\[\#A6731A\]{background-color:#a6731a}.bg-\[\#FBF7F2\]\/95{background-color:color-mix(in oklab,#FBF7F2 95%,transparent)}.bg-amber-50{background-color:var(--color-amber-50)}.bg-amber-50\/40{background-color:color-mix(in srgb,#fffbeb 40%,transparent);@supports (color: color-mix(in lab,red,red)){background-color:color-mix(in oklab,var(--color-amber-50) 40%,transparent)}}.bg-amber-100{background-color:var(--color-amber-100)}.bg-amber-400{background-color:var(--color-amber-400)}.bg-amber-500{background-color:var(--color-amber-500)}.bg-amber-600{background-color:var(--color-amber-600)}.bg-blue-50{background-color:var(--color-blue-50)}.bg-blue-100{background-color:var(--color-blue-100)}.bg-blue-600{background-color:var(--color-blue-600)}.bg-cyan-100{background-color:var(--color-cyan-100)}.bg-cyan-600{background-color:var(--color-cyan-600)}.bg-emerald-50{background-color:var(--color-emerald-50)}.bg-emerald-50\/50{background-color:color-mix(in srgb,#FDF8EC 50%,transparent);@supports (color: color-mix(in lab,red,red)){background-color:color-mix(in oklab,var(--color-emerald-50) 50%,transparent)}}.bg-emerald-100{background-color:var(--color-emerald-100)}.bg-emerald-400{background-color:var(--color-emerald-400)}.bg-emerald-500{background-color:var(--color-emerald-500)}.bg-emerald-600{background-color:var(--color-emerald-600)}.bg-indigo-50{background-color:var(--color-indigo-50)}.bg-indigo-600{background-color:var(--color-indigo-600)}.bg-orange-600{background-color:var(--color-orange-600)}.bg-purple-600{background-color:var(--color-purple-600)}.bg-red-50{background-color:var(--color-red-50)}.bg-red-600{background-color:var(--color-red-600)}.bg-rose-50{background-color:var(--color-rose-50)}.bg-rose-100{background-color:var(--color-rose-100)}.bg-rose-600{background-color:var(--color-rose-600)}.bg-sky-50{background-color:var(--color-sky-50)}.bg-sky-100{background-color:var(--color-sky-100)}.bg-sky-500{background-color:var(--color-sky-500)}.bg-sky-600{background-color:var(--color-sky-600)}.bg-slate-50{background-color:var(--color-slate-50)}.bg-slate-100{background-color:var(--color-slate-100)}.bg-slate-200{background-color:var(--color-slate-200)}.bg-slate-500{background-color:var(--color-slate-500)}.bg-slate-600{background-color:var(--color-slate-600)}.bg-slate-700{background-color:var(--color-slate-700)}.bg-slate-800{background-color:var(--color-slate-800)}.bg-slate-900{background-color:var(--color-slate-900)}.bg-slate-900\/50{background-color:color-mix(in srgb,#2A1B14 50%,transparent);@supports (color: color-mix(in lab,red,red)){background-color:color-mix(in oklab,var(--color-slate-900) 50%,transparent)}}.bg-slate-900\/60{background-color:color-mix(in srgb,#2A1B14 60%,transparent);@supports (color: color-mix(in lab,red,red)){background-color:color-mix(in oklab,var(--color-slate-900) 60%,transparent)}}.bg-teal-50{background-color:var(--color-teal-50)}.bg-teal-600{background-color:var(--color-teal-600)}.bg-violet-100{background-color:var(--color-violet-100)}.bg-violet-500{background-color:var(--color-violet-500)}.bg-white{background-color:var(--color-white)}.bg-white\/15{background-color:color-mix(in srgb,#fff 15%,transparent);@supports (color: color-mix(in lab,red,red)){background-color:color-mix(in oklab,var(--color-white) 15%,transparent)}}.bg-white\/25{background-color:color-mix(in srgb,#fff 25%,transparent);@supports (color: color-mix(in lab,red,red)){background-color:color-mix(in oklab,var(--color-white) 25%,transparent)}}.bg-gradient-to-br{--tw-gradient-position: to bottom right in oklab;background-image:linear-gradient(var(--tw-gradient-stops))}.from-amber-400{--tw-gradient-from: var(--color-amber-400);--tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position))}.from-cyan-600{--tw-gradient-from: var(--color-cyan-600);--tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position))}.to-orange-500{--tw-gradient-to: var(--color-orange-500);--tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position))}.to-sky-700{--tw-gradient-to: var(--color-sky-700);--tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position))}.object-contain{object-fit:contain}.p-0\.5{padding:calc(var(--spacing) * .5)}.p-1{padding:var(--spacing)}.p-1\.5{padding:calc(var(--spacing) * 1.5)}.p-2{padding:calc(var(--spacing) * 2)}.p-2\.5{padding:calc(var(--spacing) * 2.5)}.p-3{padding:calc(var(--spacing) * 3)}.p-4{padding:calc(var(--spacing) * 4)}.p-5{padding:calc(var(--spacing) * 5)}.p-6{padding:calc(var(--spacing) * 6)}.p-8{padding:calc(var(--spacing) * 8)}.p-10{padding:calc(var(--spacing) * 10)}.px-1{padding-inline:var(--spacing)}.px-1\.5{padding-inline:calc(var(--spacing) * 1.5)}.px-2{padding-inline:calc(var(--spacing) * 2)}.px-2\.5{padding-inline:calc(var(--spacing) * 2.5)}.px-3{padding-inline:calc(var(--spacing) * 3)}.px-3\.5{padding-inline:calc(var(--spacing) * 3.5)}.px-4{padding-inline:calc(var(--spacing) * 4)}.px-5{padding-inline:calc(var(--spacing) * 5)}.px-6{padding-inline:calc(var(--spacing) * 6)}.py-0\.5{padding-block:calc(var(--spacing) * .5)}.py-1{padding-block:var(--spacing)}.py-1\.5{padding-block:calc(var(--spacing) * 1.5)}.py-2{padding-block:calc(var(--spacing) * 2)}.py-2\.5{padding-block:calc(var(--spacing) * 2.5)}.py-3{padding-block:calc(var(--spacing) * 3)}.py-3\.5{padding-block:calc(var(--spacing) * 3.5)}.py-4{padding-block:calc(var(--spacing) * 4)}.pt-1{padding-top:var(--spacing)}.pt-2{padding-top:calc(var(--spacing) * 2)}.pt-3{padding-top:calc(var(--spacing) * 3)}.pt-4{padding-top:calc(var(--spacing) * 4)}.pr-2\.5{padding-right:calc(var(--spacing) * 2.5)}.pr-9{padding-right:calc(var(--spacing) * 9)}.pr-11{padding-right:calc(var(--spacing) * 11)}.pb-2{padding-bottom:calc(var(--spacing) * 2)}.pb-6{padding-bottom:calc(var(--spacing) * 6)}.pl-3{padding-left:calc(var(--spacing) * 3)}.pl-11{padding-left:calc(var(--spacing) * 11)}.text-center{text-align:center}.text-left{text-align:left}.text-right{text-align:right}.align-\[-3px\]{vertical-align:-3px}.align-\[-4px\]{vertical-align:-4px}.font-mono{font-family:var(--font-mono)}.font-sans{font-family:var(--font-sans)}.text-2xl{font-size:var(--text-2xl);line-height:var(--tw-leading, var(--text-2xl--line-height))}.text-3xl{font-size:var(--text-3xl);line-height:var(--tw-leading, var(--text-3xl--line-height))}.text-4xl{font-size:var(--text-4xl);line-height:var(--tw-leading, var(--text-4xl--line-height))}.text-base{font-size:var(--text-base);line-height:var(--tw-leading, var(--text-base--line-height))}.text-lg{font-size:var(--text-lg);line-height:var(--tw-leading, var(--text-lg--line-height))}.text-sm{font-size:var(--text-sm);line-height:var(--tw-leading, var(--text-sm--line-height))}.text-xl{font-size:var(--text-xl);line-height:var(--tw-leading, var(--text-xl--line-height))}.text-xs{font-size:var(--text-xs);line-height:var(--tw-leading, var(--text-xs--line-height))}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[13px\]{font-size:13px}.text-\[15px\]{font-size:15px}.leading-4{--tw-leading: calc(var(--spacing) * 4);line-height:calc(var(--spacing) * 4)}.leading-snug{--tw-leading: var(--leading-snug);line-height:var(--leading-snug)}.leading-tight{--tw-leading: var(--leading-tight);line-height:var(--leading-tight)}.font-black{--tw-font-weight: var(--font-weight-black);font-weight:var(--font-weight-black)}.font-bold{--tw-font-weight: var(--font-weight-bold);font-weight:var(--font-weight-bold)}.font-extrabold{--tw-font-weight: var(--font-weight-extrabold);font-weight:var(--font-weight-extrabold)}.font-medium{--tw-font-weight: var(--font-weight-medium);font-weight:var(--font-weight-medium)}.font-normal{--tw-font-weight: var(--font-weight-normal);font-weight:var(--font-weight-normal)}.font-semibold{--tw-font-weight: var(--font-weight-semibold);font-weight:var(--font-weight-semibold)}.tracking-wide{--tw-tracking: var(--tracking-wide);letter-spacing:var(--tracking-wide)}.break-words{overflow-wrap:break-word}.whitespace-nowrap{white-space:nowrap}.whitespace-pre-line{white-space:pre-line}.text-\[\#3D2B22\]{color:#3d2b22}.text-\[\#533F33\]{color:#533f33}.text-amber-500{color:var(--color-amber-500)}.text-amber-600{color:var(--color-amber-600)}.text-amber-700{color:var(--color-amber-700)}.text-amber-800{color:var(--color-amber-800)}.text-amber-900{color:var(--color-amber-900)}.text-blue-600{color:var(--color-blue-600)}.text-blue-700{color:var(--color-blue-700)}.text-blue-800{color:var(--color-blue-800)}.text-cyan-700{color:var(--color-cyan-700)}.text-cyan-800{color:var(--color-cyan-800)}.text-emerald-600{color:var(--color-emerald-600)}.text-emerald-700{color:var(--color-emerald-700)}.text-emerald-800{color:var(--color-emerald-800)}.text-indigo-600{color:var(--color-indigo-600)}.text-indigo-700{color:var(--color-indigo-700)}.text-purple-600{color:var(--color-purple-600)}.text-purple-700{color:var(--color-purple-700)}.text-red-700{color:var(--color-red-700)}.text-rose-500{color:var(--color-rose-500)}.text-rose-600{color:var(--color-rose-600)}.text-rose-700{color:var(--color-rose-700)}.text-rose-800{color:var(--color-rose-800)}.text-rose-900{color:var(--color-rose-900)}.text-sky-500{color:var(--color-sky-500)}.text-sky-600{color:var(--color-sky-600)}.text-sky-700{color:var(--color-sky-700)}.text-sky-800{color:var(--color-sky-800)}.text-slate-300{color:var(--color-slate-300)}.text-slate-400{color:var(--color-slate-400)}.text-slate-500{color:var(--color-slate-500)}.text-slate-600{color:var(--color-slate-600)}.text-slate-700{color:var(--color-slate-700)}.text-slate-800{color:var(--color-slate-800)}.text-slate-900{color:var(--color-slate-900)}.text-slate-950{color:var(--color-slate-950)}.text-teal-600{color:var(--color-teal-600)}.text-teal-950{color:var(--color-teal-950)}.text-violet-600{color:var(--color-violet-600)}.text-violet-700{color:var(--color-violet-700)}.text-violet-800{color:var(--color-violet-800)}.text-white{color:var(--color-white)}.uppercase{text-transform:uppercase}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-75{opacity:75%}.opacity-80{opacity:80%}.opacity-90{opacity:90%}.shadow{--tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / .1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / .1));box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.shadow-2xl{--tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / .25));box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.shadow-\[0_20px_50px_-25px_rgba\(15\,23\,42\,0\.45\)\]{--tw-shadow: 0 20px 50px -25px var(--tw-shadow-color, rgba(15,23,42,.45));box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.shadow-lg{--tw-shadow: 0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / .1)), 0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / .1));box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.shadow-sm{--tw-shadow: 0 1px 2px 0 var(--tw-shadow-color, rgb(0 0 0 / .05));box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.shadow-xl{--tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / .1)), 0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / .1));box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.ring-2{--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.shadow{box-shadow:var(--shadow)}.ring-amber-300{--tw-ring-color: var(--color-amber-300)}.ring-amber-400{--tw-ring-color: var(--color-amber-400)}.ring-emerald-300{--tw-ring-color: var(--color-emerald-300)}.ring-emerald-400{--tw-ring-color: var(--color-emerald-400)}.backdrop-blur{--tw-backdrop-blur: blur(8px);-webkit-backdrop-filter:var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);backdrop-filter:var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,)}.backdrop-blur-sm{--tw-backdrop-blur: blur(var(--blur-sm));-webkit-backdrop-filter:var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);backdrop-filter:var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,)}.transition{transition-property:color,background-color,border-color,outline-color,text-decoration-color,fill,stroke,--tw-gradient-from,--tw-gradient-via,--tw-gradient-to,opacity,box-shadow,transform,translate,scale,rotate,filter,-webkit-backdrop-filter,backdrop-filter,display,content-visibility,overlay,pointer-events;transition-timing-function:var(--tw-ease, var(--default-transition-timing-function));transition-duration:var(--tw-duration, var(--default-transition-duration))}.transition-transform{transition-property:transform,translate,scale,rotate;transition-timing-function:var(--tw-ease, var(--default-transition-timing-function));transition-duration:var(--tw-duration, var(--default-transition-duration))}@media(hover:hover){.group-hover\:bg-amber-400:is(:where(.group):hover *){background-color:var(--color-amber-400)}.group-hover\:text-slate-900:is(:where(.group):hover *){color:var(--color-slate-900)}}.first\:pt-0:first-child{padding-top:0}.last\:pb-0:last-child{padding-bottom:0}@media(hover:hover){.hover\:-translate-y-0\.5:hover{--tw-translate-y: calc(var(--spacing) * -.5);translate:var(--tw-translate-x) var(--tw-translate-y)}.hover\:border-\[\#D8C6B6\]:hover{border-color:#d8c6b6}.hover\:border-amber-400:hover{border-color:var(--color-amber-400)}.hover\:border-slate-300:hover{border-color:var(--color-slate-300)}.hover\:bg-\[\#FBF7F2\]:hover{background-color:#fbf7f2}.hover\:bg-amber-400:hover{background-color:var(--color-amber-400)}.hover\:bg-amber-700:hover{background-color:var(--color-amber-700)}.hover\:bg-blue-50:hover{background-color:var(--color-blue-50)}.hover\:bg-blue-700:hover{background-color:var(--color-blue-700)}.hover\:bg-cyan-50:hover{background-color:var(--color-cyan-50)}.hover\:bg-emerald-700:hover{background-color:var(--color-emerald-700)}.hover\:bg-indigo-700:hover{background-color:var(--color-indigo-700)}.hover\:bg-orange-700:hover{background-color:var(--color-orange-700)}.hover\:bg-rose-100:hover{background-color:var(--color-rose-100)}.hover\:bg-rose-700:hover{background-color:var(--color-rose-700)}.hover\:bg-sky-700:hover{background-color:var(--color-sky-700)}.hover\:bg-slate-50:hover{background-color:var(--color-slate-50)}.hover\:bg-slate-100:hover{background-color:var(--color-slate-100)}.hover\:bg-slate-200:hover{background-color:var(--color-slate-200)}.hover\:bg-slate-800:hover{background-color:var(--color-slate-800)}.hover\:bg-slate-900:hover{background-color:var(--color-slate-900)}.hover\:bg-teal-700:hover{background-color:var(--color-teal-700)}.hover\:bg-white:hover{background-color:var(--color-white)}.hover\:text-slate-600:hover{color:var(--color-slate-600)}.hover\:text-slate-800:hover{color:var(--color-slate-800)}.hover\:underline:hover{text-decoration-line:underline}.hover\:opacity-100:hover{opacity:100%}.hover\:shadow-2xl:hover{--tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / .25));box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.hover\:shadow-md:hover{--tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / .1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / .1));box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.hover\:ring-2:hover{--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.hover\:ring-\[\#D8C6B6\]:hover{--tw-ring-color: #D8C6B6}.hover\:ring-amber-300:hover{--tw-ring-color: var(--color-amber-300)}}.focus\:ring-2:focus{--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.focus\:ring-amber-400:focus{--tw-ring-color: var(--color-amber-400)}.focus\:outline-none:focus{--tw-outline-style: none;outline-style:none}.active\:scale-\[\.98\]:active{scale:.98}.active\:bg-slate-100:active{background-color:var(--color-slate-100)}.disabled\:cursor-not-allowed:disabled{cursor:not-allowed}.disabled\:opacity-30:disabled{opacity:30%}.disabled\:opacity-40:disabled{opacity:40%}.disabled\:opacity-50:disabled{opacity:50%}.disabled\:opacity-60:disabled{opacity:60%}@media(width>=40rem){.sm\:col-span-2{grid-column:span 2 / span 2}.sm\:col-span-3{grid-column:span 3 / span 3}.sm\:flex{display:flex}.sm\:hidden{display:none}.sm\:inline{display:inline}.sm\:w-9{width:calc(var(--spacing) * 9)}.sm\:w-\[140px\]{width:140px}.sm\:w-auto{width:auto}.sm\:flex-none{flex:none}.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.sm\:grid-cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}.sm\:flex-row{flex-direction:row}.sm\:flex-nowrap{flex-wrap:nowrap}.sm\:flex-wrap{flex-wrap:wrap}.sm\:items-center{align-items:center}.sm\:px-2{padding-inline:calc(var(--spacing) * 2)}.sm\:px-3{padding-inline:calc(var(--spacing) * 3)}.sm\:text-2xl{font-size:var(--text-2xl);line-height:var(--tw-leading, var(--text-2xl--line-height))}.sm\:text-sm{font-size:var(--text-sm);line-height:var(--tw-leading, var(--text-sm--line-height))}.sm\:text-xl{font-size:var(--text-xl);line-height:var(--tw-leading, var(--text-xl--line-height))}}@media(width>=48rem){.md\:order-none{order:0}.md\:col-span-1{grid-column:span 1 / span 1}.md\:col-span-2{grid-column:span 2 / span 2}.md\:col-span-3{grid-column:span 3 / span 3}.md\:col-span-4{grid-column:span 4 / span 4}.md\:-mx-8{margin-inline:calc(var(--spacing) * -8)}.md\:mt-2{margin-top:calc(var(--spacing) * 2)}.md\:mr-2{margin-right:calc(var(--spacing) * 2)}.md\:block{display:block}.md\:flex{display:flex}.md\:hidden{display:none}.md\:inline{display:inline}.md\:h-7{height:calc(var(--spacing) * 7)}.md\:h-12{height:calc(var(--spacing) * 12)}.md\:w-7{width:calc(var(--spacing) * 7)}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.md\:grid-cols-12{grid-template-columns:repeat(12,minmax(0,1fr))}.md\:items-center{align-items:center}.md\:gap-2{gap:calc(var(--spacing) * 2)}.md\:gap-3{gap:calc(var(--spacing) * 3)}.md\:gap-4{gap:calc(var(--spacing) * 4)}:where(.md\:space-y-4>:not(:last-child)){--tw-space-y-reverse: 0;margin-block-start:calc(calc(var(--spacing) * 4) * var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-y-reverse)))}:where(.md\:space-y-6>:not(:last-child)){--tw-space-y-reverse: 0;margin-block-start:calc(calc(var(--spacing) * 6) * var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse)))}.md\:gap-x-3{column-gap:calc(var(--spacing) * 3)}.md\:gap-x-4{column-gap:calc(var(--spacing) * 4)}.md\:gap-y-3{row-gap:calc(var(--spacing) * 3)}.md\:rounded-xl{border-radius:var(--radius-xl)}.md\:border{border-style:var(--tw-border-style);border-width:1px}.md\:border-dashed{--tw-border-style: dashed;border-style:dashed}.md\:border-slate-200{border-color:var(--color-slate-200)}.md\:bg-white\/60{background-color:color-mix(in srgb,#fff 60%,transparent)}@supports (color: color-mix(in lab,red,red)){.md\:bg-white\/60{background-color:color-mix(in oklab,var(--color-white) 60%,transparent)}}.md\:p-3{padding:calc(var(--spacing) * 3)}.md\:p-4{padding:calc(var(--spacing) * 4)}.md\:p-5{padding:calc(var(--spacing) * 5)}.md\:p-6{padding:calc(var(--spacing) * 6)}.md\:p-10{padding:calc(var(--spacing) * 10)}.md\:px-3{padding-inline:calc(var(--spacing) * 3)}.md\:px-8{padding-inline:calc(var(--spacing) * 8)}.md\:py-1\.5{padding-block:calc(var(--spacing) * 1.5)}.md\:pr-0{padding-right:0}.md\:text-2xl{font-size:var(--text-2xl);line-height:var(--tw-leading, var(--text-2xl--line-height))}.md\:text-3xl{font-size:var(--text-3xl);line-height:var(--tw-leading, var(--text-3xl--line-height))}.md\:text-4xl{font-size:var(--text-4xl);line-height:var(--tw-leading, var(--text-4xl--line-height))}.md\:text-lg{font-size:var(--text-lg);line-height:var(--tw-leading, var(--text-lg--line-height))}.md\:text-sm{font-size:var(--text-sm);line-height:var(--tw-leading, var(--text-sm--line-height))}.md\:text-xs{font-size:var(--text-xs);line-height:var(--tw-leading, var(--text-xs--line-height))}}@media(width>=64rem){.lg\:col-span-6{grid-column:span 6 / span 6}.lg\:w-auto{width:auto}.lg\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.lg\:grid-cols-6{grid-template-columns:repeat(6,minmax(0,1fr))}.lg\:flex-row{flex-direction:row}.lg\:items-center{align-items:center}.lg\:gap-4{gap:calc(var(--spacing) * 4)}}@media(width>=80rem){.xl\:col-span-4{grid-column:span 4 / span 4}.xl\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.xl\:self-end{align-self:flex-end}}}@layer base{*,:after,:before,::backdrop,::file-selector-button{border-color:var(--color-gray-200, currentColor)}input::placeholder,textarea::placeholder{color:var(--color-gray-400)}button:not(:disabled),[role=button]:not(:disabled){cursor:pointer}}@property --tw-translate-x{syntax: "*"; inherits: false; initial-value: 0;}@property --tw-translate-y{syntax: "*"; inherits: false; initial-value: 0;}@property --tw-translate-z{syntax: "*"; inherits: false; initial-value: 0;}@property --tw-rotate-x{syntax: "*"; inherits: false;}@property --tw-rotate-y{syntax: "*"; inherits: false;}@property --tw-rotate-z{syntax: "*"; inherits: false;}@property --tw-skew-x{syntax: "*"; inherits: false;}@property --tw-skew-y{syntax: "*"; inherits: false;}@property --tw-space-y-reverse{syntax: "*"; inherits: false; initial-value: 0;}@property --tw-space-x-reverse{syntax: "*"; inherits: false; initial-value: 0;}@property --tw-divide-y-reverse{syntax: "*"; inherits: false; initial-value: 0;}@property --tw-border-style{syntax: "*"; inherits: false; initial-value: solid;}@property --tw-gradient-position{syntax: "*"; inherits: false;}@property --tw-gradient-from{syntax: "<color>"; inherits: false; initial-value: #0000;}@property --tw-gradient-via{syntax: "<color>"; inherits: false; initial-value: #0000;}@property --tw-gradient-to{syntax: "<color>"; inherits: false; initial-value: #0000;}@property --tw-gradient-stops{syntax: "*"; inherits: false;}@property --tw-gradient-via-stops{syntax: "*"; inherits: false;}@property --tw-gradient-from-position{syntax: "<length-percentage>"; inherits: false; initial-value: 0%;}@property --tw-gradient-via-position{syntax: "<length-percentage>"; inherits: false; initial-value: 50%;}@property --tw-gradient-to-position{syntax: "<length-percentage>"; inherits: false; initial-value: 100%;}@property --tw-leading{syntax: "*"; inherits: false;}@property --tw-font-weight{syntax: "*"; inherits: false;}@property --tw-tracking{syntax: "*"; inherits: false;}@property --tw-shadow{syntax: "*"; inherits: false; initial-value: 0 0 #0000;}@property --tw-shadow-color{syntax: "*"; inherits: false;}@property --tw-shadow-alpha{syntax: "<percentage>"; inherits: false; initial-value: 100%;}@property --tw-inset-shadow{syntax: "*"; inherits: false; initial-value: 0 0 #0000;}@property --tw-inset-shadow-color{syntax: "*"; inherits: false;}@property --tw-inset-shadow-alpha{syntax: "<percentage>"; inherits: false; initial-value: 100%;}@property --tw-ring-color{syntax: "*"; inherits: false;}@property --tw-ring-shadow{syntax: "*"; inherits: false; initial-value: 0 0 #0000;}@property --tw-inset-ring-color{syntax: "*"; inherits: false;}@property --tw-inset-ring-shadow{syntax: "*"; inherits: false; initial-value: 0 0 #0000;}@property --tw-ring-inset{syntax: "*"; inherits: false;}@property --tw-ring-offset-width{syntax: "<length>"; inherits: false; initial-value: 0px;}@property --tw-ring-offset-color{syntax: "*"; inherits: false; initial-value: #fff;}@property --tw-ring-offset-shadow{syntax: "*"; inherits: false; initial-value: 0 0 #0000;}@property --tw-backdrop-blur{syntax: "*"; inherits: false;}@property --tw-backdrop-brightness{syntax: "*"; inherits: false;}@property --tw-backdrop-contrast{syntax: "*"; inherits: false;}@property --tw-backdrop-grayscale{syntax: "*"; inherits: false;}@property --tw-backdrop-hue-rotate{syntax: "*"; inherits: false;}@property --tw-backdrop-invert{syntax: "*"; inherits: false;}@property --tw-backdrop-opacity{syntax: "*"; inherits: false;}@property --tw-backdrop-saturate{syntax: "*"; inherits: false;}@property --tw-backdrop-sepia{syntax: "*"; inherits: false;}@layer properties{@supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))){*,:before,:after,::backdrop{--tw-translate-x: 0;--tw-translate-y: 0;--tw-translate-z: 0;--tw-rotate-x: initial;--tw-rotate-y: initial;--tw-rotate-z: initial;--tw-skew-x: initial;--tw-skew-y: initial;--tw-space-y-reverse: 0;--tw-space-x-reverse: 0;--tw-divide-y-reverse: 0;--tw-border-style: solid;--tw-gradient-position: initial;--tw-gradient-from: #0000;--tw-gradient-via: #0000;--tw-gradient-to: #0000;--tw-gradient-stops: initial;--tw-gradient-via-stops: initial;--tw-gradient-from-position: 0%;--tw-gradient-via-position: 50%;--tw-gradient-to-position: 100%;--tw-leading: initial;--tw-font-weight: initial;--tw-tracking: initial;--tw-shadow: 0 0 #0000;--tw-shadow-color: initial;--tw-shadow-alpha: 100%;--tw-inset-shadow: 0 0 #0000;--tw-inset-shadow-color: initial;--tw-inset-shadow-alpha: 100%;--tw-ring-color: initial;--tw-ring-shadow: 0 0 #0000;--tw-inset-ring-color: initial;--tw-inset-ring-shadow: 0 0 #0000;--tw-ring-inset: initial;--tw-ring-offset-width: 0px;--tw-ring-offset-color: #fff;--tw-ring-offset-shadow: 0 0 #0000;--tw-backdrop-blur: initial;--tw-backdrop-brightness: initial;--tw-backdrop-contrast: initial;--tw-backdrop-grayscale: initial;--tw-backdrop-hue-rotate: initial;--tw-backdrop-invert: initial;--tw-backdrop-opacity: initial;--tw-backdrop-saturate: initial;--tw-backdrop-sepia: initial}}}</style>
+    <style id="tw-css">/*! tailwindcss v4.3.3 | MIT License | https://tailwindcss.com */@layer properties;@layer theme,base,components,utilities;@layer theme{:root,:host{--font-sans: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;--font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;--spacing: .25rem;--container-xs: 20rem;--container-sm: 24rem;--container-md: 28rem;--container-lg: 32rem;--container-xl: 36rem;--container-2xl: 42rem;--container-3xl: 48rem;--container-5xl: 64rem;--container-7xl: 80rem;--text-xs: .75rem;--text-xs--line-height: calc(1 / .75);--text-sm: .875rem;--text-sm--line-height: calc(1.25 / .875);--text-base: 1rem;--text-base--line-height: 1.5 ;--text-lg: 1.125rem;--text-lg--line-height: calc(1.75 / 1.125);--text-xl: 1.25rem;--text-xl--line-height: calc(1.75 / 1.25);--text-2xl: 1.5rem;--text-2xl--line-height: calc(2 / 1.5);--text-3xl: 1.875rem;--text-3xl--line-height: 1.2 ;--text-4xl: 2.25rem;--text-4xl--line-height: calc(2.5 / 2.25);--font-weight-normal: 400;--font-weight-medium: 500;--font-weight-semibold: 600;--font-weight-bold: 700;--font-weight-extrabold: 800;--font-weight-black: 900;--tracking-wide: .025em;--leading-tight: 1.25;--leading-snug: 1.375;--radius-md: .375rem;--radius-lg: .5rem;--radius-xl: .75rem;--radius-2xl: 1rem;--radius-3xl: 1.5rem;--blur-sm: 8px;--default-transition-duration: .15s;--default-transition-timing-function: cubic-bezier(.4, 0, .2, 1);--default-font-family: var(--font-sans);--default-mono-font-family: var(--font-mono);--shadow: 0 1px 3px 0 rgb(0 0 0 / .1), 0 1px 2px -1px rgb(0 0 0 / .1);--color-white: #fff;--color-blue-50: #FEF2F1;--color-blue-100: #FDE2DF;--color-blue-300: #F5A097;--color-blue-600: #B3261E;--color-blue-700: #921D17;--color-blue-800: #771A15;--color-indigo-50: #FEF2F1;--color-indigo-600: #B3261E;--color-indigo-700: #921D17;--color-sky-50: #FEF2F1;--color-sky-100: #FDE2DF;--color-sky-200: #FBC8C2;--color-sky-500: #D6402F;--color-sky-600: #B3261E;--color-sky-700: #921D17;--color-sky-800: #771A15;--color-rose-50: #FEF2F1;--color-rose-100: #FDE2DF;--color-rose-200: #FBC8C2;--color-rose-300: #F5A097;--color-rose-500: #D6402F;--color-rose-600: #B3261E;--color-rose-700: #921D17;--color-rose-800: #771A15;--color-rose-900: #5E1713;--color-red-50: #FEF2F1;--color-red-600: #B3261E;--color-red-700: #921D17;--color-purple-500: #D6402F;--color-purple-600: #B3261E;--color-purple-700: #921D17;--color-emerald-50: #FDF8EC;--color-emerald-100: #FAEDC9;--color-emerald-200: #F3DA95;--color-emerald-300: #E9C25F;--color-emerald-400: #DDA93A;--color-emerald-500: #C68F22;--color-emerald-600: #A6731A;--color-emerald-700: #855A17;--color-emerald-800: #6B4818;--color-teal-50: #FDF8EC;--color-teal-200: #F3DA95;--color-teal-600: #A6731A;--color-teal-700: #855A17;--color-teal-950: #33220C;--color-cyan-50: #FDF8EC;--color-cyan-100: #FAEDC9;--color-cyan-200: #F3DA95;--color-cyan-600: #A6731A;--color-cyan-700: #855A17;--color-cyan-800: #6B4818;--color-slate-50: #FBF7F2;--color-slate-100: #F5EDE4;--color-slate-200: #EADDD0;--color-slate-300: #D8C6B6;--color-slate-400: #B09A89;--color-slate-500: #86705F;--color-slate-600: #6B5547;--color-slate-700: #533F33;--color-slate-800: #3D2B22;--color-slate-900: #2A1B14;--color-slate-950: #1A100B;--color-gray-200: #EADDD0;--color-gray-400: #B09A89;--color-violet-100: #F5EDE4;--color-violet-500: #86705F;--color-violet-600: #6B5547;--color-violet-700: #533F33;--color-violet-800: #3D2B22;--color-amber-50: #fffbeb;--color-amber-100: #fef3c7;--color-amber-200: #fde68a;--color-amber-300: #fcd34d;--color-amber-400: #fbbf24;--color-amber-500: #f59e0b;--color-amber-600: #d97706;--color-amber-700: #b45309;--color-amber-800: #92400e;--color-amber-900: #78350f;--color-orange-500: #f97316;--color-orange-600: #ea580c;--color-orange-700: #c2410c}}@layer base{*,:after,:before,::backdrop,::file-selector-button{box-sizing:border-box;margin:0;padding:0;border:0 solid}html,:host{line-height:1.5;-webkit-text-size-adjust:100%;tab-size:4;font-family:var(--default-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");font-feature-settings:var(--default-font-feature-settings, normal);font-variation-settings:var(--default-font-variation-settings, normal);-webkit-tap-highlight-color:transparent}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;-webkit-text-decoration:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);font-feature-settings:var(--default-mono-font-feature-settings, normal);font-variation-settings:var(--default-mono-font-variation-settings, normal);font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}:-moz-focusring:where(:not(iframe)){outline:auto}progress{vertical-align:baseline}summary{display:list-item}ol,ul,menu{list-style:none}img,svg,video,canvas,audio,iframe,embed,object{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}button,input,select,optgroup,textarea,::file-selector-button{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;border-radius:0;background-color:transparent;opacity:1}:where(select:is([multiple],[size])) optgroup{font-weight:bolder}:where(select:is([multiple],[size])) optgroup option{padding-inline-start:20px}::file-selector-button{margin-inline-end:4px}::placeholder{opacity:1}@supports (not (-webkit-appearance: -apple-pay-button)) or (contain-intrinsic-size: 1px){::placeholder{color:currentcolor;@supports (color: color-mix(in lab,red,red)){color:color-mix(in oklab,currentcolor 50%,transparent)}}}textarea{resize:vertical}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-date-and-time-value{min-height:1lh;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-datetime-edit,::-webkit-datetime-edit-year-field,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute-field,::-webkit-datetime-edit-second-field,::-webkit-datetime-edit-millisecond-field,::-webkit-datetime-edit-meridiem-field{padding-block:0}::-webkit-calendar-picker-indicator{line-height:1}:-moz-ui-invalid{box-shadow:none}button,input:where([type=button],[type=reset],[type=submit]),::file-selector-button{appearance:button}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[hidden]:where(:not([hidden=until-found])){display:none!important}}@layer utilities{.visible{visibility:visible}.absolute{position:absolute}.fixed{position:fixed}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0}.top-0{top:0}.top-1\.5{top:calc(var(--spacing) * 1.5)}.top-1\/2{top:50%}.top-5{top:calc(var(--spacing) * 5)}.top-full{top:100%}.right-0{right:0}.right-1\.5{right:calc(var(--spacing) * 1.5)}.right-3{right:calc(var(--spacing) * 3)}.right-4{right:calc(var(--spacing) * 4)}.right-5{right:calc(var(--spacing) * 5)}.-bottom-6{bottom:calc(var(--spacing) * -6)}.bottom-4{bottom:calc(var(--spacing) * 4)}.bottom-full{bottom:100%}.left-0{left:0}.left-1\/2{left:50%}.left-4{left:calc(var(--spacing) * 4)}.z-10{z-index:10}.z-40{z-index:40}.z-50{z-index:50}.z-\[55\]{z-index:55}.z-\[60\]{z-index:60}.order-first{order:-9999}.col-span-2{grid-column:span 2 / span 2}.col-span-6{grid-column:span 6 / span 6}.-mx-4{margin-inline:calc(var(--spacing) * -4)}.-mx-6{margin-inline:calc(var(--spacing) * -6)}.mx-auto{margin-inline:auto}.my-4{margin-block:calc(var(--spacing) * 4)}.-mt-1{margin-top:calc(var(--spacing) * -1)}.mt-0\.5{margin-top:calc(var(--spacing) * .5)}.mt-1{margin-top:var(--spacing)}.mt-1\.5{margin-top:calc(var(--spacing) * 1.5)}.mt-2{margin-top:calc(var(--spacing) * 2)}.mt-3{margin-top:calc(var(--spacing) * 3)}.mt-auto{margin-top:auto}.mr-0\.5{margin-right:calc(var(--spacing) * .5)}.mr-1{margin-right:var(--spacing)}.mr-1\.5{margin-right:calc(var(--spacing) * 1.5)}.mr-2{margin-right:calc(var(--spacing) * 2)}.-mb-6{margin-bottom:calc(var(--spacing) * -6)}.mb-1{margin-bottom:var(--spacing)}.mb-1\.5{margin-bottom:calc(var(--spacing) * 1.5)}.mb-4{margin-bottom:calc(var(--spacing) * 4)}.ml-1{margin-left:var(--spacing)}.ml-2{margin-left:calc(var(--spacing) * 2)}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.inline-block{display:inline-block}.inline-flex{display:inline-flex}.table{display:table}.h-2{height:calc(var(--spacing) * 2)}.h-4{height:calc(var(--spacing) * 4)}.h-5{height:calc(var(--spacing) * 5)}.h-6{height:calc(var(--spacing) * 6)}.h-8{height:calc(var(--spacing) * 8)}.h-9{height:calc(var(--spacing) * 9)}.h-10{height:calc(var(--spacing) * 10)}.h-11{height:calc(var(--spacing) * 11)}.h-12{height:calc(var(--spacing) * 12)}.h-14{height:calc(var(--spacing) * 14)}.h-28{height:calc(var(--spacing) * 28)}.h-44{height:calc(var(--spacing) * 44)}.h-full{height:100%}.max-h-64{max-height:calc(var(--spacing) * 64)}.max-h-\[75vh\]{max-height:75vh}.max-h-\[85vh\]{max-height:85vh}.max-h-\[calc\(100vh-2rem\)\]{max-height:calc(100vh - 2rem)}.min-h-\[42px\]{min-height:42px}.min-h-screen{min-height:100vh}.w-2{width:calc(var(--spacing) * 2)}.w-5{width:calc(var(--spacing) * 5)}.w-6{width:calc(var(--spacing) * 6)}.w-8{width:calc(var(--spacing) * 8)}.w-10{width:calc(var(--spacing) * 10)}.w-11{width:calc(var(--spacing) * 11)}.w-12{width:calc(var(--spacing) * 12)}.w-14{width:calc(var(--spacing) * 14)}.w-28{width:calc(var(--spacing) * 28)}.w-32{width:calc(var(--spacing) * 32)}.w-44{width:calc(var(--spacing) * 44)}.w-\[96px\]{width:96px}.w-fit{width:fit-content}.w-full{width:100%}.max-w-2xl{max-width:var(--container-2xl)}.max-w-3xl{max-width:var(--container-3xl)}.max-w-5xl{max-width:var(--container-5xl)}.max-w-7xl{max-width:var(--container-7xl)}.max-w-full{max-width:100%}.max-w-lg{max-width:var(--container-lg)}.max-w-md{max-width:var(--container-md)}.max-w-sm{max-width:var(--container-sm)}.max-w-xl{max-width:var(--container-xl)}.max-w-xs{max-width:var(--container-xs)}.min-w-0{min-width:0px}.min-w-\[2\.25rem\]{min-width:2.25rem}.min-w-\[130px\]{min-width:130px}.flex-1{flex:1}.shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x: -50% ;translate:var(--tw-translate-x) var(--tw-translate-y)}.-translate-y-1\/2{--tw-translate-y: -50% ;translate:var(--tw-translate-x) var(--tw-translate-y)}.rotate-180{rotate:180deg}.transform{transform:var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,)}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.grid-cols-6{grid-template-columns:repeat(6,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-nowrap{flex-wrap:nowrap}.flex-wrap{flex-wrap:wrap}.items-baseline{align-items:baseline}.items-center{align-items:center}.items-end{align-items:flex-end}.items-start{align-items:flex-start}.items-stretch{align-items:stretch}.justify-between{justify-content:space-between}.justify-center{justify-content:center}.justify-end{justify-content:flex-end}.gap-0\.5{gap:calc(var(--spacing) * .5)}.gap-1{gap:var(--spacing)}.gap-1\.5{gap:calc(var(--spacing) * 1.5)}.gap-2{gap:calc(var(--spacing) * 2)}.gap-2\.5{gap:calc(var(--spacing) * 2.5)}.gap-3{gap:calc(var(--spacing) * 3)}.gap-4{gap:calc(var(--spacing) * 4)}.gap-5{gap:calc(var(--spacing) * 5)}.gap-6{gap:calc(var(--spacing) * 6)}:where(.space-y-0\.5>:not(:last-child)){--tw-space-y-reverse: 0;margin-block-start:calc(calc(var(--spacing) * .5) * var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing) * .5) * calc(1 - var(--tw-space-y-reverse)))}:where(.space-y-1>:not(:last-child)){--tw-space-y-reverse: 0;margin-block-start:calc(var(--spacing) * var(--tw-space-y-reverse));margin-block-end:calc(var(--spacing) * calc(1 - var(--tw-space-y-reverse)))}:where(.space-y-1\.5>:not(:last-child)){--tw-space-y-reverse: 0;margin-block-start:calc(calc(var(--spacing) * 1.5) * var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing) * 1.5) * calc(1 - var(--tw-space-y-reverse)))}:where(.space-y-2>:not(:last-child)){--tw-space-y-reverse: 0;margin-block-start:calc(calc(var(--spacing) * 2) * var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-y-reverse)))}:where(.space-y-2\.5>:not(:last-child)){--tw-space-y-reverse: 0;margin-block-start:calc(calc(var(--spacing) * 2.5) * var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing) * 2.5) * calc(1 - var(--tw-space-y-reverse)))}:where(.space-y-3>:not(:last-child)){--tw-space-y-reverse: 0;margin-block-start:calc(calc(var(--spacing) * 3) * var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-y-reverse)))}:where(.space-y-4>:not(:last-child)){--tw-space-y-reverse: 0;margin-block-start:calc(calc(var(--spacing) * 4) * var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-y-reverse)))}:where(.space-y-5>:not(:last-child)){--tw-space-y-reverse: 0;margin-block-start:calc(calc(var(--spacing) * 5) * var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing) * 5) * calc(1 - var(--tw-space-y-reverse)))}:where(.space-y-6>:not(:last-child)){--tw-space-y-reverse: 0;margin-block-start:calc(calc(var(--spacing) * 6) * var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse)))}:where(.space-y-8>:not(:last-child)){--tw-space-y-reverse: 0;margin-block-start:calc(calc(var(--spacing) * 8) * var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing) * 8) * calc(1 - var(--tw-space-y-reverse)))}.gap-x-2{column-gap:calc(var(--spacing) * 2)}.gap-x-3{column-gap:calc(var(--spacing) * 3)}.gap-x-6{column-gap:calc(var(--spacing) * 6)}:where(.space-x-1>:not(:last-child)){--tw-space-x-reverse: 0;margin-inline-start:calc(var(--spacing) * var(--tw-space-x-reverse));margin-inline-end:calc(var(--spacing) * calc(1 - var(--tw-space-x-reverse)))}.gap-y-1\.5{row-gap:calc(var(--spacing) * 1.5)}.gap-y-2\.5{row-gap:calc(var(--spacing) * 2.5)}.gap-y-4{row-gap:calc(var(--spacing) * 4)}:where(.divide-y>:not(:last-child)){--tw-divide-y-reverse: 0;border-bottom-style:var(--tw-border-style);border-top-style:var(--tw-border-style);border-top-width:calc(1px * var(--tw-divide-y-reverse));border-bottom-width:calc(1px * calc(1 - var(--tw-divide-y-reverse)))}:where(.divide-white\/20>:not(:last-child)){border-color:color-mix(in srgb,#fff 20%,transparent);@supports (color: color-mix(in lab,red,red)){border-color:color-mix(in oklab,var(--color-white) 20%,transparent)}}.self-start{align-self:flex-start}.justify-self-start{justify-self:flex-start}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.overflow-auto{overflow:auto}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.overscroll-contain{overscroll-behavior:contain}.rounded{border-radius:.25rem}.rounded-2xl{border-radius:var(--radius-2xl)}.rounded-3xl{border-radius:var(--radius-3xl)}.rounded-\[10px\]{border-radius:10px}.rounded-full{border-radius:calc(infinity * 1px)}.rounded-lg{border-radius:var(--radius-lg)}.rounded-md{border-radius:var(--radius-md)}.rounded-xl{border-radius:var(--radius-xl)}.border{border-style:var(--tw-border-style);border-width:1px}.border-2{border-style:var(--tw-border-style);border-width:2px}.border-t{border-top-style:var(--tw-border-style);border-top-width:1px}.border-b{border-bottom-style:var(--tw-border-style);border-bottom-width:1px}.border-l-4{border-left-style:var(--tw-border-style);border-left-width:4px}.border-dashed{--tw-border-style: dashed;border-style:dashed}.border-\[\#D8C6B6\]{border-color:#d8c6b6}.border-\[\#EADDD0\]{border-color:#eaddd0}.border-amber-200{border-color:var(--color-amber-200)}.border-amber-300{border-color:var(--color-amber-300)}.border-amber-400{border-color:var(--color-amber-400)}.border-amber-500{border-color:var(--color-amber-500)}.border-blue-300{border-color:var(--color-blue-300)}.border-cyan-200{border-color:var(--color-cyan-200)}.border-cyan-600{border-color:var(--color-cyan-600)}.border-emerald-200{border-color:var(--color-emerald-200)}.border-emerald-300{border-color:var(--color-emerald-300)}.border-emerald-600{border-color:var(--color-emerald-600)}.border-rose-200{border-color:var(--color-rose-200)}.border-rose-300{border-color:var(--color-rose-300)}.border-sky-200{border-color:var(--color-sky-200)}.border-slate-100{border-color:var(--color-slate-100)}.border-slate-200{border-color:var(--color-slate-200)}.border-slate-300{border-color:var(--color-slate-300)}.border-slate-900{border-color:var(--color-slate-900)}.border-teal-200{border-color:var(--color-teal-200)}.border-l-emerald-500{border-left-color:var(--color-emerald-500)}.border-l-purple-500{border-left-color:var(--color-purple-500)}.border-l-rose-500{border-left-color:var(--color-rose-500)}.bg-\[\#A6731A\]{background-color:#a6731a}.bg-\[\#FBF7F2\]\/95{background-color:color-mix(in oklab,#FBF7F2 95%,transparent)}.bg-amber-50{background-color:var(--color-amber-50)}.bg-amber-50\/40{background-color:color-mix(in srgb,#fffbeb 40%,transparent);@supports (color: color-mix(in lab,red,red)){background-color:color-mix(in oklab,var(--color-amber-50) 40%,transparent)}}.bg-amber-100{background-color:var(--color-amber-100)}.bg-amber-400{background-color:var(--color-amber-400)}.bg-amber-500{background-color:var(--color-amber-500)}.bg-amber-600{background-color:var(--color-amber-600)}.bg-blue-50{background-color:var(--color-blue-50)}.bg-blue-100{background-color:var(--color-blue-100)}.bg-blue-600{background-color:var(--color-blue-600)}.bg-cyan-100{background-color:var(--color-cyan-100)}.bg-cyan-600{background-color:var(--color-cyan-600)}.bg-emerald-50{background-color:var(--color-emerald-50)}.bg-emerald-50\/50{background-color:color-mix(in srgb,#FDF8EC 50%,transparent);@supports (color: color-mix(in lab,red,red)){background-color:color-mix(in oklab,var(--color-emerald-50) 50%,transparent)}}.bg-emerald-100{background-color:var(--color-emerald-100)}.bg-emerald-400{background-color:var(--color-emerald-400)}.bg-emerald-500{background-color:var(--color-emerald-500)}.bg-emerald-600{background-color:var(--color-emerald-600)}.bg-indigo-50{background-color:var(--color-indigo-50)}.bg-indigo-600{background-color:var(--color-indigo-600)}.bg-orange-600{background-color:var(--color-orange-600)}.bg-purple-600{background-color:var(--color-purple-600)}.bg-red-50{background-color:var(--color-red-50)}.bg-red-600{background-color:var(--color-red-600)}.bg-rose-50{background-color:var(--color-rose-50)}.bg-rose-100{background-color:var(--color-rose-100)}.bg-rose-600{background-color:var(--color-rose-600)}.bg-sky-50{background-color:var(--color-sky-50)}.bg-sky-100{background-color:var(--color-sky-100)}.bg-sky-500{background-color:var(--color-sky-500)}.bg-sky-600{background-color:var(--color-sky-600)}.bg-slate-50{background-color:var(--color-slate-50)}.bg-slate-100{background-color:var(--color-slate-100)}.bg-slate-200{background-color:var(--color-slate-200)}.bg-slate-500{background-color:var(--color-slate-500)}.bg-slate-600{background-color:var(--color-slate-600)}.bg-slate-700{background-color:var(--color-slate-700)}.bg-slate-800{background-color:var(--color-slate-800)}.bg-slate-900{background-color:var(--color-slate-900)}.bg-slate-900\/50{background-color:color-mix(in srgb,#2A1B14 50%,transparent);@supports (color: color-mix(in lab,red,red)){background-color:color-mix(in oklab,var(--color-slate-900) 50%,transparent)}}.bg-slate-900\/60{background-color:color-mix(in srgb,#2A1B14 60%,transparent);@supports (color: color-mix(in lab,red,red)){background-color:color-mix(in oklab,var(--color-slate-900) 60%,transparent)}}.bg-teal-50{background-color:var(--color-teal-50)}.bg-teal-600{background-color:var(--color-teal-600)}.bg-violet-100{background-color:var(--color-violet-100)}.bg-violet-500{background-color:var(--color-violet-500)}.bg-white{background-color:var(--color-white)}.bg-white\/15{background-color:color-mix(in srgb,#fff 15%,transparent);@supports (color: color-mix(in lab,red,red)){background-color:color-mix(in oklab,var(--color-white) 15%,transparent)}}.bg-white\/25{background-color:color-mix(in srgb,#fff 25%,transparent);@supports (color: color-mix(in lab,red,red)){background-color:color-mix(in oklab,var(--color-white) 25%,transparent)}}.bg-gradient-to-br{--tw-gradient-position: to bottom right in oklab;background-image:linear-gradient(var(--tw-gradient-stops))}.from-amber-400{--tw-gradient-from: var(--color-amber-400);--tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position))}.from-cyan-600{--tw-gradient-from: var(--color-cyan-600);--tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position))}.to-orange-500{--tw-gradient-to: var(--color-orange-500);--tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position))}.to-sky-700{--tw-gradient-to: var(--color-sky-700);--tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position))}.object-contain{object-fit:contain}.p-0\.5{padding:calc(var(--spacing) * .5)}.p-1{padding:var(--spacing)}.p-1\.5{padding:calc(var(--spacing) * 1.5)}.p-2{padding:calc(var(--spacing) * 2)}.p-2\.5{padding:calc(var(--spacing) * 2.5)}.p-3{padding:calc(var(--spacing) * 3)}.p-4{padding:calc(var(--spacing) * 4)}.p-5{padding:calc(var(--spacing) * 5)}.p-6{padding:calc(var(--spacing) * 6)}.p-8{padding:calc(var(--spacing) * 8)}.p-10{padding:calc(var(--spacing) * 10)}.px-1{padding-inline:var(--spacing)}.px-1\.5{padding-inline:calc(var(--spacing) * 1.5)}.px-2{padding-inline:calc(var(--spacing) * 2)}.px-2\.5{padding-inline:calc(var(--spacing) * 2.5)}.px-3{padding-inline:calc(var(--spacing) * 3)}.px-3\.5{padding-inline:calc(var(--spacing) * 3.5)}.px-4{padding-inline:calc(var(--spacing) * 4)}.px-5{padding-inline:calc(var(--spacing) * 5)}.px-6{padding-inline:calc(var(--spacing) * 6)}.py-0\.5{padding-block:calc(var(--spacing) * .5)}.py-1{padding-block:var(--spacing)}.py-1\.5{padding-block:calc(var(--spacing) * 1.5)}.py-2{padding-block:calc(var(--spacing) * 2)}.py-2\.5{padding-block:calc(var(--spacing) * 2.5)}.py-3{padding-block:calc(var(--spacing) * 3)}.py-3\.5{padding-block:calc(var(--spacing) * 3.5)}.py-4{padding-block:calc(var(--spacing) * 4)}.pt-1{padding-top:var(--spacing)}.pt-2{padding-top:calc(var(--spacing) * 2)}.pt-3{padding-top:calc(var(--spacing) * 3)}.pt-4{padding-top:calc(var(--spacing) * 4)}.pr-2\.5{padding-right:calc(var(--spacing) * 2.5)}.pr-9{padding-right:calc(var(--spacing) * 9)}.pr-11{padding-right:calc(var(--spacing) * 11)}.pb-2{padding-bottom:calc(var(--spacing) * 2)}.pb-6{padding-bottom:calc(var(--spacing) * 6)}.pl-3{padding-left:calc(var(--spacing) * 3)}.pl-11{padding-left:calc(var(--spacing) * 11)}.text-center{text-align:center}.text-left{text-align:left}.text-right{text-align:right}.align-\[-3px\]{vertical-align:-3px}.align-\[-4px\]{vertical-align:-4px}.font-mono{font-family:var(--font-mono)}.font-sans{font-family:var(--font-sans)}.text-2xl{font-size:var(--text-2xl);line-height:var(--tw-leading, var(--text-2xl--line-height))}.text-3xl{font-size:var(--text-3xl);line-height:var(--tw-leading, var(--text-3xl--line-height))}.text-4xl{font-size:var(--text-4xl);line-height:var(--tw-leading, var(--text-4xl--line-height))}.text-base{font-size:var(--text-base);line-height:var(--tw-leading, var(--text-base--line-height))}.text-lg{font-size:var(--text-lg);line-height:var(--tw-leading, var(--text-lg--line-height))}.text-sm{font-size:var(--text-sm);line-height:var(--tw-leading, var(--text-sm--line-height))}.text-xl{font-size:var(--text-xl);line-height:var(--tw-leading, var(--text-xl--line-height))}.text-xs{font-size:var(--text-xs);line-height:var(--tw-leading, var(--text-xs--line-height))}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[13px\]{font-size:13px}.text-\[15px\]{font-size:15px}.leading-4{--tw-leading: calc(var(--spacing) * 4);line-height:calc(var(--spacing) * 4)}.leading-snug{--tw-leading: var(--leading-snug);line-height:var(--leading-snug)}.leading-tight{--tw-leading: var(--leading-tight);line-height:var(--leading-tight)}.font-black{--tw-font-weight: var(--font-weight-black);font-weight:var(--font-weight-black)}.font-bold{--tw-font-weight: var(--font-weight-bold);font-weight:var(--font-weight-bold)}.font-extrabold{--tw-font-weight: var(--font-weight-extrabold);font-weight:var(--font-weight-extrabold)}.font-medium{--tw-font-weight: var(--font-weight-medium);font-weight:var(--font-weight-medium)}.font-normal{--tw-font-weight: var(--font-weight-normal);font-weight:var(--font-weight-normal)}.font-semibold{--tw-font-weight: var(--font-weight-semibold);font-weight:var(--font-weight-semibold)}.tracking-wide{--tw-tracking: var(--tracking-wide);letter-spacing:var(--tracking-wide)}.break-words{overflow-wrap:break-word}.whitespace-nowrap{white-space:nowrap}.whitespace-pre-line{white-space:pre-line}.text-\[\#3D2B22\]{color:#3d2b22}.text-\[\#533F33\]{color:#533f33}.text-amber-500{color:var(--color-amber-500)}.text-amber-600{color:var(--color-amber-600)}.text-amber-700{color:var(--color-amber-700)}.text-amber-800{color:var(--color-amber-800)}.text-amber-900{color:var(--color-amber-900)}.text-blue-600{color:var(--color-blue-600)}.text-blue-700{color:var(--color-blue-700)}.text-blue-800{color:var(--color-blue-800)}.text-cyan-700{color:var(--color-cyan-700)}.text-cyan-800{color:var(--color-cyan-800)}.text-emerald-600{color:var(--color-emerald-600)}.text-emerald-700{color:var(--color-emerald-700)}.text-emerald-800{color:var(--color-emerald-800)}.text-indigo-600{color:var(--color-indigo-600)}.text-indigo-700{color:var(--color-indigo-700)}.text-purple-600{color:var(--color-purple-600)}.text-purple-700{color:var(--color-purple-700)}.text-red-700{color:var(--color-red-700)}.text-rose-500{color:var(--color-rose-500)}.text-rose-600{color:var(--color-rose-600)}.text-rose-700{color:var(--color-rose-700)}.text-rose-800{color:var(--color-rose-800)}.text-rose-900{color:var(--color-rose-900)}.text-sky-500{color:var(--color-sky-500)}.text-sky-600{color:var(--color-sky-600)}.text-sky-700{color:var(--color-sky-700)}.text-sky-800{color:var(--color-sky-800)}.text-slate-300{color:var(--color-slate-300)}.text-slate-400{color:var(--color-slate-400)}.text-slate-500{color:var(--color-slate-500)}.text-slate-600{color:var(--color-slate-600)}.text-slate-700{color:var(--color-slate-700)}.text-slate-800{color:var(--color-slate-800)}.text-slate-900{color:var(--color-slate-900)}.text-slate-950{color:var(--color-slate-950)}.text-teal-600{color:var(--color-teal-600)}.text-teal-950{color:var(--color-teal-950)}.text-violet-600{color:var(--color-violet-600)}.text-violet-700{color:var(--color-violet-700)}.text-violet-800{color:var(--color-violet-800)}.text-white{color:var(--color-white)}.uppercase{text-transform:uppercase}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-75{opacity:75%}.opacity-80{opacity:80%}.opacity-90{opacity:90%}.shadow{--tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / .1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / .1));box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.shadow-2xl{--tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / .25));box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.shadow-\[0_20px_50px_-25px_rgba\(15\,23\,42\,0\.45\)\]{--tw-shadow: 0 20px 50px -25px var(--tw-shadow-color, rgba(15,23,42,.45));box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.shadow-lg{--tw-shadow: 0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / .1)), 0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / .1));box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.shadow-sm{--tw-shadow: 0 1px 2px 0 var(--tw-shadow-color, rgb(0 0 0 / .05));box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.shadow-xl{--tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / .1)), 0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / .1));box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.ring-2{--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.shadow{box-shadow:var(--shadow)}.ring-amber-300{--tw-ring-color: var(--color-amber-300)}.ring-amber-400{--tw-ring-color: var(--color-amber-400)}.ring-emerald-300{--tw-ring-color: var(--color-emerald-300)}.ring-emerald-400{--tw-ring-color: var(--color-emerald-400)}.backdrop-blur{--tw-backdrop-blur: blur(8px);-webkit-backdrop-filter:var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);backdrop-filter:var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,)}.backdrop-blur-sm{--tw-backdrop-blur: blur(var(--blur-sm));-webkit-backdrop-filter:var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);backdrop-filter:var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,)}.transition{transition-property:color,background-color,border-color,outline-color,text-decoration-color,fill,stroke,--tw-gradient-from,--tw-gradient-via,--tw-gradient-to,opacity,box-shadow,transform,translate,scale,rotate,filter,-webkit-backdrop-filter,backdrop-filter,display,content-visibility,overlay,pointer-events;transition-timing-function:var(--tw-ease, var(--default-transition-timing-function));transition-duration:var(--tw-duration, var(--default-transition-duration))}.transition-transform{transition-property:transform,translate,scale,rotate;transition-timing-function:var(--tw-ease, var(--default-transition-timing-function));transition-duration:var(--tw-duration, var(--default-transition-duration))}@media(hover:hover){.group-hover\:bg-amber-400:is(:where(.group):hover *){background-color:var(--color-amber-400)}.group-hover\:text-slate-900:is(:where(.group):hover *){color:var(--color-slate-900)}}.first\:pt-0:first-child{padding-top:0}.last\:pb-0:last-child{padding-bottom:0}@media(hover:hover){.hover\:-translate-y-0\.5:hover{--tw-translate-y: calc(var(--spacing) * -.5);translate:var(--tw-translate-x) var(--tw-translate-y)}.hover\:border-\[\#D8C6B6\]:hover{border-color:#d8c6b6}.hover\:border-amber-400:hover{border-color:var(--color-amber-400)}.hover\:border-slate-300:hover{border-color:var(--color-slate-300)}.hover\:bg-\[\#FBF7F2\]:hover{background-color:#fbf7f2}.hover\:bg-amber-400:hover{background-color:var(--color-amber-400)}.hover\:bg-amber-700:hover{background-color:var(--color-amber-700)}.hover\:bg-blue-50:hover{background-color:var(--color-blue-50)}.hover\:bg-blue-700:hover{background-color:var(--color-blue-700)}.hover\:bg-cyan-50:hover{background-color:var(--color-cyan-50)}.hover\:bg-emerald-700:hover{background-color:var(--color-emerald-700)}.hover\:bg-indigo-700:hover{background-color:var(--color-indigo-700)}.hover\:bg-orange-700:hover{background-color:var(--color-orange-700)}.hover\:bg-rose-100:hover{background-color:var(--color-rose-100)}.hover\:bg-rose-700:hover{background-color:var(--color-rose-700)}.hover\:bg-sky-700:hover{background-color:var(--color-sky-700)}.hover\:bg-slate-50:hover{background-color:var(--color-slate-50)}.hover\:bg-slate-100:hover{background-color:var(--color-slate-100)}.hover\:bg-slate-200:hover{background-color:var(--color-slate-200)}.hover\:bg-slate-800:hover{background-color:var(--color-slate-800)}.hover\:bg-slate-900:hover{background-color:var(--color-slate-900)}.hover\:bg-teal-700:hover{background-color:var(--color-teal-700)}.hover\:bg-white:hover{background-color:var(--color-white)}.hover\:text-slate-600:hover{color:var(--color-slate-600)}.hover\:text-slate-800:hover{color:var(--color-slate-800)}.hover\:underline:hover{text-decoration-line:underline}.hover\:opacity-100:hover{opacity:100%}.hover\:shadow-2xl:hover{--tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / .25));box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.hover\:shadow-md:hover{--tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / .1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / .1));box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.hover\:ring-2:hover{--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.hover\:ring-\[\#D8C6B6\]:hover{--tw-ring-color: #D8C6B6}.hover\:ring-amber-300:hover{--tw-ring-color: var(--color-amber-300)}}.focus\:ring-2:focus{--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.focus\:ring-amber-400:focus{--tw-ring-color: var(--color-amber-400)}.focus\:outline-none:focus{--tw-outline-style: none;outline-style:none}.active\:scale-\[\.98\]:active{scale:.98}.active\:bg-slate-100:active{background-color:var(--color-slate-100)}.disabled\:cursor-not-allowed:disabled{cursor:not-allowed}.disabled\:opacity-30:disabled{opacity:30%}.disabled\:opacity-40:disabled{opacity:40%}.disabled\:opacity-50:disabled{opacity:50%}.disabled\:opacity-60:disabled{opacity:60%}@media(width>=40rem){.sm\:col-span-2{grid-column:span 2 / span 2}.sm\:col-span-3{grid-column:span 3 / span 3}.sm\:mr-1{margin-right:var(--spacing)}.sm\:flex{display:flex}.sm\:hidden{display:none}.sm\:inline{display:inline}.sm\:w-9{width:calc(var(--spacing) * 9)}.sm\:w-\[140px\]{width:140px}.sm\:w-auto{width:auto}.sm\:flex-none{flex:none}.sm\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.sm\:grid-cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}.sm\:flex-row{flex-direction:row}.sm\:flex-nowrap{flex-wrap:nowrap}.sm\:flex-wrap{flex-wrap:wrap}.sm\:items-center{align-items:center}.sm\:px-2{padding-inline:calc(var(--spacing) * 2)}.sm\:px-3{padding-inline:calc(var(--spacing) * 3)}.sm\:text-2xl{font-size:var(--text-2xl);line-height:var(--tw-leading, var(--text-2xl--line-height))}.sm\:text-sm{font-size:var(--text-sm);line-height:var(--tw-leading, var(--text-sm--line-height))}.sm\:text-xl{font-size:var(--text-xl);line-height:var(--tw-leading, var(--text-xl--line-height))}}@media(width>=48rem){.md\:order-none{order:0}.md\:col-span-1{grid-column:span 1 / span 1}.md\:col-span-2{grid-column:span 2 / span 2}.md\:col-span-3{grid-column:span 3 / span 3}.md\:col-span-4{grid-column:span 4 / span 4}.md\:-mx-8{margin-inline:calc(var(--spacing) * -8)}.md\:mt-2{margin-top:calc(var(--spacing) * 2)}.md\:mr-2{margin-right:calc(var(--spacing) * 2)}.md\:block{display:block}.md\:flex{display:flex}.md\:hidden{display:none}.md\:inline{display:inline}.md\:h-7{height:calc(var(--spacing) * 7)}.md\:h-12{height:calc(var(--spacing) * 12)}.md\:w-7{width:calc(var(--spacing) * 7)}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.md\:grid-cols-12{grid-template-columns:repeat(12,minmax(0,1fr))}.md\:items-center{align-items:center}.md\:gap-2{gap:calc(var(--spacing) * 2)}.md\:gap-3{gap:calc(var(--spacing) * 3)}.md\:gap-4{gap:calc(var(--spacing) * 4)}:where(.md\:space-y-4>:not(:last-child)){--tw-space-y-reverse: 0;margin-block-start:calc(calc(var(--spacing) * 4) * var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-y-reverse)))}:where(.md\:space-y-6>:not(:last-child)){--tw-space-y-reverse: 0;margin-block-start:calc(calc(var(--spacing) * 6) * var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse)))}.md\:gap-x-3{column-gap:calc(var(--spacing) * 3)}.md\:gap-x-4{column-gap:calc(var(--spacing) * 4)}.md\:gap-y-3{row-gap:calc(var(--spacing) * 3)}.md\:rounded-xl{border-radius:var(--radius-xl)}.md\:border{border-style:var(--tw-border-style);border-width:1px}.md\:border-dashed{--tw-border-style: dashed;border-style:dashed}.md\:border-slate-200{border-color:var(--color-slate-200)}.md\:bg-white\/60{background-color:color-mix(in srgb,#fff 60%,transparent)}@supports (color: color-mix(in lab,red,red)){.md\:bg-white\/60{background-color:color-mix(in oklab,var(--color-white) 60%,transparent)}}.md\:p-3{padding:calc(var(--spacing) * 3)}.md\:p-4{padding:calc(var(--spacing) * 4)}.md\:p-5{padding:calc(var(--spacing) * 5)}.md\:p-6{padding:calc(var(--spacing) * 6)}.md\:p-10{padding:calc(var(--spacing) * 10)}.md\:px-3{padding-inline:calc(var(--spacing) * 3)}.md\:px-8{padding-inline:calc(var(--spacing) * 8)}.md\:py-1\.5{padding-block:calc(var(--spacing) * 1.5)}.md\:pr-0{padding-right:0}.md\:text-2xl{font-size:var(--text-2xl);line-height:var(--tw-leading, var(--text-2xl--line-height))}.md\:text-3xl{font-size:var(--text-3xl);line-height:var(--tw-leading, var(--text-3xl--line-height))}.md\:text-4xl{font-size:var(--text-4xl);line-height:var(--tw-leading, var(--text-4xl--line-height))}.md\:text-lg{font-size:var(--text-lg);line-height:var(--tw-leading, var(--text-lg--line-height))}.md\:text-sm{font-size:var(--text-sm);line-height:var(--tw-leading, var(--text-sm--line-height))}.md\:text-xs{font-size:var(--text-xs);line-height:var(--tw-leading, var(--text-xs--line-height))}}@media(width>=64rem){.lg\:col-span-2{grid-column:span 2 / span 2}.lg\:col-span-6{grid-column:span 6 / span 6}.lg\:w-auto{width:auto}.lg\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.lg\:grid-cols-6{grid-template-columns:repeat(6,minmax(0,1fr))}.lg\:flex-row{flex-direction:row}.lg\:items-center{align-items:center}.lg\:gap-4{gap:calc(var(--spacing) * 4)}}@media(width>=80rem){.xl\:col-span-4{grid-column:span 4 / span 4}.xl\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.xl\:self-end{align-self:flex-end}}}@layer base{*,:after,:before,::backdrop,::file-selector-button{border-color:var(--color-gray-200, currentColor)}input::placeholder,textarea::placeholder{color:var(--color-gray-400)}button:not(:disabled),[role=button]:not(:disabled){cursor:pointer}}@property --tw-translate-x{syntax: "*"; inherits: false; initial-value: 0;}@property --tw-translate-y{syntax: "*"; inherits: false; initial-value: 0;}@property --tw-translate-z{syntax: "*"; inherits: false; initial-value: 0;}@property --tw-rotate-x{syntax: "*"; inherits: false;}@property --tw-rotate-y{syntax: "*"; inherits: false;}@property --tw-rotate-z{syntax: "*"; inherits: false;}@property --tw-skew-x{syntax: "*"; inherits: false;}@property --tw-skew-y{syntax: "*"; inherits: false;}@property --tw-space-y-reverse{syntax: "*"; inherits: false; initial-value: 0;}@property --tw-space-x-reverse{syntax: "*"; inherits: false; initial-value: 0;}@property --tw-divide-y-reverse{syntax: "*"; inherits: false; initial-value: 0;}@property --tw-border-style{syntax: "*"; inherits: false; initial-value: solid;}@property --tw-gradient-position{syntax: "*"; inherits: false;}@property --tw-gradient-from{syntax: "<color>"; inherits: false; initial-value: #0000;}@property --tw-gradient-via{syntax: "<color>"; inherits: false; initial-value: #0000;}@property --tw-gradient-to{syntax: "<color>"; inherits: false; initial-value: #0000;}@property --tw-gradient-stops{syntax: "*"; inherits: false;}@property --tw-gradient-via-stops{syntax: "*"; inherits: false;}@property --tw-gradient-from-position{syntax: "<length-percentage>"; inherits: false; initial-value: 0%;}@property --tw-gradient-via-position{syntax: "<length-percentage>"; inherits: false; initial-value: 50%;}@property --tw-gradient-to-position{syntax: "<length-percentage>"; inherits: false; initial-value: 100%;}@property --tw-leading{syntax: "*"; inherits: false;}@property --tw-font-weight{syntax: "*"; inherits: false;}@property --tw-tracking{syntax: "*"; inherits: false;}@property --tw-shadow{syntax: "*"; inherits: false; initial-value: 0 0 #0000;}@property --tw-shadow-color{syntax: "*"; inherits: false;}@property --tw-shadow-alpha{syntax: "<percentage>"; inherits: false; initial-value: 100%;}@property --tw-inset-shadow{syntax: "*"; inherits: false; initial-value: 0 0 #0000;}@property --tw-inset-shadow-color{syntax: "*"; inherits: false;}@property --tw-inset-shadow-alpha{syntax: "<percentage>"; inherits: false; initial-value: 100%;}@property --tw-ring-color{syntax: "*"; inherits: false;}@property --tw-ring-shadow{syntax: "*"; inherits: false; initial-value: 0 0 #0000;}@property --tw-inset-ring-color{syntax: "*"; inherits: false;}@property --tw-inset-ring-shadow{syntax: "*"; inherits: false; initial-value: 0 0 #0000;}@property --tw-ring-inset{syntax: "*"; inherits: false;}@property --tw-ring-offset-width{syntax: "<length>"; inherits: false; initial-value: 0px;}@property --tw-ring-offset-color{syntax: "*"; inherits: false; initial-value: #fff;}@property --tw-ring-offset-shadow{syntax: "*"; inherits: false; initial-value: 0 0 #0000;}@property --tw-backdrop-blur{syntax: "*"; inherits: false;}@property --tw-backdrop-brightness{syntax: "*"; inherits: false;}@property --tw-backdrop-contrast{syntax: "*"; inherits: false;}@property --tw-backdrop-grayscale{syntax: "*"; inherits: false;}@property --tw-backdrop-hue-rotate{syntax: "*"; inherits: false;}@property --tw-backdrop-invert{syntax: "*"; inherits: false;}@property --tw-backdrop-opacity{syntax: "*"; inherits: false;}@property --tw-backdrop-saturate{syntax: "*"; inherits: false;}@property --tw-backdrop-sepia{syntax: "*"; inherits: false;}@layer properties{@supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))){*,:before,:after,::backdrop{--tw-translate-x: 0;--tw-translate-y: 0;--tw-translate-z: 0;--tw-rotate-x: initial;--tw-rotate-y: initial;--tw-rotate-z: initial;--tw-skew-x: initial;--tw-skew-y: initial;--tw-space-y-reverse: 0;--tw-space-x-reverse: 0;--tw-divide-y-reverse: 0;--tw-border-style: solid;--tw-gradient-position: initial;--tw-gradient-from: #0000;--tw-gradient-via: #0000;--tw-gradient-to: #0000;--tw-gradient-stops: initial;--tw-gradient-via-stops: initial;--tw-gradient-from-position: 0%;--tw-gradient-via-position: 50%;--tw-gradient-to-position: 100%;--tw-leading: initial;--tw-font-weight: initial;--tw-tracking: initial;--tw-shadow: 0 0 #0000;--tw-shadow-color: initial;--tw-shadow-alpha: 100%;--tw-inset-shadow: 0 0 #0000;--tw-inset-shadow-color: initial;--tw-inset-shadow-alpha: 100%;--tw-ring-color: initial;--tw-ring-shadow: 0 0 #0000;--tw-inset-ring-color: initial;--tw-inset-ring-shadow: 0 0 #0000;--tw-ring-inset: initial;--tw-ring-offset-width: 0px;--tw-ring-offset-color: #fff;--tw-ring-offset-shadow: 0 0 #0000;--tw-backdrop-blur: initial;--tw-backdrop-brightness: initial;--tw-backdrop-contrast: initial;--tw-backdrop-grayscale: initial;--tw-backdrop-hue-rotate: initial;--tw-backdrop-invert: initial;--tw-backdrop-opacity: initial;--tw-backdrop-saturate: initial;--tw-backdrop-sepia: initial}}}</style>
     <style id="icon-css">/* Biểu tượng (Font Awesome Free, giấy phép CC BY 4.0 / MIT) — chỉ nhúng các biểu tượng app dùng, vẽ bằng CSS mask, không cần tải thư viện */
 .fa,.fas,.far,.fab,.fa-solid,.fa-regular{display:inline-block;height:1em;width:1em;vertical-align:-.125em;background-color:currentColor;-webkit-mask:var(--fa-i) center/contain no-repeat;mask:var(--fa-i) center/contain no-repeat;flex-shrink:0}.fa-spin{animation:fa-spin 1.2s linear infinite}@keyframes fa-spin{to{transform:rotate(360deg)}}.fa-fw{width:1.25em!important;-webkit-mask-size:contain;mask-size:contain}
 .fa-address-book{--fa-i:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='currentColor' d='M96 0C60.7 0 32 28.7 32 64l0 384c0 35.3 28.7 64 64 64l288 0c35.3 0 64-28.7 64-64l0-384c0-35.3-28.7-64-64-64L96 0zM208 288l64 0c44.2 0 80 35.8 80 80 0 8.8-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16 0-44.2 35.8-80 80-80zm-24-96a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zM512 80c0-8.8-7.2-16-16-16s-16 7.2-16 16l0 64c0 8.8 7.2 16 16 16s16-7.2 16-16l0-64zm0 128c0-8.8-7.2-16-16-16s-16 7.2-16 16l0 64c0 8.8 7.2 16 16 16s16-7.2 16-16l0-64zM496 320c-8.8 0-16 7.2-16 16l0 64c0 8.8 7.2 16 16 16s16-7.2 16-16l0-64c0-8.8-7.2-16-16-16z'/%3E%3C/svg%3E");width:1.0em}
@@ -136,6 +136,1271 @@
 </head>
 <body class="bg-slate-100 text-slate-800 antialiased min-h-screen">
 <div id="root"></div>
+<script>
+/* QRCode for JavaScript — Copyright (c) 2009 Kazuhiko Arase — MIT license (http://www.opensource.org/licenses/mit-license.php). "QR Code" is a registered trademark of DENSO WAVE INCORPORATED. Bundled for offline use. */
+window.QRLib = (function () {
+var defs = {
+'./QR8bitByte': function (module, exports, require) {
+var QRMode = require('./QRMode');
+
+function QR8bitByte(data) {
+	this.mode = QRMode.MODE_8BIT_BYTE;
+	this.data = data;
+}
+
+QR8bitByte.prototype = {
+
+	getLength : function() {
+		return this.data.length;
+	},
+	
+	write : function(buffer) {
+		for (var i = 0; i < this.data.length; i++) {
+			// not JIS ...
+			buffer.put(this.data.charCodeAt(i), 8);
+		}
+	}
+};
+
+module.exports = QR8bitByte;
+
+},
+'./QRBitBuffer': function (module, exports, require) {
+function QRBitBuffer() {
+	this.buffer = [];
+	this.length = 0;
+}
+
+QRBitBuffer.prototype = {
+
+	get : function(index) {
+		var bufIndex = Math.floor(index / 8);
+		return ( (this.buffer[bufIndex] >>> (7 - index % 8) ) & 1) == 1;
+	},
+	
+	put : function(num, length) {
+		for (var i = 0; i < length; i++) {
+			this.putBit( ( (num >>> (length - i - 1) ) & 1) == 1);
+		}
+	},
+	
+	getLengthInBits : function() {
+		return this.length;
+	},
+	
+	putBit : function(bit) {
+	
+		var bufIndex = Math.floor(this.length / 8);
+		if (this.buffer.length <= bufIndex) {
+			this.buffer.push(0);
+		}
+	
+		if (bit) {
+			this.buffer[bufIndex] |= (0x80 >>> (this.length % 8) );
+		}
+	
+		this.length++;
+	}
+};
+
+module.exports = QRBitBuffer;
+
+},
+'./QRErrorCorrectLevel': function (module, exports, require) {
+module.exports = {
+	L : 1,
+	M : 0,
+	Q : 3,
+	H : 2
+};
+
+
+},
+'./QRMaskPattern': function (module, exports, require) {
+module.exports = {
+	PATTERN000 : 0,
+	PATTERN001 : 1,
+	PATTERN010 : 2,
+	PATTERN011 : 3,
+	PATTERN100 : 4,
+	PATTERN101 : 5,
+	PATTERN110 : 6,
+	PATTERN111 : 7
+};
+
+},
+'./QRMath': function (module, exports, require) {
+var QRMath = {
+
+	glog : function(n) {
+	
+		if (n < 1) {
+			throw new Error("glog(" + n + ")");
+		}
+		
+		return QRMath.LOG_TABLE[n];
+	},
+	
+	gexp : function(n) {
+	
+		while (n < 0) {
+			n += 255;
+		}
+	
+		while (n >= 256) {
+			n -= 255;
+		}
+	
+		return QRMath.EXP_TABLE[n];
+	},
+	
+	EXP_TABLE : new Array(256),
+	
+	LOG_TABLE : new Array(256)
+
+};
+	
+for (var i = 0; i < 8; i++) {
+	QRMath.EXP_TABLE[i] = 1 << i;
+}
+for (var i = 8; i < 256; i++) {
+	QRMath.EXP_TABLE[i] = QRMath.EXP_TABLE[i - 4]
+		^ QRMath.EXP_TABLE[i - 5]
+		^ QRMath.EXP_TABLE[i - 6]
+		^ QRMath.EXP_TABLE[i - 8];
+}
+for (var i = 0; i < 255; i++) {
+	QRMath.LOG_TABLE[QRMath.EXP_TABLE[i] ] = i;
+}
+
+module.exports = QRMath;
+
+},
+'./QRMode': function (module, exports, require) {
+module.exports = {
+    MODE_NUMBER :       1 << 0,
+    MODE_ALPHA_NUM :    1 << 1,
+    MODE_8BIT_BYTE :    1 << 2,
+    MODE_KANJI :        1 << 3
+};
+
+},
+'./QRPolynomial': function (module, exports, require) {
+var QRMath = require('./QRMath');
+
+function QRPolynomial(num, shift) {
+	if (num.length === undefined) {
+		throw new Error(num.length + "/" + shift);
+	}
+
+	var offset = 0;
+
+	while (offset < num.length && num[offset] === 0) {
+		offset++;
+	}
+
+	this.num = new Array(num.length - offset + shift);
+	for (var i = 0; i < num.length - offset; i++) {
+		this.num[i] = num[i + offset];
+	}
+}
+
+QRPolynomial.prototype = {
+
+	get : function(index) {
+		return this.num[index];
+	},
+	
+	getLength : function() {
+		return this.num.length;
+	},
+	
+	multiply : function(e) {
+	
+		var num = new Array(this.getLength() + e.getLength() - 1);
+	
+		for (var i = 0; i < this.getLength(); i++) {
+			for (var j = 0; j < e.getLength(); j++) {
+				num[i + j] ^= QRMath.gexp(QRMath.glog(this.get(i) ) + QRMath.glog(e.get(j) ) );
+			}
+		}
+	
+		return new QRPolynomial(num, 0);
+	},
+	
+	mod : function(e) {
+	
+		if (this.getLength() - e.getLength() < 0) {
+			return this;
+		}
+	
+		var ratio = QRMath.glog(this.get(0) ) - QRMath.glog(e.get(0) );
+	
+		var num = new Array(this.getLength() );
+		
+		for (var i = 0; i < this.getLength(); i++) {
+			num[i] = this.get(i);
+		}
+		
+		for (var x = 0; x < e.getLength(); x++) {
+			num[x] ^= QRMath.gexp(QRMath.glog(e.get(x) ) + ratio);
+		}
+	
+		// recursive call
+		return new QRPolynomial(num, 0).mod(e);
+	}
+};
+
+module.exports = QRPolynomial;
+
+},
+'./QRRSBlock': function (module, exports, require) {
+var QRErrorCorrectLevel = require('./QRErrorCorrectLevel');
+
+function QRRSBlock(totalCount, dataCount) {
+	this.totalCount = totalCount;
+	this.dataCount  = dataCount;
+}
+
+QRRSBlock.RS_BLOCK_TABLE = [
+
+	// L
+	// M
+	// Q
+	// H
+
+	// 1
+	[1, 26, 19],
+	[1, 26, 16],
+	[1, 26, 13],
+	[1, 26, 9],
+	
+	// 2
+	[1, 44, 34],
+	[1, 44, 28],
+	[1, 44, 22],
+	[1, 44, 16],
+
+	// 3
+	[1, 70, 55],
+	[1, 70, 44],
+	[2, 35, 17],
+	[2, 35, 13],
+
+	// 4		
+	[1, 100, 80],
+	[2, 50, 32],
+	[2, 50, 24],
+	[4, 25, 9],
+	
+	// 5
+	[1, 134, 108],
+	[2, 67, 43],
+	[2, 33, 15, 2, 34, 16],
+	[2, 33, 11, 2, 34, 12],
+	
+	// 6
+	[2, 86, 68],
+	[4, 43, 27],
+	[4, 43, 19],
+	[4, 43, 15],
+	
+	// 7		
+	[2, 98, 78],
+	[4, 49, 31],
+	[2, 32, 14, 4, 33, 15],
+	[4, 39, 13, 1, 40, 14],
+	
+	// 8
+	[2, 121, 97],
+	[2, 60, 38, 2, 61, 39],
+	[4, 40, 18, 2, 41, 19],
+	[4, 40, 14, 2, 41, 15],
+	
+	// 9
+	[2, 146, 116],
+	[3, 58, 36, 2, 59, 37],
+	[4, 36, 16, 4, 37, 17],
+	[4, 36, 12, 4, 37, 13],
+	
+	// 10		
+	[2, 86, 68, 2, 87, 69],
+	[4, 69, 43, 1, 70, 44],
+	[6, 43, 19, 2, 44, 20],
+	[6, 43, 15, 2, 44, 16],
+
+	// 11
+	[4, 101, 81],
+	[1, 80, 50, 4, 81, 51],
+	[4, 50, 22, 4, 51, 23],
+	[3, 36, 12, 8, 37, 13],
+
+	// 12
+	[2, 116, 92, 2, 117, 93],
+	[6, 58, 36, 2, 59, 37],
+	[4, 46, 20, 6, 47, 21],
+	[7, 42, 14, 4, 43, 15],
+
+	// 13
+	[4, 133, 107],
+	[8, 59, 37, 1, 60, 38],
+	[8, 44, 20, 4, 45, 21],
+	[12, 33, 11, 4, 34, 12],
+
+	// 14
+	[3, 145, 115, 1, 146, 116],
+	[4, 64, 40, 5, 65, 41],
+	[11, 36, 16, 5, 37, 17],
+	[11, 36, 12, 5, 37, 13],
+
+	// 15
+	[5, 109, 87, 1, 110, 88],
+	[5, 65, 41, 5, 66, 42],
+	[5, 54, 24, 7, 55, 25],
+	[11, 36, 12],
+
+	// 16
+	[5, 122, 98, 1, 123, 99],
+	[7, 73, 45, 3, 74, 46],
+	[15, 43, 19, 2, 44, 20],
+	[3, 45, 15, 13, 46, 16],
+
+	// 17
+	[1, 135, 107, 5, 136, 108],
+	[10, 74, 46, 1, 75, 47],
+	[1, 50, 22, 15, 51, 23],
+	[2, 42, 14, 17, 43, 15],
+
+	// 18
+	[5, 150, 120, 1, 151, 121],
+	[9, 69, 43, 4, 70, 44],
+	[17, 50, 22, 1, 51, 23],
+	[2, 42, 14, 19, 43, 15],
+
+	// 19
+	[3, 141, 113, 4, 142, 114],
+	[3, 70, 44, 11, 71, 45],
+	[17, 47, 21, 4, 48, 22],
+	[9, 39, 13, 16, 40, 14],
+
+	// 20
+	[3, 135, 107, 5, 136, 108],
+	[3, 67, 41, 13, 68, 42],
+	[15, 54, 24, 5, 55, 25],
+	[15, 43, 15, 10, 44, 16],
+
+	// 21
+	[4, 144, 116, 4, 145, 117],
+	[17, 68, 42],
+	[17, 50, 22, 6, 51, 23],
+	[19, 46, 16, 6, 47, 17],
+
+	// 22
+	[2, 139, 111, 7, 140, 112],
+	[17, 74, 46],
+	[7, 54, 24, 16, 55, 25],
+	[34, 37, 13],
+
+	// 23
+	[4, 151, 121, 5, 152, 122],
+	[4, 75, 47, 14, 76, 48],
+	[11, 54, 24, 14, 55, 25],
+	[16, 45, 15, 14, 46, 16],
+
+	// 24
+	[6, 147, 117, 4, 148, 118],
+	[6, 73, 45, 14, 74, 46],
+	[11, 54, 24, 16, 55, 25],
+	[30, 46, 16, 2, 47, 17],
+
+	// 25
+	[8, 132, 106, 4, 133, 107],
+	[8, 75, 47, 13, 76, 48],
+	[7, 54, 24, 22, 55, 25],
+	[22, 45, 15, 13, 46, 16],
+
+	// 26
+	[10, 142, 114, 2, 143, 115],
+	[19, 74, 46, 4, 75, 47],
+	[28, 50, 22, 6, 51, 23],
+	[33, 46, 16, 4, 47, 17],
+
+	// 27
+	[8, 152, 122, 4, 153, 123],
+	[22, 73, 45, 3, 74, 46],
+	[8, 53, 23, 26, 54, 24],
+	[12, 45, 15, 28, 46, 16],
+
+	// 28
+	[3, 147, 117, 10, 148, 118],
+	[3, 73, 45, 23, 74, 46],
+	[4, 54, 24, 31, 55, 25],
+	[11, 45, 15, 31, 46, 16],
+
+	// 29
+	[7, 146, 116, 7, 147, 117],
+	[21, 73, 45, 7, 74, 46],
+	[1, 53, 23, 37, 54, 24],
+	[19, 45, 15, 26, 46, 16],
+
+	// 30
+	[5, 145, 115, 10, 146, 116],
+	[19, 75, 47, 10, 76, 48],
+	[15, 54, 24, 25, 55, 25],
+	[23, 45, 15, 25, 46, 16],
+
+	// 31
+	[13, 145, 115, 3, 146, 116],
+	[2, 74, 46, 29, 75, 47],
+	[42, 54, 24, 1, 55, 25],
+	[23, 45, 15, 28, 46, 16],
+
+	// 32
+	[17, 145, 115],
+	[10, 74, 46, 23, 75, 47],
+	[10, 54, 24, 35, 55, 25],
+	[19, 45, 15, 35, 46, 16],
+
+	// 33
+	[17, 145, 115, 1, 146, 116],
+	[14, 74, 46, 21, 75, 47],
+	[29, 54, 24, 19, 55, 25],
+	[11, 45, 15, 46, 46, 16],
+
+	// 34
+	[13, 145, 115, 6, 146, 116],
+	[14, 74, 46, 23, 75, 47],
+	[44, 54, 24, 7, 55, 25],
+	[59, 46, 16, 1, 47, 17],
+
+	// 35
+	[12, 151, 121, 7, 152, 122],
+	[12, 75, 47, 26, 76, 48],
+	[39, 54, 24, 14, 55, 25],
+	[22, 45, 15, 41, 46, 16],
+
+	// 36
+	[6, 151, 121, 14, 152, 122],
+	[6, 75, 47, 34, 76, 48],
+	[46, 54, 24, 10, 55, 25],
+	[2, 45, 15, 64, 46, 16],
+
+	// 37
+	[17, 152, 122, 4, 153, 123],
+	[29, 74, 46, 14, 75, 47],
+	[49, 54, 24, 10, 55, 25],
+	[24, 45, 15, 46, 46, 16],
+
+	// 38
+	[4, 152, 122, 18, 153, 123],
+	[13, 74, 46, 32, 75, 47],
+	[48, 54, 24, 14, 55, 25],
+	[42, 45, 15, 32, 46, 16],
+
+	// 39
+	[20, 147, 117, 4, 148, 118],
+	[40, 75, 47, 7, 76, 48],
+	[43, 54, 24, 22, 55, 25],
+	[10, 45, 15, 67, 46, 16],
+
+	// 40
+	[19, 148, 118, 6, 149, 119],
+	[18, 75, 47, 31, 76, 48],
+	[34, 54, 24, 34, 55, 25],
+	[20, 45, 15, 61, 46, 16]
+];
+
+QRRSBlock.getRSBlocks = function(typeNumber, errorCorrectLevel) {
+	
+	var rsBlock = QRRSBlock.getRsBlockTable(typeNumber, errorCorrectLevel);
+	
+	if (rsBlock === undefined) {
+		throw new Error("bad rs block @ typeNumber:" + typeNumber + "/errorCorrectLevel:" + errorCorrectLevel);
+	}
+
+	var length = rsBlock.length / 3;
+	
+	var list = [];
+	
+	for (var i = 0; i < length; i++) {
+
+		var count = rsBlock[i * 3 + 0];
+		var totalCount = rsBlock[i * 3 + 1];
+		var dataCount  = rsBlock[i * 3 + 2];
+
+		for (var j = 0; j < count; j++) {
+			list.push(new QRRSBlock(totalCount, dataCount) );	
+		}
+	}
+	
+	return list;
+};
+
+QRRSBlock.getRsBlockTable = function(typeNumber, errorCorrectLevel) {
+
+	switch(errorCorrectLevel) {
+	case QRErrorCorrectLevel.L :
+		return QRRSBlock.RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 0];
+	case QRErrorCorrectLevel.M :
+		return QRRSBlock.RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 1];
+	case QRErrorCorrectLevel.Q :
+		return QRRSBlock.RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 2];
+	case QRErrorCorrectLevel.H :
+		return QRRSBlock.RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 3];
+	default :
+		return undefined;
+	}
+};
+
+module.exports = QRRSBlock;
+
+},
+'./QRUtil': function (module, exports, require) {
+var QRMode = require('./QRMode');
+var QRPolynomial = require('./QRPolynomial');
+var QRMath = require('./QRMath');
+var QRMaskPattern = require('./QRMaskPattern');
+
+var QRUtil = {
+
+    PATTERN_POSITION_TABLE : [
+        [],
+        [6, 18],
+        [6, 22],
+        [6, 26],
+        [6, 30],
+        [6, 34],
+        [6, 22, 38],
+        [6, 24, 42],
+        [6, 26, 46],
+        [6, 28, 50],
+        [6, 30, 54],        
+        [6, 32, 58],
+        [6, 34, 62],
+        [6, 26, 46, 66],
+        [6, 26, 48, 70],
+        [6, 26, 50, 74],
+        [6, 30, 54, 78],
+        [6, 30, 56, 82],
+        [6, 30, 58, 86],
+        [6, 34, 62, 90],
+        [6, 28, 50, 72, 94],
+        [6, 26, 50, 74, 98],
+        [6, 30, 54, 78, 102],
+        [6, 28, 54, 80, 106],
+        [6, 32, 58, 84, 110],
+        [6, 30, 58, 86, 114],
+        [6, 34, 62, 90, 118],
+        [6, 26, 50, 74, 98, 122],
+        [6, 30, 54, 78, 102, 126],
+        [6, 26, 52, 78, 104, 130],
+        [6, 30, 56, 82, 108, 134],
+        [6, 34, 60, 86, 112, 138],
+        [6, 30, 58, 86, 114, 142],
+        [6, 34, 62, 90, 118, 146],
+        [6, 30, 54, 78, 102, 126, 150],
+        [6, 24, 50, 76, 102, 128, 154],
+        [6, 28, 54, 80, 106, 132, 158],
+        [6, 32, 58, 84, 110, 136, 162],
+        [6, 26, 54, 82, 110, 138, 166],
+        [6, 30, 58, 86, 114, 142, 170]
+    ],
+
+    G15 : (1 << 10) | (1 << 8) | (1 << 5) | (1 << 4) | (1 << 2) | (1 << 1) | (1 << 0),
+    G18 : (1 << 12) | (1 << 11) | (1 << 10) | (1 << 9) | (1 << 8) | (1 << 5) | (1 << 2) | (1 << 0),
+    G15_MASK : (1 << 14) | (1 << 12) | (1 << 10)    | (1 << 4) | (1 << 1),
+
+    getBCHTypeInfo : function(data) {
+        var d = data << 10;
+        while (QRUtil.getBCHDigit(d) - QRUtil.getBCHDigit(QRUtil.G15) >= 0) {
+            d ^= (QRUtil.G15 << (QRUtil.getBCHDigit(d) - QRUtil.getBCHDigit(QRUtil.G15) ) );    
+        }
+        return ( (data << 10) | d) ^ QRUtil.G15_MASK;
+    },
+
+    getBCHTypeNumber : function(data) {
+        var d = data << 12;
+        while (QRUtil.getBCHDigit(d) - QRUtil.getBCHDigit(QRUtil.G18) >= 0) {
+            d ^= (QRUtil.G18 << (QRUtil.getBCHDigit(d) - QRUtil.getBCHDigit(QRUtil.G18) ) );    
+        }
+        return (data << 12) | d;
+    },
+
+    getBCHDigit : function(data) {
+
+        var digit = 0;
+
+        while (data !== 0) {
+            digit++;
+            data >>>= 1;
+        }
+
+        return digit;
+    },
+
+    getPatternPosition : function(typeNumber) {
+        return QRUtil.PATTERN_POSITION_TABLE[typeNumber - 1];
+    },
+
+    getMask : function(maskPattern, i, j) {
+        
+        switch (maskPattern) {
+            
+        case QRMaskPattern.PATTERN000 : return (i + j) % 2 === 0;
+        case QRMaskPattern.PATTERN001 : return i % 2 === 0;
+        case QRMaskPattern.PATTERN010 : return j % 3 === 0;
+        case QRMaskPattern.PATTERN011 : return (i + j) % 3 === 0;
+        case QRMaskPattern.PATTERN100 : return (Math.floor(i / 2) + Math.floor(j / 3) ) % 2 === 0;
+        case QRMaskPattern.PATTERN101 : return (i * j) % 2 + (i * j) % 3 === 0;
+        case QRMaskPattern.PATTERN110 : return ( (i * j) % 2 + (i * j) % 3) % 2 === 0;
+        case QRMaskPattern.PATTERN111 : return ( (i * j) % 3 + (i + j) % 2) % 2 === 0;
+
+        default :
+            throw new Error("bad maskPattern:" + maskPattern);
+        }
+    },
+
+    getErrorCorrectPolynomial : function(errorCorrectLength) {
+
+        var a = new QRPolynomial([1], 0);
+
+        for (var i = 0; i < errorCorrectLength; i++) {
+            a = a.multiply(new QRPolynomial([1, QRMath.gexp(i)], 0) );
+        }
+
+        return a;
+    },
+
+    getLengthInBits : function(mode, type) {
+
+        if (1 <= type && type < 10) {
+
+            // 1 - 9
+
+            switch(mode) {
+            case QRMode.MODE_NUMBER     : return 10;
+            case QRMode.MODE_ALPHA_NUM  : return 9;
+            case QRMode.MODE_8BIT_BYTE  : return 8;
+            case QRMode.MODE_KANJI      : return 8;
+            default :
+                throw new Error("mode:" + mode);
+            }
+
+        } else if (type < 27) {
+
+            // 10 - 26
+
+            switch(mode) {
+            case QRMode.MODE_NUMBER     : return 12;
+            case QRMode.MODE_ALPHA_NUM  : return 11;
+            case QRMode.MODE_8BIT_BYTE  : return 16;
+            case QRMode.MODE_KANJI      : return 10;
+            default :
+                throw new Error("mode:" + mode);
+            }
+
+        } else if (type < 41) {
+
+            // 27 - 40
+
+            switch(mode) {
+            case QRMode.MODE_NUMBER     : return 14;
+            case QRMode.MODE_ALPHA_NUM  : return 13;
+            case QRMode.MODE_8BIT_BYTE  : return 16;
+            case QRMode.MODE_KANJI      : return 12;
+            default :
+                throw new Error("mode:" + mode);
+            }
+
+        } else {
+            throw new Error("type:" + type);
+        }
+    },
+
+    getLostPoint : function(qrCode) {
+        
+        var moduleCount = qrCode.getModuleCount();
+        var lostPoint = 0;
+        var row = 0; 
+        var col = 0;
+
+        
+        // LEVEL1
+        
+        for (row = 0; row < moduleCount; row++) {
+
+            for (col = 0; col < moduleCount; col++) {
+
+                var sameCount = 0;
+                var dark = qrCode.isDark(row, col);
+
+                for (var r = -1; r <= 1; r++) {
+
+                    if (row + r < 0 || moduleCount <= row + r) {
+                        continue;
+                    }
+
+                    for (var c = -1; c <= 1; c++) {
+
+                        if (col + c < 0 || moduleCount <= col + c) {
+                            continue;
+                        }
+
+                        if (r === 0 && c === 0) {
+                            continue;
+                        }
+
+                        if (dark === qrCode.isDark(row + r, col + c) ) {
+                            sameCount++;
+                        }
+                    }
+                }
+
+                if (sameCount > 5) {
+                    lostPoint += (3 + sameCount - 5);
+                }
+            }
+        }
+
+        // LEVEL2
+
+        for (row = 0; row < moduleCount - 1; row++) {
+            for (col = 0; col < moduleCount - 1; col++) {
+                var count = 0;
+                if (qrCode.isDark(row,     col    ) ) count++;
+                if (qrCode.isDark(row + 1, col    ) ) count++;
+                if (qrCode.isDark(row,     col + 1) ) count++;
+                if (qrCode.isDark(row + 1, col + 1) ) count++;
+                if (count === 0 || count === 4) {
+                    lostPoint += 3;
+                }
+            }
+        }
+
+        // LEVEL3
+
+        for (row = 0; row < moduleCount; row++) {
+            for (col = 0; col < moduleCount - 6; col++) {
+                if (qrCode.isDark(row, col) && 
+                        !qrCode.isDark(row, col + 1) && 
+                         qrCode.isDark(row, col + 2) && 
+                         qrCode.isDark(row, col + 3) && 
+                         qrCode.isDark(row, col + 4) && 
+                        !qrCode.isDark(row, col + 5) && 
+                         qrCode.isDark(row, col + 6) ) {
+                    lostPoint += 40;
+                }
+            }
+        }
+
+        for (col = 0; col < moduleCount; col++) {
+            for (row = 0; row < moduleCount - 6; row++) {
+                if (qrCode.isDark(row, col) &&
+                        !qrCode.isDark(row + 1, col) &&
+                         qrCode.isDark(row + 2, col) &&
+                         qrCode.isDark(row + 3, col) &&
+                         qrCode.isDark(row + 4, col) &&
+                        !qrCode.isDark(row + 5, col) &&
+                         qrCode.isDark(row + 6, col) ) {
+                    lostPoint += 40;
+                }
+            }
+        }
+
+        // LEVEL4
+        
+        var darkCount = 0;
+
+        for (col = 0; col < moduleCount; col++) {
+            for (row = 0; row < moduleCount; row++) {
+                if (qrCode.isDark(row, col) ) {
+                    darkCount++;
+                }
+            }
+        }
+        
+        var ratio = Math.abs(100 * darkCount / moduleCount / moduleCount - 50) / 5;
+        lostPoint += ratio * 10;
+
+        return lostPoint;       
+    }
+
+};
+
+module.exports = QRUtil;
+
+},
+'./index': function (module, exports, require) {
+//---------------------------------------------------------------------
+// QRCode for JavaScript
+//
+// Copyright (c) 2009 Kazuhiko Arase
+//
+// URL: http://www.d-project.com/
+//
+// Licensed under the MIT license:
+//   http://www.opensource.org/licenses/mit-license.php
+//
+// The word "QR Code" is registered trademark of 
+// DENSO WAVE INCORPORATED
+//   http://www.denso-wave.com/qrcode/faqpatent-e.html
+//
+//---------------------------------------------------------------------
+// Modified to work in node for this project (and some refactoring)
+//---------------------------------------------------------------------
+
+var QR8bitByte = require('./QR8bitByte');
+var QRUtil = require('./QRUtil');
+var QRPolynomial = require('./QRPolynomial');
+var QRRSBlock = require('./QRRSBlock');
+var QRBitBuffer = require('./QRBitBuffer');
+
+function QRCode(typeNumber, errorCorrectLevel) {
+	this.typeNumber = typeNumber;
+	this.errorCorrectLevel = errorCorrectLevel;
+	this.modules = null;
+	this.moduleCount = 0;
+	this.dataCache = null;
+	this.dataList = [];
+}
+
+QRCode.prototype = {
+	
+	addData : function(data) {
+		var newData = new QR8bitByte(data);
+		this.dataList.push(newData);
+		this.dataCache = null;
+	},
+	
+	isDark : function(row, col) {
+		if (row < 0 || this.moduleCount <= row || col < 0 || this.moduleCount <= col) {
+			throw new Error(row + "," + col);
+		}
+		return this.modules[row][col];
+	},
+
+	getModuleCount : function() {
+		return this.moduleCount;
+	},
+	
+	make : function() {
+		// Calculate automatically typeNumber if provided is < 1
+		if (this.typeNumber < 1 ){
+			var typeNumber = 1;
+			for (typeNumber = 1; typeNumber < 40; typeNumber++) {
+				var rsBlocks = QRRSBlock.getRSBlocks(typeNumber, this.errorCorrectLevel);
+
+				var buffer = new QRBitBuffer();
+				var totalDataCount = 0;
+				for (var i = 0; i < rsBlocks.length; i++) {
+					totalDataCount += rsBlocks[i].dataCount;
+				}
+
+				for (var x = 0; x < this.dataList.length; x++) {
+					var data = this.dataList[x];
+					buffer.put(data.mode, 4);
+					buffer.put(data.getLength(), QRUtil.getLengthInBits(data.mode, typeNumber) );
+					data.write(buffer);
+				}
+				if (buffer.getLengthInBits() <= totalDataCount * 8)
+					break;
+			}
+			this.typeNumber = typeNumber;
+		}
+		this.makeImpl(false, this.getBestMaskPattern() );
+	},
+	
+	makeImpl : function(test, maskPattern) {
+		
+		this.moduleCount = this.typeNumber * 4 + 17;
+		this.modules = new Array(this.moduleCount);
+		
+		for (var row = 0; row < this.moduleCount; row++) {
+			
+			this.modules[row] = new Array(this.moduleCount);
+			
+			for (var col = 0; col < this.moduleCount; col++) {
+				this.modules[row][col] = null;//(col + row) % 3;
+			}
+		}
+	
+		this.setupPositionProbePattern(0, 0);
+		this.setupPositionProbePattern(this.moduleCount - 7, 0);
+		this.setupPositionProbePattern(0, this.moduleCount - 7);
+		this.setupPositionAdjustPattern();
+		this.setupTimingPattern();
+		this.setupTypeInfo(test, maskPattern);
+		
+		if (this.typeNumber >= 7) {
+			this.setupTypeNumber(test);
+		}
+	
+		if (this.dataCache === null) {
+			this.dataCache = QRCode.createData(this.typeNumber, this.errorCorrectLevel, this.dataList);
+		}
+	
+		this.mapData(this.dataCache, maskPattern);
+	},
+
+	setupPositionProbePattern : function(row, col)  {
+		
+		for (var r = -1; r <= 7; r++) {
+			
+			if (row + r <= -1 || this.moduleCount <= row + r) continue;
+			
+			for (var c = -1; c <= 7; c++) {
+				
+				if (col + c <= -1 || this.moduleCount <= col + c) continue;
+				
+				if ( (0 <= r && r <= 6 && (c === 0 || c === 6) ) || 
+                     (0 <= c && c <= 6 && (r === 0 || r === 6) ) || 
+                     (2 <= r && r <= 4 && 2 <= c && c <= 4) ) {
+					this.modules[row + r][col + c] = true;
+				} else {
+					this.modules[row + r][col + c] = false;
+				}
+			}		
+		}		
+	},
+	
+	getBestMaskPattern : function() {
+	
+		var minLostPoint = 0;
+		var pattern = 0;
+	
+		for (var i = 0; i < 8; i++) {
+			
+			this.makeImpl(true, i);
+	
+			var lostPoint = QRUtil.getLostPoint(this);
+	
+			if (i === 0 || minLostPoint >  lostPoint) {
+				minLostPoint = lostPoint;
+				pattern = i;
+			}
+		}
+	
+		return pattern;
+	},
+	
+	createMovieClip : function(target_mc, instance_name, depth) {
+	
+		var qr_mc = target_mc.createEmptyMovieClip(instance_name, depth);
+		var cs = 1;
+	
+		this.make();
+
+		for (var row = 0; row < this.modules.length; row++) {
+			
+			var y = row * cs;
+			
+			for (var col = 0; col < this.modules[row].length; col++) {
+	
+				var x = col * cs;
+				var dark = this.modules[row][col];
+			
+				if (dark) {
+					qr_mc.beginFill(0, 100);
+					qr_mc.moveTo(x, y);
+					qr_mc.lineTo(x + cs, y);
+					qr_mc.lineTo(x + cs, y + cs);
+					qr_mc.lineTo(x, y + cs);
+					qr_mc.endFill();
+				}
+			}
+		}
+		
+		return qr_mc;
+	},
+
+	setupTimingPattern : function() {
+		
+		for (var r = 8; r < this.moduleCount - 8; r++) {
+			if (this.modules[r][6] !== null) {
+				continue;
+			}
+			this.modules[r][6] = (r % 2 === 0);
+		}
+	
+		for (var c = 8; c < this.moduleCount - 8; c++) {
+			if (this.modules[6][c] !== null) {
+				continue;
+			}
+			this.modules[6][c] = (c % 2 === 0);
+		}
+	},
+	
+	setupPositionAdjustPattern : function() {
+	
+		var pos = QRUtil.getPatternPosition(this.typeNumber);
+		
+		for (var i = 0; i < pos.length; i++) {
+		
+			for (var j = 0; j < pos.length; j++) {
+			
+				var row = pos[i];
+				var col = pos[j];
+				
+				if (this.modules[row][col] !== null) {
+					continue;
+				}
+				
+				for (var r = -2; r <= 2; r++) {
+				
+					for (var c = -2; c <= 2; c++) {
+					
+						if (Math.abs(r) === 2 || 
+                            Math.abs(c) === 2 ||
+                            (r === 0 && c === 0) ) {
+							this.modules[row + r][col + c] = true;
+						} else {
+							this.modules[row + r][col + c] = false;
+						}
+					}
+				}
+			}
+		}
+	},
+	
+	setupTypeNumber : function(test) {
+	
+		var bits = QRUtil.getBCHTypeNumber(this.typeNumber);
+        var mod;
+	
+		for (var i = 0; i < 18; i++) {
+			mod = (!test && ( (bits >> i) & 1) === 1);
+			this.modules[Math.floor(i / 3)][i % 3 + this.moduleCount - 8 - 3] = mod;
+		}
+	
+		for (var x = 0; x < 18; x++) {
+			mod = (!test && ( (bits >> x) & 1) === 1);
+			this.modules[x % 3 + this.moduleCount - 8 - 3][Math.floor(x / 3)] = mod;
+		}
+	},
+	
+	setupTypeInfo : function(test, maskPattern) {
+	
+		var data = (this.errorCorrectLevel << 3) | maskPattern;
+		var bits = QRUtil.getBCHTypeInfo(data);
+        var mod;
+	
+		// vertical		
+		for (var v = 0; v < 15; v++) {
+	
+			mod = (!test && ( (bits >> v) & 1) === 1);
+	
+			if (v < 6) {
+				this.modules[v][8] = mod;
+			} else if (v < 8) {
+				this.modules[v + 1][8] = mod;
+			} else {
+				this.modules[this.moduleCount - 15 + v][8] = mod;
+			}
+		}
+	
+		// horizontal
+		for (var h = 0; h < 15; h++) {
+	
+			mod = (!test && ( (bits >> h) & 1) === 1);
+			
+			if (h < 8) {
+				this.modules[8][this.moduleCount - h - 1] = mod;
+			} else if (h < 9) {
+				this.modules[8][15 - h - 1 + 1] = mod;
+			} else {
+				this.modules[8][15 - h - 1] = mod;
+			}
+		}
+	
+		// fixed module
+		this.modules[this.moduleCount - 8][8] = (!test);
+	
+	},
+	
+	mapData : function(data, maskPattern) {
+		
+		var inc = -1;
+		var row = this.moduleCount - 1;
+		var bitIndex = 7;
+		var byteIndex = 0;
+		
+		for (var col = this.moduleCount - 1; col > 0; col -= 2) {
+	
+			if (col === 6) col--;
+	
+			while (true) {
+	
+				for (var c = 0; c < 2; c++) {
+					
+					if (this.modules[row][col - c] === null) {
+						
+						var dark = false;
+	
+						if (byteIndex < data.length) {
+							dark = ( ( (data[byteIndex] >>> bitIndex) & 1) === 1);
+						}
+	
+						var mask = QRUtil.getMask(maskPattern, row, col - c);
+	
+						if (mask) {
+							dark = !dark;
+						}
+						
+						this.modules[row][col - c] = dark;
+						bitIndex--;
+	
+						if (bitIndex === -1) {
+							byteIndex++;
+							bitIndex = 7;
+						}
+					}
+				}
+								
+				row += inc;
+	
+				if (row < 0 || this.moduleCount <= row) {
+					row -= inc;
+					inc = -inc;
+					break;
+				}
+			}
+		}
+		
+	}
+
+};
+
+QRCode.PAD0 = 0xEC;
+QRCode.PAD1 = 0x11;
+
+QRCode.createData = function(typeNumber, errorCorrectLevel, dataList) {
+	
+	var rsBlocks = QRRSBlock.getRSBlocks(typeNumber, errorCorrectLevel);
+	
+	var buffer = new QRBitBuffer();
+	
+	for (var i = 0; i < dataList.length; i++) {
+		var data = dataList[i];
+		buffer.put(data.mode, 4);
+		buffer.put(data.getLength(), QRUtil.getLengthInBits(data.mode, typeNumber) );
+		data.write(buffer);
+	}
+
+	// calc num max data.
+	var totalDataCount = 0;
+	for (var x = 0; x < rsBlocks.length; x++) {
+		totalDataCount += rsBlocks[x].dataCount;
+	}
+
+	if (buffer.getLengthInBits() > totalDataCount * 8) {
+		throw new Error("code length overflow. (" + 
+            buffer.getLengthInBits() + 
+            ">" +  
+            totalDataCount * 8 + 
+            ")");
+	}
+
+	// end code
+	if (buffer.getLengthInBits() + 4 <= totalDataCount * 8) {
+		buffer.put(0, 4);
+	}
+
+	// padding
+	while (buffer.getLengthInBits() % 8 !== 0) {
+		buffer.putBit(false);
+	}
+
+	// padding
+	while (true) {
+		
+		if (buffer.getLengthInBits() >= totalDataCount * 8) {
+			break;
+		}
+		buffer.put(QRCode.PAD0, 8);
+		
+		if (buffer.getLengthInBits() >= totalDataCount * 8) {
+			break;
+		}
+		buffer.put(QRCode.PAD1, 8);
+	}
+
+	return QRCode.createBytes(buffer, rsBlocks);
+};
+
+QRCode.createBytes = function(buffer, rsBlocks) {
+
+	var offset = 0;
+	
+	var maxDcCount = 0;
+	var maxEcCount = 0;
+	
+	var dcdata = new Array(rsBlocks.length);
+	var ecdata = new Array(rsBlocks.length);
+	
+	for (var r = 0; r < rsBlocks.length; r++) {
+
+		var dcCount = rsBlocks[r].dataCount;
+		var ecCount = rsBlocks[r].totalCount - dcCount;
+
+		maxDcCount = Math.max(maxDcCount, dcCount);
+		maxEcCount = Math.max(maxEcCount, ecCount);
+		
+		dcdata[r] = new Array(dcCount);
+		
+		for (var i = 0; i < dcdata[r].length; i++) {
+			dcdata[r][i] = 0xff & buffer.buffer[i + offset];
+		}
+		offset += dcCount;
+		
+		var rsPoly = QRUtil.getErrorCorrectPolynomial(ecCount);
+		var rawPoly = new QRPolynomial(dcdata[r], rsPoly.getLength() - 1);
+
+		var modPoly = rawPoly.mod(rsPoly);
+		ecdata[r] = new Array(rsPoly.getLength() - 1);
+		for (var x = 0; x < ecdata[r].length; x++) {
+            var modIndex = x + modPoly.getLength() - ecdata[r].length;
+			ecdata[r][x] = (modIndex >= 0)? modPoly.get(modIndex) : 0;
+		}
+
+	}
+	
+	var totalCodeCount = 0;
+	for (var y = 0; y < rsBlocks.length; y++) {
+		totalCodeCount += rsBlocks[y].totalCount;
+	}
+
+	var data = new Array(totalCodeCount);
+	var index = 0;
+
+	for (var z = 0; z < maxDcCount; z++) {
+		for (var s = 0; s < rsBlocks.length; s++) {
+			if (z < dcdata[s].length) {
+				data[index++] = dcdata[s][z];
+			}
+		}
+	}
+
+	for (var xx = 0; xx < maxEcCount; xx++) {
+		for (var t = 0; t < rsBlocks.length; t++) {
+			if (xx < ecdata[t].length) {
+				data[index++] = ecdata[t][xx];
+			}
+		}
+	}
+
+	return data;
+
+};
+
+module.exports = QRCode;
+
+}
+};
+var cache = {};
+function req(name) { name = name.replace(/\.js$/, ''); if (!/^\.\//.test(name)) name = './' + name; if (cache[name]) return cache[name].exports; var m = { exports: {} }; cache[name] = m; defs[name](m, m.exports, req); return m.exports; }
+return { QRCode: req('./index'), ECL: req('./QRErrorCorrectLevel') };
+})();
+</script>
 <script>
 const { useState, useEffect, useMemo, useRef } = React;
 // Icon Font Awesome (dạng SVG) không tự đổi hình khi đổi class => gắn key theo class để React vẽ lại icon mới
@@ -244,8 +1509,8 @@ const COLLECTION_LABEL = { warehouses: 'Kho', categories: 'Loại trứng', supp
 
 const TABS = [
     { id: 'khohang',  label: 'Kho Hàng',              icon: 'fa-warehouse',      color: 'bg-amber-500 text-slate-950', roles: OFFICE_ROLES },
-    { id: 'nhap',     label: 'Nhập Hàng',             icon: 'fa-file-import',    color: 'bg-emerald-600 text-white',   roles: ['admin', 'nhaplieu'] },
-    { id: 'xuat',     label: 'Đơn Hàng',              icon: 'fa-receipt',    color: 'bg-blue-600 text-white',      roles: ['admin', 'nhaplieu'] },
+    { id: 'nhap',     label: 'Nhập Hàng',             icon: 'fa-file-import',    color: 'bg-emerald-600 text-white',   roles: ['admin', 'nhaplieu', 'user'] },
+    { id: 'xuat',     label: 'Đơn Hàng',              icon: 'fa-receipt',    color: 'bg-blue-600 text-white',      roles: ['admin', 'nhaplieu', 'user'] },
     { id: 'congno',   label: 'Báo Cáo Công Nợ',       icon: 'fa-scale-balanced', color: 'bg-orange-600 text-white',    roles: OFFICE_ROLES },
     { id: 'chiphi',   label: 'Quản Lý Chi Phí',       icon: 'fa-coins',          color: 'bg-rose-600 text-white',      roles: OFFICE_ROLES, nav: false }, // đã gộp vào Sổ Quỹ → Chi
     { id: 'dongtien', label: 'Sổ Quỹ & Dòng Tiền',    icon: 'fa-vault',          color: 'bg-purple-600 text-white',    roles: OFFICE_ROLES }, // nhập liệu / kho riêng: chỉ phần Chi phí
@@ -816,6 +2081,33 @@ const VN_BANKS = [
     ['970414', 'OceanBank'], ['546034', 'CAKE by VPBank'], ['546035', 'Ubank by VPBank']
 ];
 const bankNameOf = bin => (VN_BANKS.find(b => b[0] === String(bin || '')) || [])[1] || '';
+/* ---------- MÃ VIETQR (chuẩn NAPAS 247) do app tự tạo: quét là có sẵn tài khoản + số tiền ---------- */
+function crc16ccitt(s) {
+    let crc = 0xFFFF;
+    for (let i = 0; i < s.length; i++) {
+        crc ^= s.charCodeAt(i) << 8;
+        for (let j = 0; j < 8; j++) crc = (crc & 0x8000) ? ((crc << 1) ^ 0x1021) & 0xFFFF : (crc << 1) & 0xFFFF;
+    }
+    return crc.toString(16).toUpperCase().padStart(4, '0');
+}
+// Không ghi nội dung chuyển khoản (theo yêu cầu) — chỉ ngân hàng, số tài khoản, số tiền
+function vietQrPayload(bin, account, amount) {
+    const f = (id, v) => id + String(v.length).padStart(2, '0') + v;
+    const acc = String(account || '').replace(/\s+/g, ''), amt = Math.round(Number(amount) || 0);
+    const s = f('00', '01') + f('01', amt > 0 ? '12' : '11')
+        + f('38', f('00', 'A000000727') + f('01', f('00', String(bin)) + f('01', acc)) + f('02', 'QRIBFTTA'))
+        + f('53', '704') + (amt > 0 ? f('54', String(amt)) : '') + f('58', 'VN') + '6304';
+    return s + crc16ccitt(s);
+}
+// Vẽ mã QR (kèm lề trắng 3 ô) vào ô vuông (x, y, size)
+function drawQrCode(g, text, x, y, size, color) {
+    const q = new window.QRLib.QRCode(-1, window.QRLib.ECL.M); q.addData(text); q.make();
+    const n = q.getModuleCount(), quiet = 3, cell = size / (n + quiet * 2);
+    g.fillStyle = '#ffffff'; g.fillRect(x, y, size, size);
+    g.fillStyle = color || '#000000';
+    for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) if (q.isDark(r, c))
+        g.fillRect(x + (c + quiet) * cell, y + (r + quiet) * cell, cell + 0.6, cell + 0.6);
+}
 
 /* =====================================================================
    3. LỚP DỮ LIỆU: Google Sheet (online) hoặc trình duyệt (thử nghiệm)
@@ -869,15 +2161,18 @@ async function localApi(action, p, token) {
     const pub = u => ({ id: u.id, username: u.username, fullName: u.fullName, role: u.role, active: u.active, staffId: u.staffId || '' });
 
     if (action === 'ping') return { version: 'local' };
+    const VIEWER = { id: 'u2', username: 'xem', fullName: 'Người xem', role: 'user', active: true, staffId: '' };
     if (action === 'login') {
+        if (TEST_BUILD && p.password === 'xem123') return { token: 'local-view', user: VIEWER }; // bản test: mật khẩu chỉ xem
         const u = db.users.find(x => x.username === String(p.username || '').trim().toLowerCase());
         if (!u || u.password !== p.password) throw apiError('Sai tên đăng nhập hoặc mật khẩu');
         if (!u.active) throw apiError('Tài khoản đã bị khóa. Liên hệ quản trị viên.');
         return { token: 'local-' + u.id, user: pub(u) };
     }
-    const me = db.users.find(x => 'local-' + x.id === token);
+    const me = token === 'local-view' && TEST_BUILD ? VIEWER : db.users.find(x => 'local-' + x.id === token);
     if (!me || !me.active) throw apiError('Phiên đăng nhập đã hết hạn, vui lòng đăng nhập lại', 'AUTH');
     const user = pub(me);
+    if (user.role === 'user' && !['getAll', 'logout', 'ping'].includes(action)) throw apiError('Tài khoản chỉ xem — không được tạo, sửa hay xóa dữ liệu.');
     const now = new Date().toISOString();
     const setStatus = (rec, decision, reason) => {
         rec.status = decision; rec.approvedBy = decision === 'pending' ? '' : user.username;
@@ -1252,7 +2547,7 @@ function LoginScreen({ apiUrl, onSaveApiUrl, onLoggedIn }) {
                         h('div', { className: 'text-[11px] font-mono text-slate-400' }, `${u.username} / ${u.password}`))))) :
                 !apiUrl ? h('div', { className: 'p-3 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900 space-y-1' },
                     h('p', { className: 'font-bold' }, 'Mật khẩu chế độ thử nghiệm:'),
-                    h('p', { className: 'font-mono' }, 'admin123')) : null,
+                    h('p', { className: 'font-mono' }, 'admin123'), TEST_BUILD ? h('p', null, 'Chỉ xem: ', h('span', { className: 'font-mono' }, 'xem123')) : null) : null,
                 DEMO_MODE ? null : h('div', { className: 'border-t pt-4' },
                     h('button', { type: 'button', onClick: () => setShowCfg(!showCfg), className: 'text-sm font-semibold text-slate-500 hover:text-slate-800' },
                         h('i', { className: 'fas fa-link mr-2' }), 'Cấu hình kết nối Google Sheet ', h('i', { className: 'fas ' + (showCfg ? 'fa-chevron-up' : 'fa-chevron-down') + ' ml-1 text-xs' })),
@@ -1307,6 +2602,7 @@ function App() {
     });
     const user = session ? session.user : null;
     const isRemote = !!apiUrl;
+    const viewOnly = !!user && user.role === 'user'; // tài khoản chỉ xem
     // Bộ nhớ đệm trên máy: mở app hiện dữ liệu ngay, tải bản mới ở nền
     const cacheKey = isRemote ? 'bh_cache::' + apiUrl : '';
     const verRef = useRef(''); // số phiên bản dữ liệu trên Sheet mà app đang giữ
@@ -1352,6 +2648,7 @@ function App() {
     // Phạm vi làm việc chọn sau khi đăng nhập: '' = Tổng các kho, id = chỉ quản lý riêng kho đó, null = chưa chọn
     const [scope, setScopeRaw] = useState(() => lsGet('bh_scope'));
     const [logSearchQuery, setLogSearchQuery] = useState('');
+    const [logPg, setLogPg] = useState(0); // trang Nhật ký (6 dòng / trang)
 
     const [inputMode, setInputMode] = useState('qua');
     const [inputQty, setInputQty] = useState('');
@@ -1598,6 +2895,7 @@ function App() {
     }, [isRemote, session && session.token, loaded]);
 
     const saveItem = async (col, item) => {
+        if (viewOnly) { showToast('Tài khoản chỉ xem — không được chỉnh sửa', 'error'); return null; }
         if (isRemote && QUEUE_COLS.includes(col)) {
             // Lưu tức thì trên máy, gửi nền. Kiểm tra giống máy chủ để hạn chế lỗi khi gửi.
             const now = new Date().toISOString();
@@ -1635,6 +2933,7 @@ function App() {
     };
 
     const removeItem = async (col, id, confirmText) => {
+        if (viewOnly) { showToast('Tài khoản chỉ xem — không được chỉnh sửa', 'error'); return false; }
         if (col === 'payments') {
             const target = payments.find(p => String(p.id) === String(id));
             const err = target && target.staffId ? cashGuardError(L, records, payments, records, replaceIn(payments, target, null), [String(target.staffId)], 'xóa') : null;
@@ -2400,7 +3699,22 @@ function App() {
     }, [records, payments]);
     const shopInfo = () => { const w = (db.warehouses || [])[0] || {}; return { name: w.name || 'Cửa hàng', phone: w.phone || '', address: w.address || '', bankBin: String(w.bankBin || ''), bankName: bankNameOf(w.bankBin) || w.bankName || '', bankAccount: String(w.bankAccount || '').replace(/\s+/g, ''), bankOwner: w.bankOwner || '', qrImage: String(w.qrImage || '') }; };
     // Mã QR do ngân hàng cấp (ảnh cửa hàng tải lên ở Quản Lý Thông Tin → Cửa Hàng)
-    const canQr = s => /^data:image\//.test(s.qrImage || '');
+    const binOf = s => s.bankBin || (VN_BANKS.find(b => b[1].toLowerCase() === String(s.bankName || '').trim().toLowerCase()) || [])[0] || '';
+    const canGenQr = s => !!(binOf(s) && s.bankAccount && window.QRLib); // có ngân hàng + STK => app tự tạo VietQR có số tiền
+    const canQr = s => canGenQr(s) || /^data:image\//.test(s.qrImage || '');
+    // Vẽ mã QR thanh toán vào ô (x, y, w, h): tự tạo VietQR (có sẵn số tiền) hoặc ảnh QR ngân hàng đã tải lên. Trả về vị trí thực
+    // preferImage: có ảnh QR ngân hàng đã tải lên thì dùng ảnh đó (ảnh đơn hàng); không thì tự tạo VietQR
+    const drawPayQr = async (g, s, amount, x, y, w, hh, rad, preferImage) => {
+        const hasImg = /^data:image\//.test(s.qrImage || '');
+        if (canGenQr(s) && !(preferImage && hasImg)) {
+            const sz = Math.min(w, hh), dx = x + (w - sz) / 2, dy = y + (hh - sz) / 2;
+            g.save(); g.beginPath(); g.moveTo(dx + rad, dy); g.arcTo(dx + sz, dy, dx + sz, dy + sz, rad); g.arcTo(dx + sz, dy + sz, dx, dy + sz, rad); g.arcTo(dx, dy + sz, dx, dy, rad); g.arcTo(dx, dy, dx + sz, dy, rad); g.closePath();
+            g.fillStyle = '#ffffff'; g.fill(); g.strokeStyle = '#E9C25F'; g.lineWidth = 2; g.stroke(); g.restore();
+            drawQrCode(g, vietQrPayload(binOf(s), s.bankAccount, amount), dx + sz * 0.05, dy + sz * 0.05, sz * 0.9, '#2A0B08');
+            return { x: dx, y: dy, w: sz, h: sz, gen: true };
+        }
+        return drawQrImg(g, await loadQrTrim(s.qrImage), x, y, w, hh, rad, '#E9C25F');
+    };
     const loadImg = src => new Promise((res, rej) => { const im = new Image(); im.onload = () => res(im); im.onerror = rej; im.src = src; });
     // Vẽ ảnh vừa khít trong ô vuông (giữ tỉ lệ, căn giữa)
     // Ảnh mã QR ngân hàng: tự cắt lề trắng thừa xung quanh (ảnh chụp / tải về thường có viền trắng)
@@ -2598,8 +3912,8 @@ function App() {
             if (qr) {
                 const qx = W - P - 24 - QS, qy = y + 20;
                 try {
-                    const r = drawQrImg(g, await loadQrTrim(s.qrImage), qx, qy, QS, QS, 12, '#E9C25F');
-                    text('Quét mã bằng app ngân hàng', r.x + r.w / 2, qy + QS + 26, F(600, 14), C.green, 'center');
+                    const r = await drawPayQr(g, s, amountToPay(o), qx, qy, QS, QS, 12, true); // đơn hàng: dùng mã QR ngân hàng đã tải lên
+                    text(r.gen ? 'Quét mã: có sẵn số tiền' : 'Quét mã bằng app ngân hàng', r.x + r.w / 2, qy + QS + 26, F(600, 14), C.green, 'center');
                 } catch (e) { }
             }
             y += bh + 24;
@@ -2624,14 +3938,15 @@ function App() {
         text(s.name.toUpperCase(), W / 2, 50, F(800, 28), '#ffffff');
         text('MÃ QR CHUYỂN KHOẢN', W / 2, 88, F(600, 18), '#fde8e8');
         const QS = 440, qx = (W - QS) / 2, qy = 150;
-        try { drawQrImg(g, await loadQrTrim(s.qrImage), qx, qy, QS, QS, 18, '#E9C25F'); } catch (e) { }
+        let gen = false;
+        try { gen = (await drawPayQr(g, s, amt, qx, qy, QS, QS, 18)).gen; } catch (e) { }
         let y = qy + QS + 64;
         if (amt > 0) { text('Số tiền cần chuyển', W / 2, y - 6, F(400, 18), '#86705F'); y += 38; text(fmt(amt) + ' đ', W / 2, y, F(800, 40), '#B3261E'); y += 44; }
         g.fillStyle = '#FBF7F2'; g.fillRect(40, y, W - 80, 1); y += 40;
         text(s.bankName, W / 2, y, F(700, 22), '#3D2B22'); y += 36;
         text('STK: ' + s.bankAccount, W / 2, y, F(800, 26), '#3D2B22'); y += 34;
         if (s.bankOwner) { text(s.bankOwner.toUpperCase(), W / 2, y, F(600, 20), '#6B5547'); y += 30; }
-        text('Quét mã → nhập đúng số tiền ở trên → Chuyển', W / 2, y + 22, F(400, 16), '#86705F');
+        text(gen ? 'Quét mã bằng app ngân hàng — số tiền đã điền sẵn' : 'Quét mã → nhập đúng số tiền ở trên → Chuyển', W / 2, y + 22, F(400, 16), '#86705F');
         y += 56;
         const out = document.createElement('canvas'); out.width = W * SC; out.height = y * SC;
         { const g2 = out.getContext('2d'); g2.fillStyle = '#FFFFFF'; g2.fillRect(0, 0, out.width, out.height); g2.drawImage(cv, 0, 0); }
@@ -2702,7 +4017,7 @@ function App() {
                     btn('fa-download', 'Lưu ảnh', () => saveOrderImage(false), 'bg-white text-slate-800 border border-slate-300 hover:bg-slate-50'),
                     btn('fa-copy', 'Sao chép chữ', () => copyOrderText(o), 'bg-sky-600 text-white hover:bg-sky-700'),
                     btn('fa-print', 'In / PDF', printOrder, 'bg-slate-800 text-white hover:bg-slate-900'),
-                    (!o.isWalkIn && o.total - o.paid > 0 && !o.key.startsWith('T:')) ? btn('fa-hand-holding-dollar', 'Khách trả tiền', () => setPayOrder({ key: o.key, amount: String(o.total - o.paid), method: 'cash', date: todayStr() }), 'bg-amber-500 text-slate-900 hover:bg-amber-400') : null)));
+                    (!viewOnly && !o.isWalkIn && o.total - o.paid > 0 && !o.key.startsWith('T:')) ? btn('fa-hand-holding-dollar', 'Khách trả tiền', () => setPayOrder({ key: o.key, amount: String(o.total - o.paid), method: 'cash', date: todayStr() }), 'bg-amber-500 text-slate-900 hover:bg-amber-400') : null)));
     };
 
     // Các đơn của khách còn chưa thu đủ (cũ nhất trước) — dùng khi thu tiền theo từng đơn
@@ -2824,8 +4139,8 @@ function App() {
         return h('div', { className: 'space-y-3 md:space-y-6' },
             orderViewModal(),
             payOrderModal(),
-            subSwitch(odView, setOdView, [['tao', 'fa-cart-plus', 'Tạo đơn hàng'], ['ls', 'fa-clock-rotate-left', 'Lịch sử đơn hàng']], 'Đơn hàng'),
-            odView === 'tao' ? h('form', { onSubmit: handleSaveOrder, className: `${CARD} p-3 md:p-6 space-y-3 md:space-y-4` },
+            viewOnly ? null : subSwitch(odView, setOdView, [['tao', 'fa-cart-plus', 'Tạo đơn hàng'], ['ls', 'fa-clock-rotate-left', 'Lịch sử đơn hàng']], 'Đơn hàng'),
+            (odView === 'tao' && !viewOnly) ? h('form', { onSubmit: handleSaveOrder, className: `${CARD} p-3 md:p-6 space-y-3 md:space-y-4` },
                 h('h2', { className: 'hidden md:block text-2xl font-bold text-slate-800' }, h('i', { className: 'fas fa-receipt mr-2 text-blue-600' }), 'Đơn Hàng'),
                 // Gọn: Số đơn | Ngày ; Khách hàng ; (khách lẻ) Tên | SĐT ; Giao hàng (bấm mới mở)
                 h('div', { className: 'grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3' },
@@ -2892,7 +4207,7 @@ function App() {
                         cus ? h('div', { className: 'flex justify-between pt-2 border-t' }, h('span', { className: 'font-bold text-rose-700' }, 'Còn phải trả'), h('b', { className: 'text-xl text-rose-600' }, fmt(total - paid) + ' đ')) : null,
                         h('button', { type: 'submit', disabled: busy, className: 'w-full mt-1.5 py-3 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-700 shadow-lg disabled:opacity-60' },
                             h('i', { className: 'fas ' + (busy ? 'fa-spinner fa-spin' : 'fa-check') + ' mr-2' }), 'Lưu & Xem Đơn Hàng')))) : null,
-            odView === 'ls' ? h('div', { className: `${CARD} p-3 md:p-6 space-y-3 md:space-y-4` },
+            (odView === 'ls' || viewOnly) ? h('div', { className: `${CARD} p-3 md:p-6 space-y-3 md:space-y-4` },
                 h('div', { className: 'text-xs font-semibold text-slate-500 text-right' }, `${recent.length} đơn · ${fmt(recent.reduce((a, x) => a + x.total, 0))} đ`),
                 h('div', { className: 'grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-4 items-end' },
                     h('div', null, lbl('Thời gian'), dateFilter(ordS, v => { setOrdS(v); setOrdPg(0); }, ordE, v => { setOrdE(v); setOrdPg(0); })),
@@ -2908,7 +4223,7 @@ function App() {
                                 h('span', { className: 'truncate' }, h('b', { className: 'text-slate-700' }, x.name), ` · ${fmtDayVN(x.date)} · ${x.n} mặt hàng`),
                                 st ? h('span', { className: `px-1.5 py-0.5 rounded-md text-[11px] font-bold whitespace-nowrap ${st.cls}` }, st.key === 'paid' ? 'Đã trả đủ' : st.key === 'part' ? `Còn ${fmt(left)} đ` : st.key === 'ondelivery' ? 'Trả khi nhận' : 'Chưa trả') : null),
                             h('div', { className: 'flex justify-end gap-1.5' },
-                                o && !o.isWalkIn && left > 0 && !x.key.startsWith('T:') ? h('button', { type: 'button', onClick: () => setPayOrder({ key: x.key, amount: String(left), method: 'cash', date: todayStr() }), className: 'px-3 py-1.5 rounded-lg bg-amber-500 text-slate-900 text-xs font-bold' }, h('i', { className: 'fas fa-hand-holding-dollar mr-1' }), 'Thu tiền') : null,
+                                !viewOnly && o && !o.isWalkIn && left > 0 && !x.key.startsWith('T:') ? h('button', { type: 'button', onClick: () => setPayOrder({ key: x.key, amount: String(left), method: 'cash', date: todayStr() }), className: 'px-3 py-1.5 rounded-lg bg-amber-500 text-slate-900 text-xs font-bold' }, h('i', { className: 'fas fa-hand-holding-dollar mr-1' }), 'Thu tiền') : null,
                                 h('button', { type: 'button', onClick: () => { setViewMode('order'); setOrderView(x.key); }, className: 'px-3 py-1.5 rounded-lg bg-emerald-600 text-white text-xs font-bold' }, h('i', { className: 'fas fa-receipt mr-1' }), 'Xem / Gửi'))); })
                         : h('p', { className: 'text-sm text-slate-400 text-center py-4' }, 'Không có đơn hàng nào'),
                     ),
@@ -2923,7 +4238,7 @@ function App() {
                         h('td', { className: 'p-3 text-right font-bold whitespace-nowrap' }, fmt(x.total) + ' đ'),
                         h('td', { className: 'p-3' }, st ? h('span', { className: `px-2 py-1 rounded-md text-xs font-bold whitespace-nowrap ${st.cls}` }, st.key === 'paid' ? 'Đã trả đủ' : st.key === 'part' ? `Còn ${fmt(left)} đ` : st.key === 'ondelivery' ? 'Trả khi nhận hàng' : 'Chưa thanh toán') : null),
                         h('td', { className: 'p-3 text-center whitespace-nowrap space-x-1' },
-                            o && !o.isWalkIn && left > 0 && !x.key.startsWith('T:') ? h('button', { type: 'button', onClick: () => setPayOrder({ key: x.key, amount: String(left), method: 'cash', date: todayStr() }), className: 'px-3 py-1.5 rounded-lg bg-amber-500 text-slate-900 text-xs font-bold' }, h('i', { className: 'fas fa-hand-holding-dollar mr-1' }), 'Thu tiền') : null,
+                            !viewOnly && o && !o.isWalkIn && left > 0 && !x.key.startsWith('T:') ? h('button', { type: 'button', onClick: () => setPayOrder({ key: x.key, amount: String(left), method: 'cash', date: todayStr() }), className: 'px-3 py-1.5 rounded-lg bg-amber-500 text-slate-900 text-xs font-bold' }, h('i', { className: 'fas fa-hand-holding-dollar mr-1' }), 'Thu tiền') : null,
                             h('button', { type: 'button', onClick: () => { setViewMode('order'); setOrderView(x.key); }, className: 'px-3 py-1.5 rounded-lg bg-emerald-600 text-white text-xs font-bold' }, h('i', { className: 'fas fa-receipt mr-1' }), 'Xem / Gửi'))); }),
                     'Không có đơn hàng nào')), pagerBar(oPg, oPages, setOrdPg)) : null);
     };
@@ -2978,7 +4293,7 @@ function App() {
             h('i', { className: `fas ${ic} text-base` }), t)));
     const nhapSwitch = () => subSwitch(nhView, setNhView, [['tao', 'fa-file-circle-plus', 'Tạo phiếu nhập'], ['ls', 'fa-clock-rotate-left', 'Lịch sử nhập']], 'Nhập hàng');
     const renderTicketForm = () => activeTab === 'nhap'
-        ? h('div', { className: 'space-y-3 md:space-y-6' }, nhapSwitch(), nhView === 'ls' ? renderNhapList() : renderTicketFormInner())
+        ? h('div', { className: 'space-y-3 md:space-y-6' }, viewOnly ? null : nhapSwitch(), (viewOnly || nhView === 'ls') ? renderNhapList() : renderTicketFormInner())
         : renderTicketFormInner();
     const renderTicketFormInner = () => {
         const oldRec = records.find(r => String(r.id) === String(formData.id));
@@ -3292,7 +4607,10 @@ function App() {
         } catch (e) { showToast('Không đọc được ảnh này', 'error'); }
     };
     const qrUploadBox = form => h('div', { className: 'p-3 rounded-xl border-2 border-dashed border-emerald-300 bg-emerald-50/50 space-y-2' },
-        h('p', { className: 'text-xs font-bold text-emerald-800 uppercase' }, h('i', { className: 'fas fa-qrcode mr-1.5' }), 'Mã QR chuyển khoản (ngân hàng cấp)'),
+        h('p', { className: 'text-xs font-bold text-emerald-800 uppercase' }, h('i', { className: 'fas fa-qrcode mr-1.5' }), 'Mã QR chuyển khoản'),
+        (form.bankBin && String(form.bankAccount || '').trim())
+            ? h('p', { className: 'text-xs font-semibold text-emerald-800 bg-white rounded-lg border border-emerald-200 p-2' }, h('i', { className: 'fas fa-circle-check mr-1.5 text-emerald-600' }), `Tab "Mã QR" của đơn: app tự tạo mã theo ${bankNameOf(form.bankBin)} · ${form.bankAccount}, có sẵn số tiền — khách quét là chuyển. Ảnh đơn hàng: dùng ảnh mã QR ngân hàng tải lên bên dưới (chưa tải thì dùng mã tự tạo).`)
+            : h('p', { className: 'text-xs text-amber-800 bg-white rounded-lg border border-amber-200 p-2' }, 'Chọn Ngân hàng + nhập Số tài khoản ở trên để app tự tạo mã QR có sẵn số tiền. Hoặc tải ảnh mã QR ngân hàng cấp (khách phải tự nhập số tiền).'),
         form.qrImage ? h('img', { src: form.qrImage, alt: 'Mã QR ngân hàng', className: 'w-44 h-44 object-contain mx-auto rounded-lg border bg-white' })
             : h('p', { className: 'text-xs text-slate-500' }, 'Mở app ngân hàng → mã QR nhận tiền → chụp màn hình, cắt ảnh chỉ còn phần mã QR rồi tải lên. Mã sẽ in trên đơn hàng và gửi riêng cho khách.'),
         h('div', { className: 'flex gap-2' },
@@ -3350,27 +4668,49 @@ function App() {
             ));
     };
 
-    const renderNhatKy = () => h('div', { className: 'space-y-3 md:space-y-6' },
-        pageHeader('Nhật Ký Nhập Xuất Kho', `${filteredLogRecords.length} phiếu phù hợp`,
-            DEMO_MODE ? null : h('button', { onClick: handleExportCSV, className: 'px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold text-sm shadow flex items-center gap-2' },
-                h('i', { className: 'fas fa-file-excel' }), 'Xuất Excel (CSV)')),
-        h('div', { className: `${CARD} p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3 text-sm` },
-            h('div', { className: 'sm:col-span-2 lg:col-span-6' }, lbl('Thời gian'), dateFilter(logFilterStartDate, setLogFilterStartDate, logFilterEndDate, setLogFilterEndDate)),
-            h('div', null, lbl('Loại Giao Dịch'),
-                h('select', { value: logFilterType, onChange: e => setLogFilterType(e.target.value), className: 'w-full p-2.5 border rounded-xl font-medium' },
-                    h('option', { value: 'all' }, 'Tất cả loại phiếu'),
-                    ['nhap', 'xuat'].map(k => h('option', { key: k, value: k }, REC_TYPES[k].label)))),
-            h('div', null, lbl('Đối Tác'),
-                h('select', { value: logFilterPartner, onChange: e => setLogFilterPartner(e.target.value), className: 'w-full p-2.5 border rounded-xl font-medium' },
-                    h('option', { value: 'all' }, 'Tất cả đối tác'),
-                    partnerOptions.map(p => h('option', { key: p.key, value: p.key }, p.label)))),
-            h('div', null, lbl('Tìm Từ Khóa'),
-                h('input', { type: 'text', placeholder: 'Mã phiếu, mặt hàng, người nhập...', value: logSearchQuery, onChange: e => setLogSearchQuery(e.target.value), className: 'w-full p-2.5 border rounded-xl font-medium' }))),
-        h('div', { className: `${CARD} p-4 md:p-6` },
+    const renderNhatKy = () => {
+        const PG = 6, list = filteredLogRecords, pages = Math.max(1, Math.ceil(list.length / PG)), pg = Math.min(logPg, pages - 1), pageL = list.slice(pg * PG, pg * PG + PG);
+        const f = fn => v => { fn(v); setLogPg(0); }; // đổi bộ lọc => về trang 1
+        const acts = r => [
+            canEdit(user, 'records', r) ? iconBtn('fa-pen', () => handleEditRecord(r), 'text-blue-600', 'Sửa phiếu') : null,
+            canRemove(user, 'records', r) ? iconBtn('fa-trash', () => removeItem('records', r.id, `Xóa phiếu ${r.ticketNo}?`), 'text-rose-600', 'Xóa phiếu') : null];
+        const sumT = list.reduce((a, r) => a + num(r.totalPrice), 0);
+        return h('div', { className: 'space-y-3 md:space-y-6' },
+        h('div', { className: `${CARD} p-3 md:p-4 grid grid-cols-2 lg:grid-cols-6 gap-2 md:gap-3 text-sm` },
+            h('div', { className: 'col-span-2 lg:col-span-6' }, lbl('Thời gian'), dateFilter(logFilterStartDate, f(setLogFilterStartDate), logFilterEndDate, f(setLogFilterEndDate))),
+            h('div', { className: 'lg:col-span-2' }, lbl('Loại phiếu'),
+                h(Picker, { label: 'Loại phiếu', value: logFilterType, onChange: f(setLogFilterType),
+                    options: [{ value: 'all', label: 'Tất cả', muted: true }].concat(['nhap', 'xuat'].map(k => ({ value: k, label: k === 'nhap' ? 'Nhập hàng' : 'Đơn hàng' }))) })),
+            h('div', { className: 'lg:col-span-2' }, lbl('Đối tác'),
+                h(Picker, { label: 'Đối tác', value: logFilterPartner, onChange: f(setLogFilterPartner),
+                    options: [{ value: 'all', label: 'Tất cả', muted: true }].concat(partnerOptions.map(p => ({ value: p.key, label: p.label }))) })),
+            h('div', { className: 'col-span-2 lg:col-span-2' }, lbl('Tìm'),
+                h('input', { type: 'text', placeholder: 'Mã phiếu, mặt hàng, ghi chú...', value: logSearchQuery, onChange: e => f(setLogSearchQuery)(e.target.value), className: 'w-full h-11 px-3 rounded-xl border border-slate-200 bg-white text-[15px] focus:outline-none focus:ring-2 focus:ring-amber-400' }))),
+        h('div', { className: `${CARD} p-3 md:p-6 space-y-3` },
+            h('div', { className: 'flex flex-wrap justify-between items-center gap-2' },
+                h('span', { className: 'text-xs font-semibold text-slate-500' }, `${list.length} phiếu · ${fmt(sumT)} đ`),
+                DEMO_MODE ? null : h('button', { onClick: handleExportCSV, className: 'px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-bold text-xs shadow flex items-center gap-1.5' },
+                    h('i', { className: 'fas fa-file-excel' }), 'Xuất Excel')),
+            // Điện thoại: mỗi phiếu 1 thẻ gọn (giống Lịch sử nhập / Lịch sử đơn)
+            h('div', { className: 'md:hidden space-y-2' },
+                pageL.length ? pageL.map(r => { const t = REC_TYPES[r.type] || REC_TYPES.xuat;
+                    return h('div', { key: r.id, className: 'p-2.5 rounded-xl border bg-white flex items-center gap-2' },
+                        h('div', { className: 'flex-1 min-w-0 space-y-0.5' },
+                            h('div', { className: 'flex justify-between items-baseline gap-2' },
+                                h('span', { className: 'flex items-center gap-1.5 min-w-0' },
+                                    h('span', { className: 'font-mono font-bold text-sm truncate' }, r.ticketNo || ''),
+                                    h('span', { className: `px-1.5 py-0.5 rounded-md text-[10px] font-bold whitespace-nowrap ${t.badge}` }, r.type === 'nhap' ? 'Nhập' : 'Bán')),
+                                h('span', { className: `font-black text-sm whitespace-nowrap ${r.type === 'nhap' ? 'text-amber-700' : 'text-rose-700'}` }, (r.type === 'nhap' ? '+' : '−') + dayText(num(r.quantity)))),
+                            h('div', { className: 'flex justify-between items-baseline gap-2 text-xs text-slate-500' },
+                                h('span', { className: 'truncate' }, h('b', { className: 'text-slate-700' }, catNameOf(r)), ` · ${fmtDayVN(r.date)}${partnerNameOf(r) ? ' · ' + partnerNameOf(r) : ''}`),
+                                h('span', { className: 'whitespace-nowrap font-semibold text-slate-700' }, num(r.totalPrice) ? fmt(r.totalPrice) + ' đ' : ''))),
+                        acts(r).some(Boolean) ? h('div', { className: 'flex shrink-0' }, ...acts(r)) : null); })
+                    : h('p', { className: 'text-sm text-slate-400 text-center py-4' }, 'Chưa có phiếu nào phù hợp')),
+            h('div', { className: 'hidden md:block' },
             table([['Mã Phiếu'], ['Ngày'], ['Loại'], ['Mặt Hàng'], ['Số Lượng', 'text-right'], ['Tồn Kho Sau Phiếu', 'text-right'], ['Đơn Giá', 'text-right'], ['Thành Tiền', 'text-right'], ['Đối Tác'], ['Ghi Chú'], ['Sửa/Xóa', 'text-center']],
-                filteredLogRecords.map(r => h('tr', { key: r.id, className: isApproved(r) ? '' : 'bg-amber-50/40' },
+                pageL.map(r => h('tr', { key: r.id, className: isApproved(r) ? '' : 'bg-amber-50/40' },
                     h('td', { className: 'p-3 font-mono font-bold text-slate-700' }, r.ticketNo),
-                    h('td', { className: 'p-3 font-mono text-slate-500 text-xs whitespace-nowrap' }, r.date),
+                    h('td', { className: 'p-3 text-slate-500 text-xs whitespace-nowrap' }, fmtDayVN(r.date)),
                     h('td', { className: 'p-3' }, h('span', { className: `px-2 py-1 rounded-md text-xs font-bold whitespace-nowrap ${(REC_TYPES[r.type] || REC_TYPES.xuat).badge}` }, (REC_TYPES[r.type] || {}).label || r.typeLabel)),
                     h('td', { className: 'p-3 font-bold' }, r.itemType || '-'),
                     h('td', { className: 'p-3 text-right whitespace-nowrap' },
@@ -3391,8 +4731,9 @@ function App() {
                     h('td', { className: 'p-3 text-center whitespace-nowrap' },
                         canEdit(user, 'records', r) ? iconBtn('fa-pen', () => handleEditRecord(r), 'text-blue-600', 'Sửa phiếu') : null,
                         canRemove(user, 'records', r) ? iconBtn('fa-trash', () => removeItem('records', r.id, `Xóa phiếu ${r.ticketNo}?`), 'text-rose-600', 'Xóa phiếu') : null)
-                )), 'Chưa có nhật ký giao dịch nào phù hợp'))
-    );
+                )), 'Chưa có nhật ký giao dịch nào phù hợp')),
+            pagerBar(pg, pages, setLogPg)));
+    };
 
     /* ---------- MÀN HÌNH: PHIẾU GIAO HÀNG NHÂN VIÊN ---------- */
     /* ---------- MÀN HÌNH: CHUYỂN KHO ---------- */
@@ -3601,6 +4942,7 @@ function App() {
             isHome ? null : h('span', { className: 'flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white border border-[#EADDD0] text-[#3D2B22] font-bold text-[15px] min-w-0 shadow-sm' },
                 currentTab ? h('i', { className: 'fas ' + currentTab.icon + ' text-blue-700' }) : null, h('span', { className: 'truncate' }, currentTab ? (navTabs.find(isAct) || currentTab).label : '')),
             h('div', { className: 'flex-1' }),
+            viewOnly ? h('span', { title: 'Tài khoản chỉ xem', className: 'shrink-0 px-2.5 py-1 rounded-lg bg-sky-50 border border-sky-200 text-sky-800 text-xs font-bold whitespace-nowrap' }, h('i', { className: 'fas fa-eye sm:mr-1' }), h('span', { className: 'hidden sm:inline' }, 'Chỉ xem')) : null,
             syncLine()));
 
     // Trang chủ: chọn chức năng (tên app chỉ hiện ở đây)
