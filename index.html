@@ -2120,7 +2120,7 @@ async function remoteCall(url, action, payload, token) {
         // text/plain để tránh lỗi CORS preflight của Apps Script
         res = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ ...(payload || {}), action, token }), redirect: 'follow' });
     } catch (e) {
-        throw apiError('Không kết nối được Google Sheet. Kiểm tra mạng hoặc URL Web App.', 'NET');
+        throw apiError('Không kết nối được. Kiểm tra mạng hoặc URL Web App.', 'NET');
     }
     let json;
     try { json = await res.json(); } catch (e) {
@@ -2499,7 +2499,7 @@ const statusBadge = x => {
     const st = STATUS_INFO[statusOf(x)];
     const base = h('span', { className: `inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-xs font-bold whitespace-nowrap ${st.badge}`, title: x.rejectReason ? 'Lý do: ' + x.rejectReason : '' },
         h('i', { className: 'fas ' + st.icon }), st.label);
-    if (x._sync === 'pending') return h('span', { className: 'inline-flex items-center gap-1.5' }, base, h('i', { className: 'fas fa-cloud-arrow-up text-sky-500 text-xs', title: 'Đang gửi lên Google Sheet' }));
+    if (x._sync === 'pending') return h('span', { className: 'inline-flex items-center gap-1.5' }, base, h('i', { className: 'fas fa-cloud-arrow-up text-sky-500 text-xs', title: 'Đang gửi đi' }));
     if (x._sync === 'error') return h('span', { className: 'inline-flex items-center gap-1.5' }, base, h('i', { className: 'fas fa-triangle-exclamation text-rose-600 text-xs', title: 'Gửi lỗi: ' + (x._syncError || '') }));
     return base;
 };
@@ -2568,8 +2568,8 @@ function LoginScreen({ apiUrl, onSaveApiUrl, onLoggedIn }) {
                     h('p', { className: 'text-sm text-slate-500' }, 'Kho hàng · Công nợ'),
                     // Màu đặt cố định (xanh lá = đã kết nối) vì bảng màu app đổi "xanh" sang tông đất
                     (() => {
-                        const st = DEMO_MODE || !apiUrl ? null : conn === 'ok' ? { bg: '#DCFCE7', fg: '#15803D', ic: 'fa-circle-check', t: 'Đã kết nối Google Sheet' }
-                            : conn === 'fail' ? { bg: '#FEE2E2', fg: '#B91C1C', ic: 'fa-triangle-exclamation', t: 'Chưa kết nối được Google Sheet' }
+                        const st = DEMO_MODE || !apiUrl ? null : conn === 'ok' ? { bg: '#DCFCE7', fg: '#15803D', ic: 'fa-circle-check', t: 'Đã kết nối' }
+                            : conn === 'fail' ? { bg: '#FEE2E2', fg: '#B91C1C', ic: 'fa-triangle-exclamation', t: 'Chưa kết nối được' }
                             : { bg: '#F1F5F9', fg: '#64748B', ic: 'fa-spinner fa-spin', t: 'Đang kiểm tra kết nối…' };
                         return st ? h('span', { className: 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold', style: { background: st.bg, color: st.fg } }, h('i', { className: 'fas ' + st.ic }), st.t)
                             : h('span', { className: 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800' }, h('i', { className: 'fas fa-laptop' }), DEMO_MODE ? 'Bản dùng thử · dữ liệu mẫu' : 'Chế độ thử nghiệm (offline)');
@@ -2598,7 +2598,7 @@ function LoginScreen({ apiUrl, onSaveApiUrl, onLoggedIn }) {
                     h('p', { className: 'font-mono' }, 'admin123'), TEST_BUILD ? h('p', null, 'Chỉ xem: ', h('span', { className: 'font-mono' }, 'xem123')) : null) : null,
                 DEMO_MODE ? null : h('div', { className: 'border-t pt-4' },
                     h('button', { type: 'button', onClick: () => setShowCfg(!showCfg), className: 'text-sm font-semibold text-slate-500 hover:text-slate-800' },
-                        h('i', { className: 'fas fa-link mr-2' }), 'Cấu hình kết nối Google Sheet ', h('i', { className: 'fas ' + (showCfg ? 'fa-chevron-up' : 'fa-chevron-down') + ' ml-1 text-xs' })),
+                        h('i', { className: 'fas fa-link mr-2' }), 'Cấu hình kết nối ', h('i', { className: 'fas ' + (showCfg ? 'fa-chevron-up' : 'fa-chevron-down') + ' ml-1 text-xs' })),
                     showCfg ? h('div', { className: 'mt-3 space-y-2' },
                         h('input', { type: 'text', value: urlDraft, onChange: e => setUrlDraft(e.target.value), placeholder: 'https://script.google.com/macros/s/.../exec', className: INP + ' font-mono text-xs' }),
                         h('div', { className: 'flex gap-2' },
@@ -2701,6 +2701,7 @@ function App() {
     // Phạm vi làm việc chọn sau khi đăng nhập: '' = Tổng các kho, id = chỉ quản lý riêng kho đó, null = chưa chọn
     const [scope, setScopeRaw] = useState(() => lsGet('bh_scope'));
     const [logSearchQuery, setLogSearchQuery] = useState('');
+    const [payPg, setPayPg] = useState(0); // trang lịch sử phiếu thanh toán
     const [logPg, setLogPg] = useState(0); // trang Nhật ký (6 dòng / trang)
 
     const [inputMode, setInputMode] = useState(UI0.inputMode || 'qua');
@@ -3022,7 +3023,7 @@ function App() {
     const retrySync = qid => { setOutbox(outboxRef.current.map(o => (!qid || o.qid === qid) ? { ...o, error: '' } : o)); setTimeout(() => flush(), 50); };
     const dropSync = async qid => {
         const o = outboxRef.current.find(x => x.qid === qid); if (!o) return;
-        if (!(await askConfirm('Bỏ thao tác này? Dữ liệu sẽ trở về như trên Google Sheet.', 'Bỏ'))) return;
+        if (!(await askConfirm('Bỏ thao tác này? Dữ liệu sẽ trở về như đã lưu.', 'Bỏ'))) return;
         setOutbox(outboxRef.current.filter(x => x.qid !== qid));
         if (o.action === 'save' && o.isNew) setDb(prev => ({ ...prev, [o.collection]: (prev[o.collection] || []).filter(x => String(x.id) !== String(o.local.id)) }));
         else loadAll(true);
@@ -4617,7 +4618,24 @@ function App() {
         const canPay = canWrite(user, 'payments');
         const heads = [[kind === 'customer' ? 'Khách Hàng' : 'Nhà Cung Cấp'], [kind === 'customer' ? 'Tổng Tiền Xuất' : 'Tổng Tiền Nhập', 'text-right'], [kind === 'customer' ? 'Đã Thu' : 'Đã Trả', 'text-right'], [kind === 'customer' ? 'Còn Phải Thu' : 'Còn Nợ NCC', 'text-right']];
         if (canPay) heads.push(['Thao Tác', 'text-center']);
-        return table(heads, rows.map(c => h('tr', { key: c.id },
+        const openPay = c => setPayModal({ show: true, id: null, date: todayStr(), partnerId: String(c.id), partnerName: c.name, type: kind, warehouseId: SW || DW || '', sel: kind === 'customer' ? Object.fromEntries(openOrdersOf(c.id).map(o => [o.key, String(o.left)])) : undefined,
+            debtStaffId: kind === 'customer' ? 'none' : '', amount: c.remaining > 0 ? String(c.remaining) : '', notes: kind === 'customer' ? 'Thu tiền khách hàng' : 'Trả tiền nhà cung cấp' });
+        const sumOf = k => rows.reduce((a, c) => a + c[k], 0), paidLb = kind === 'customer' ? 'Đã thu' : 'Đã trả', leftLb = kind === 'customer' ? 'Còn thu' : 'Còn nợ';
+        // Điện thoại: mỗi khách / NCC 1 thẻ gọn
+        const cards = h('div', { className: 'md:hidden space-y-2' },
+            rows.length ? rows.map(c => h('div', { key: c.id, className: 'p-2.5 rounded-xl border bg-white space-y-1.5' },
+                h('div', { className: 'flex items-center justify-between gap-2' },
+                    h('span', { className: 'font-bold text-slate-800 min-w-0 truncate' }, c.name),
+                    canPay ? h('button', { type: 'button', onClick: () => openPay(c), className: `shrink-0 px-3 py-1.5 text-white rounded-lg font-bold text-xs shadow ${kind === 'customer' ? 'bg-emerald-600' : 'bg-orange-600'}` }, kind === 'customer' ? 'Thu Tiền' : 'Trả Tiền') : null),
+                h('div', { className: 'grid grid-cols-3 gap-1 text-[11px]' },
+                    h('div', null, h('div', { className: 'text-slate-400 font-semibold' }, 'Tổng'), h('div', { className: 'font-bold text-slate-700 whitespace-nowrap' }, `${fmt(c.totalAmount)} đ`)),
+                    h('div', null, h('div', { className: 'text-slate-400 font-semibold' }, paidLb), h('div', { className: 'font-bold text-emerald-600 whitespace-nowrap' }, `${fmt(c.paidAmount)} đ`)),
+                    h('div', { className: 'text-right' }, h('div', { className: 'text-slate-400 font-semibold' }, leftLb), h('div', { className: `font-black whitespace-nowrap ${c.remaining > 0 ? 'text-rose-600' : 'text-slate-400'}` }, `${fmt(c.remaining)} đ`))),
+                kind === 'customer' && c.remaining > 0 ? h('button', { type: 'button', onClick: () => setDebtDetail({ cid: String(c.id), wh: DW || '' }), className: 'text-xs font-bold text-rose-600' }, h('i', { className: 'fas fa-list-ul mr-1' }), 'Xem lý do nợ') : null))
+            .concat(rows.length > 1 ? [h('div', { key: '__sum', className: 'p-2.5 rounded-xl bg-slate-50 flex justify-between gap-2 text-sm font-black' },
+                h('span', null, `Tổng ${DW ? whName(L, DW) : 'tất cả'}`), h('span', { className: 'text-rose-600 whitespace-nowrap' }, `${leftLb} ${fmt(sumOf('remaining'))} đ`))] : [])
+            : h('p', { className: 'text-center text-sm text-slate-400 py-4' }, DW ? `Không có công nợ phát sinh ở ${whName(L, DW)}` : 'Chưa có dữ liệu'));
+        return h(React.Fragment, null, cards, h('div', { className: 'hidden md:block' }, table(heads, rows.map(c => h('tr', { key: c.id },
             h('td', { className: 'p-3 font-bold text-slate-800' }, c.name,
                 kind === 'customer' && c.remaining > 0 ? h('button', { type: 'button', onClick: () => setDebtDetail({ cid: String(c.id), wh: DW || '' }),
                     className: 'mt-1 text-xs font-bold text-rose-600 hover:underline' }, h('i', { className: 'fas fa-list-ul mr-1' }), 'Xem lý do nợ') : null),
@@ -4626,8 +4644,7 @@ function App() {
             h('td', { className: 'p-3 text-right font-black text-rose-600' }, `${fmt(c.remaining)} đ`),
             canPay ? h('td', { className: 'p-3 text-center' },
                 h('button', {
-                    onClick: () => setPayModal({ show: true, id: null, date: todayStr(), partnerId: String(c.id), partnerName: c.name, type: kind, warehouseId: SW || DW || '', sel: kind === 'customer' ? Object.fromEntries(openOrdersOf(c.id).map(o => [o.key, String(o.left)])) : undefined,
-                        debtStaffId: kind === 'customer' ? 'none' : '', amount: c.remaining > 0 ? String(c.remaining) : '', notes: kind === 'customer' ? 'Thu tiền khách hàng' : 'Trả tiền nhà cung cấp' }),
+                    onClick: () => openPay(c),
                     className: `px-3 py-1.5 text-white rounded-lg font-bold text-xs shadow ${kind === 'customer' ? 'bg-emerald-600 hover:bg-emerald-700' : 'bg-orange-600 hover:bg-orange-700'}`
                 }, kind === 'customer' ? 'Thu Tiền' : 'Trả Tiền')) : null
         )).concat((rows.length > 1 || (DW && rows.length)) ? [h('tr', { key: '__sum', className: 'bg-slate-50 font-black' },
@@ -4635,7 +4652,7 @@ function App() {
             h('td', { className: 'p-3 text-right' }, `${fmt(rows.reduce((a, c) => a + c.totalAmount, 0))} đ`),
             h('td', { className: 'p-3 text-right text-emerald-600' }, `${fmt(rows.reduce((a, c) => a + c.paidAmount, 0))} đ`),
             h('td', { className: 'p-3 text-right text-rose-600' }, `${fmt(rows.reduce((a, c) => a + c.remaining, 0))} đ`),
-            canPay ? h('td', null) : null)] : []), DW ? `Không có công nợ phát sinh ở ${whName(L, DW)}` : undefined);
+            canPay ? h('td', null) : null)] : []), DW ? `Không có công nợ phát sinh ở ${whName(L, DW)}` : undefined)));
     };
 
     const renderCongNo = () => h('div', { className: 'space-y-3 md:space-y-6' },
@@ -4670,8 +4687,29 @@ function App() {
                     h('h3', { className: `text-base md:text-lg font-bold ${debtView === 'customer' ? 'text-blue-800' : 'text-amber-800'}` }, debtView === 'customer' ? 'Chi tiết công nợ khách hàng' : 'Chi tiết công nợ nhà cung cấp'),
                     debtView === 'customer' ? debtTable(cus, 'customer') : debtTable(sup, 'supplier')) : null);
         })(),
-        h('div', { className: `${CARD} p-4 md:p-6 space-y-3 md:space-y-4` },
-            h('h3', { className: 'text-lg font-bold text-slate-800' }, 'Lịch Sử Các Phiếu Thanh Toán Công Nợ'),
+        (() => {
+            // Lịch sử phiếu thanh toán: điện thoại dùng thẻ gọn, 6 phiếu / trang
+            const PG = 6, pages = Math.max(1, Math.ceil(payments.length / PG)), pg = Math.min(payPg, pages - 1), pageP = payments.slice(pg * PG, pg * PG + PG);
+            const editPay = p => p.staffId ? handleEditGh(p, true) : setPayModal({ show: true, id: p.id, date: p.date, partnerId: idOf(payPartner(L, p)), partnerName: payNameOf(p), type: p.type, nhapId: p.nhapId || '', warehouseId: p.warehouseId || '', ...pmFrom(p, p.amount), debtStaffId: debtStaffOf(p), amount: String(p.amount), notes: p.notes });
+            const typeTag = p => h('span', { className: `px-1.5 py-0.5 rounded-md text-[11px] font-bold whitespace-nowrap ${p.type === 'supplier' ? 'bg-amber-100 text-amber-800' : 'bg-blue-100 text-blue-800'}` }, p.type === 'supplier' ? 'Trả NCC' : (p.staffId ? 'NV thu hộ' : 'Thu khách'));
+            return h('div', { className: `${CARD} p-3 md:p-6 space-y-3 md:space-y-4` },
+            h('h3', { className: 'text-base md:text-lg font-bold text-slate-800' }, 'Lịch Sử Các Phiếu Thanh Toán Công Nợ'),
+            h('div', { className: 'md:hidden space-y-2' },
+                pageP.length ? pageP.map(p => { const acts = [canEdit(user, 'payments', p) ? iconBtn('fa-pen', () => editPay(p), 'text-blue-600', 'Sửa') : null, canRemove(user, 'payments', p) ? iconBtn('fa-trash', () => removeItem('payments', p.id, 'Xóa phiếu thanh toán này?'), 'text-rose-600', 'Xóa') : null];
+                    return h('div', { key: p.id, className: `p-2.5 rounded-xl border flex items-center gap-2 ${isApproved(p) ? 'bg-white' : 'bg-amber-50/60'}` },
+                        h('div', { className: 'flex-1 min-w-0 space-y-0.5' },
+                            h('div', { className: 'flex items-center justify-between gap-2' },
+                                h('div', { className: 'min-w-0 flex items-center gap-1.5' }, typeTag(p), h('span', { className: 'text-[11px] font-semibold text-slate-400 whitespace-nowrap' }, fmtDayVN(p.date))),
+                                h('span', { className: 'font-black text-emerald-600 whitespace-nowrap text-sm' }, `${fmt(p.amount)} đ`)),
+                            h('div', { className: 'flex items-center justify-between gap-2' },
+                                h('span', { className: 'text-sm font-bold text-slate-800 truncate min-w-0' }, payNameOf(p)),
+                                pmTag(p.amount, p.bankAmount)),
+                            [p.staffId ? 'NV: ' + ((L.staff.byId[String(p.staffId)] || {}).name || p.staffId) : '', p.notes].filter(Boolean).length ? h('div', { className: 'text-[11px] text-slate-500 truncate' }, [p.staffId ? 'NV: ' + ((L.staff.byId[String(p.staffId)] || {}).name || p.staffId) : '', p.notes].filter(Boolean).join(' · ')) : null,
+                            isApproved(p) ? null : h('div', null, statusBadge(p), rejectNote(p))),
+                        acts.some(Boolean) ? h('div', { className: 'flex shrink-0' }, ...acts) : null); })
+                : h('p', { className: 'text-center text-sm text-slate-400 py-4' }, 'Chưa có phiếu thanh toán nào'),
+                pagerBar(pg, pages, setPayPg)),
+            h('div', { className: 'hidden md:block' },
             table([['Ngày'], ['Loại Thanh Toán'], ['Đối Tác'], ['Số Tiền', 'text-right'], ['Ghi Chú'], ['Người Nhập'], ['Trạng Thái'], ['Thao Tác', 'text-center']],
                 payments.map(p => h('tr', { key: p.id, className: isApproved(p) ? '' : 'bg-amber-50/40' },
                     h('td', { className: 'p-3 font-semibold text-xs whitespace-nowrap' }, fmtDayVN(p.date)),
@@ -4684,7 +4722,7 @@ function App() {
                     h('td', { className: 'p-3 text-center whitespace-nowrap' },
                         canEdit(user, 'payments', p) ? iconBtn('fa-pen', () => p.staffId ? handleEditGh(p, true) : setPayModal({ show: true, id: p.id, date: p.date, partnerId: idOf(payPartner(L, p)), partnerName: payNameOf(p), type: p.type, nhapId: p.nhapId || '', warehouseId: p.warehouseId || '', ...pmFrom(p, p.amount), debtStaffId: debtStaffOf(p), amount: String(p.amount), notes: p.notes }), 'text-blue-600', 'Sửa') : null,
                         canRemove(user, 'payments', p) ? iconBtn('fa-trash', () => removeItem('payments', p.id, 'Xóa phiếu thanh toán này?'), 'text-rose-600', 'Xóa') : null)
-                )), 'Chưa có phiếu thanh toán nào'))
+                )), 'Chưa có phiếu thanh toán nào'))); })()
     );
 
     const renderDongTien = () => {
@@ -5131,7 +5169,7 @@ function App() {
     if (!loaded) {
         return h('div', { className: 'min-h-screen flex flex-col items-center justify-center gap-4 text-slate-600' },
             loading
-                ? h(React.Fragment, null, h('i', { className: 'fas fa-spinner fa-spin text-4xl text-amber-500' }), h('p', { className: 'font-semibold' }, isRemote ? 'Đang tải dữ liệu từ Google Sheet...' : 'Đang tải dữ liệu...'))
+                ? h(React.Fragment, null, h('i', { className: 'fas fa-spinner fa-spin text-4xl text-amber-500' }), h('p', { className: 'font-semibold' }, isRemote ? 'Đang tải dữ liệu...' : 'Đang tải dữ liệu...'))
                 : h(React.Fragment, null,
                     h('i', { className: 'fas fa-triangle-exclamation text-4xl text-rose-500' }),
                     h('p', { className: 'font-semibold' }, 'Không tải được dữ liệu.'),
@@ -5208,7 +5246,7 @@ function App() {
             h('i', { className: 'fas fa-circle-exclamation mt-0.5' }), h('span', null, `Chưa gửi được ${pendingOps} thao tác: ${syncErr}. Tự thử lại sau 15 giây.`));
         if (pendingOps) return h('div', { className: 'px-3 py-2 text-xs text-sky-700 flex items-center gap-2' },
             h('i', { className: 'fas fa-spinner fa-spin' }), `Đang gửi ${pendingOps} thao tác lên Sheet…`);
-        return h('div', { className: 'px-1 text-xs text-slate-400 flex items-center gap-1.5 whitespace-nowrap', title: 'Đã đồng bộ Google Sheet' + (lastSync ? ' · ' + lastSync : '') },
+        return h('div', { className: 'px-1 text-xs text-slate-400 flex items-center gap-1.5 whitespace-nowrap', title: 'Đã đồng bộ' + (lastSync ? ' · ' + lastSync : '') },
             h('span', { className: 'w-2 h-2 rounded-full bg-emerald-400' }), h('span', { className: 'hidden sm:inline' }, 'Đã đồng bộ'), lastSync ? ` ${lastSync}` : '');
     };
     const syncPill = () => (isRemote && (pendingOps || errorOps)) ? h('button', { onClick: () => setSyncPanel(true),
@@ -5218,7 +5256,7 @@ function App() {
     const syncModal = () => syncPanel ? h('div', { className: 'fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 flex items-center justify-center p-4' },
         h('div', { className: 'bg-white rounded-2xl shadow-2xl p-6 w-full max-w-2xl space-y-4 max-h-[85vh] overflow-y-auto' },
             h('div', { className: 'flex justify-between items-center' },
-                h('h3', { className: 'text-lg font-bold text-slate-800' }, 'Hàng chờ gửi lên Google Sheet'),
+                h('h3', { className: 'text-lg font-bold text-slate-800' }, 'Hàng chờ gửi đi'),
                 h('button', { onClick: () => setSyncPanel(false), className: 'text-slate-400 hover:text-slate-600' }, h('i', { className: 'fas fa-xmark text-xl' }))),
             syncErr ? h('div', { className: 'p-3 rounded-xl bg-amber-50 border border-amber-200 text-sm text-amber-900' }, h('b', null, 'Lần gửi gần nhất bị lỗi: '), syncErr,
                 h('div', { className: 'text-xs mt-1' }, 'Nếu lỗi do máy chủ, kiểm tra Code.gs đã được Triển khai → Quản lý triển khai → Phiên bản mới chưa.')) : null,
@@ -5268,7 +5306,7 @@ function App() {
             topBar,
             toast.show ? h('div', { className: `fixed top-5 right-5 z-50 max-w-sm px-5 py-4 rounded-xl shadow-2xl text-white font-semibold ${toast.type === 'error' ? 'bg-red-600' : 'bg-emerald-600'}` }, toast.message) : null,
             busy ? h('div', { className: 'fixed top-5 left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded-full bg-slate-900 text-white text-sm font-semibold shadow-lg' },
-                h('i', { className: 'fas fa-spinner fa-spin mr-2' }), isRemote ? 'Đang lưu lên Google Sheet...' : 'Đang lưu...') : null,
+                h('i', { className: 'fas fa-spinner fa-spin mr-2' }), isRemote ? 'Đang lưu...' : 'Đang lưu...') : null,
             SW ? h('div', { className: 'mb-4 px-4 py-2.5 rounded-xl border-2 text-sm flex flex-wrap items-center justify-between gap-2', style: { background: whColor(L, SW).soft, borderColor: whColor(L, SW).solid, color: whColor(L, SW).text } },
                 h('span', null, h('i', { className: 'fas fa-warehouse mr-2' }), 'Đang làm việc riêng ', h('b', null, whName(L, SW)), ' — phiếu mới tự ghi cho kho này. Mọi số liệu vẫn cộng vào Tổng các kho.'),
                 h('button', { onClick: changeScope, className: 'px-3 py-1.5 rounded-lg bg-white border font-bold text-xs', style: { borderColor: whColor(L, SW).solid } }, h('i', { className: 'fas fa-right-left mr-1' }), 'Đổi kho')) : null,
