@@ -3311,8 +3311,10 @@ function App() {
         showToast(amt >= left ? `Phiếu ${r.ticketNo} đã thanh toán đủ` : `Đã trả ${fmt(amt)} đ cho phiếu ${r.ticketNo}`);
         setNhPay(null);
     };
+    let nhPayDrawn = false; // mỗi lần vẽ màn hình chỉ hiện 1 hộp trả tiền NCC (có thể được gọi từ nhiều chỗ)
     const nhPayModal = () => {
-        if (!nhPay) return null;
+        if (!nhPay || nhPayDrawn) return null;
+        nhPayDrawn = true;
         const r = records.find(x => String(x.id) === String(nhPay.id));
         if (!r) return null;
         const paid = nhapPaidOf(r), left = num(r.totalPrice) - paid;
@@ -3425,6 +3427,7 @@ function App() {
             if (activeTab !== 'nhap') setActiveTab('nhatky'); // sửa phiếu nhập: ở lại trang Phiếu Nhập (có danh sách)
         } else {
             showToast(`Đã lưu phiếu ${saved.ticketNo}${savedNote(saved)}!`);
+            if (type === 'nhap') { setViewMode('order'); setOrderView('N:' + saved.id); } // mở ảnh phiếu nhập để gửi / in
             setFormData(prev => ({ ...prev, id: null, ticketNo: generateTicketNo(type, [saved, ...records]), price: '', notes: '' })); // giữ chế độ xuất bán / xuất cho NV
             setInputQty('');
         }
@@ -4153,6 +4156,16 @@ function App() {
             deliveryDate: r0.deliveryDate || '', deliveryAddress: r0.deliveryAddress || ''
         };
     };
+    // Phiếu nhập dạng "đơn" để vẽ ảnh: mã 'N:<id phiếu>'
+    const buildNhapDoc = id => {
+        const r = records.find(x => String(x.id) === String(id) && x.type === 'nhap'); if (!r) return null;
+        const sup = recPartner(L, r), c = recCat(L, r), total = num(r.totalPrice), paid = Math.min(total, nhapPaidOf(r));
+        return { kind: 'nhap', key: 'N:' + r.id, no: r.ticketNo || '', date: r.date, r,
+            customer: sup ? { name: sup.name, phone: sup.phone || '', address: sup.address || '' } : { name: r.partner || '—', phone: '', address: '' },
+            isWalkIn: false, lines: [{ name: c ? c.name : (r.itemType || ''), code: c ? c.code : '', qty: num(r.quantity), price: num(r.price), total }],
+            total, paid, prev: 0, discount: 0, notes: r.notes || '', recs: [r], pays: nhapPaysOf ? nhapPaysOf(r) : [], payTerm: '', deliveryDate: '', deliveryAddress: '' };
+    };
+    const buildDoc = key => !key ? null : String(key).startsWith('N:') ? buildNhapDoc(String(key).slice(2)) : buildOrder(key, true);
     const fmtDayVN = d => { const m = String(d || '').match(/^(\d{4})-(\d{2})-(\d{2})/); return m ? `${m[3]}/${m[2]}/${m[1]}` : String(d || ''); };
     const qtyLabel = q => { const day = q / EGGS_PER_DAY; return Number.isInteger(day) ? `${fmt(day)} dây` : `${fmt(q)} quả`; };
 
@@ -4190,12 +4203,13 @@ function App() {
         text(s.name.toUpperCase(), P, 62, F(800, 34), '#ffffff');
         subLines.forEach((t, i) => text(t, P, 98 + i * 26, F(400, 18), '#fde8e8'));
         let y = headH + 64;
-        text('ĐƠN HÀNG', P, y, F(800, 38), C.ink);
+        const isN = o.kind === 'nhap';
+        text(isN ? 'PHIẾU NHẬP HÀNG' : 'ĐƠN HÀNG', P, y, F(800, 38), C.ink);
         text('Số: ' + o.no, W - P, y - 16, F(700, 20), C.ink, 'right');
         text('Ngày: ' + fmtDayVN(o.date), W - P, y + 12, F(400, 18), C.mute, 'right');
         y += 32;
         // Khách hàng
-        const cusRows = [['Khách hàng', o.customer.name], o.customer.phone ? ['Điện thoại', o.customer.phone] : null,
+        const cusRows = [[isN ? 'Nhà cung cấp' : 'Khách hàng', o.customer.name], o.customer.phone ? ['Điện thoại', o.customer.phone] : null,
             o.deliveryAddress ? ['Giao đến', o.deliveryAddress] : (o.customer.address ? ['Địa chỉ', o.customer.address] : null),
             o.deliveryDate ? ['Ngày giao', fmtDayVN(o.deliveryDate)] : null].filter(Boolean);
         const cusLines = cusRows.map(([k, v]) => ({ k, lines: wrap(v, W - 2 * P - 190, F(700, 20)) }));
@@ -4205,7 +4219,9 @@ function App() {
         cusLines.forEach(x => { text(x.k, P + 24, cy, F(400, 18), C.mute); x.lines.forEach((t, i) => text(t, P + 170, cy + i * 30, F(700, 20), C.ink)); cy += x.lines.length * 30; });
         y += boxH + 18;
         // Tình trạng thanh toán
-        { const st = orderStatus(o);
+        { const left = o.total - o.paid;
+          const st = !isN ? orderStatus(o) : left <= 0 ? { text: 'ĐÃ THANH TOÁN ĐỦ CHO NHÀ CUNG CẤP', color: '#A6731A', bg: '#FDF8EC' }
+              : o.paid > 0 ? { text: `ĐÃ TRẢ ${fmt(o.paid)} đ · CÒN NỢ ${fmt(left)} đ`, color: '#A6731A', bg: '#FDF8EC' } : { text: 'CHƯA THANH TOÁN CHO NHÀ CUNG CẤP', color: '#B3261E', bg: '#FEF2F1' };
           rr(P, y, W - 2 * P, 52, 12, st.bg, st.color);
           text('Thanh toán:', P + 24, y + 33, F(400, 18), C.mute);
           text(st.text, P + 140, y + 34, F(800, 19), st.color);
@@ -4235,19 +4251,19 @@ function App() {
         const owe = o.prev + o.total - o.paid;
         const sums = [['Tổng tiền hàng', fmt(o.total + o.discount) + ' đ', C.ink, F(700, 21)]];
         if (o.discount) { sums.push(['Giảm giá', '− ' + fmt(o.discount) + ' đ', C.red, F(700, 21)]); sums.push(['Tổng thanh toán', fmt(o.total) + ' đ', C.ink, F(800, 22)]); }
-        if (o.paid) sums.push([o.isWalkIn ? 'Khách đã trả' : 'Đã thanh toán', '− ' + fmt(o.paid) + ' đ', C.green, F(700, 21)]);
+        if (o.paid) sums.push([isN ? 'Đã trả nhà cung cấp' : o.isWalkIn ? 'Khách đã trả' : 'Đã thanh toán', '− ' + fmt(o.paid) + ' đ', C.green, F(700, 21)]);
         sums.forEach(([k, v, col, ft]) => { text(k, 520, y + 26, F(400, 19), C.mute, 'right'); text(v, X.amt, y + 26, ft, col, 'right'); y += 38; });
-        if (!o.isWalkIn || o.total - o.paid > 0) {
+        if (isN ? o.total - o.paid > 0 : (!o.isWalkIn || o.total - o.paid > 0)) {
             y += 8;
             rr(380, y, W - P - 380, 64, 12, '#FEF2F1', '#FBC8C2');
-            text(owe < 0 ? 'KHÁCH CÒN DƯ' : 'CÒN PHẢI TRẢ', 404, y + 40, F(800, 18), C.red);
+            text(isN ? 'CÒN NỢ NCC' : owe < 0 ? 'KHÁCH CÒN DƯ' : 'CÒN PHẢI TRẢ', 404, y + 40, F(800, 18), C.red);
             text(fmt(Math.abs(o.isWalkIn ? o.total - o.paid : owe)) + ' đ', X.amt, y + 42, F(800, 28), C.red, 'right');
             y += 64;
         }
         y += 30;
         // Ghi chú + chuyển khoản
         if (o.notes) { const nl = wrap('Ghi chú: ' + o.notes, W - 2 * P, F(400, 18)); nl.forEach((t, i) => text(t, P, y + i * 28, F(400, 18), C.ink)); y += nl.length * 28 + 16; }
-        if (s.bankAccount && amountToPay(o) > 0) {
+        if (!isN && s.bankAccount && amountToPay(o) > 0) {
             const qr = canQr(s), QS = 210;
             const bl = [`Ngân hàng: ${s.bankName || '—'}`, `Số tài khoản: ${s.bankAccount}`, s.bankOwner ? `Chủ tài khoản: ${s.bankOwner}` : null, `Số tiền: ${fmt(amountToPay(o))} đ`].filter(Boolean);
             const bh = Math.max(52 + bl.length * 30, qr ? QS + 56 : 0);
@@ -4265,8 +4281,10 @@ function App() {
         }
         y += 16;
         g.fillStyle = C.line; g.fillRect(P, y, W - 2 * P, 1);
-        text('Cảm ơn quý khách!', W / 2, y + 44, F(700, 20), C.brand, 'center');
-        y += 76;
+        if (isN) { // chỗ ký xác nhận giao / nhận hàng
+            [['NGƯỜI GIAO HÀNG', W / 4], ['NGƯỜI NHẬN HÀNG', W * 3 / 4]].forEach(([t, x]) => { text(t, x, y + 44, F(700, 17), C.ink, 'center'); text('(Ký, ghi rõ họ tên)', x, y + 68, F(400, 15), C.mute, 'center'); });
+            y += 170;
+        } else { text('Cảm ơn quý khách!', W / 2, y + 44, F(700, 20), C.brand, 'center'); y += 76; }
         const out = document.createElement('canvas'); out.width = W * SC; out.height = y * SC;
         { const g2 = out.getContext('2d'); g2.fillStyle = '#FFFFFF'; g2.fillRect(0, 0, out.width, out.height); g2.drawImage(cv, 0, 0); }
         return out;
@@ -4299,17 +4317,17 @@ function App() {
     };
     const [viewMode, setViewMode] = useState('order'); // 'order' | 'qr'
     // Chỉ vẽ lại ảnh khi NỘI DUNG đơn / cửa hàng đổi (không vẽ lại mỗi lần đồng bộ); mã hóa ảnh ở nền (toBlob) để không giật
-    const orderSig = orderView ? JSON.stringify([buildOrder(orderView, true), shopInfo(), viewMode]) : '';
+    const orderSig = orderView ? JSON.stringify([buildDoc(orderView), shopInfo(), viewMode]) : '';
     // Ảnh tạo sẵn 1 lần khi mở đơn (JPG nền trắng, nhẹ) => bấm Gửi / Lưu là dùng ngay, không phải chờ vẽ lại
     const orderFile = useRef(null); // { sig, blob, name }
     useEffect(() => {
         let dead = false, url = '';
         setOrderImg(''); orderFile.current = null;
-        const o = orderView ? buildOrder(orderView, true) : null;
-        const isQr = viewMode === 'qr' && canQr(shopInfo());
+        const o = buildDoc(orderView);
+        const isQr = viewMode === 'qr' && canQr(shopInfo()) && !(o && o.kind === 'nhap');
         if (o) (isQr ? drawQrCard(o) : drawOrder(o))
             .then(cv => new Promise(res => cv.toBlob(res, 'image/jpeg', 0.92)))
-            .then(blob => { if (!dead && blob) { orderFile.current = { sig: orderSig, blob, name: `${isQr ? 'QR' : 'Don-hang'}-${String(o.no).replace(/[^\w-]+/g, '_')}.jpg` }; url = URL.createObjectURL(blob); setOrderImg(url); } }).catch(() => { });
+            .then(blob => { if (!dead && blob) { orderFile.current = { sig: orderSig, blob, name: `${isQr ? 'QR' : o.kind === 'nhap' ? 'Phieu-nhap' : 'Don-hang'}-${String(o.no).replace(/[^\w-]+/g, '_')}.jpg` }; url = URL.createObjectURL(blob); setOrderImg(url); } }).catch(() => { });
         return () => { dead = true; if (url) setTimeout(() => URL.revokeObjectURL(url), 2000); };
     }, [orderSig]);
 
@@ -4337,27 +4355,30 @@ function App() {
 
     const orderViewModal = () => {
         if (!orderView) return null;
-        const o = buildOrder(orderView, true);
+        const o = buildDoc(orderView);
         if (!o) return null;
+        const isN = o.kind === 'nhap';
         const btn = (icon, label, onClick, cls) => h('button', { type: 'button', onClick, className: `flex-1 min-w-0 px-2 py-3 rounded-xl font-bold text-[13px] sm:text-sm shadow-sm whitespace-nowrap flex items-center justify-center gap-1.5 ${cls}` }, h('i', { className: `fas ${icon}` }), label);
         return h('div', { className: 'fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-start md:items-center justify-center p-3 overflow-y-auto', onClick: e => { if (e.target === e.currentTarget) setOrderView(null); } },
             h('div', { className: 'bg-white rounded-2xl shadow-2xl w-full max-w-xl p-4 space-y-3 my-4' },
                 h('div', { className: 'flex justify-between items-center' },
-                    h('h3', { className: 'text-lg font-bold text-slate-800' }, h('i', { className: 'fas fa-receipt mr-2 text-amber-600' }), 'Đơn hàng ' + o.no),
+                    h('h3', { className: 'text-lg font-bold text-slate-800' }, h('i', { className: `fas ${isN ? 'fa-file-import' : 'fa-receipt'} mr-2 text-amber-600` }), (isN ? 'Phiếu nhập ' : 'Đơn hàng ') + o.no),
                     h('button', { type: 'button', onClick: () => setOrderView(null), className: 'text-slate-400 hover:text-slate-600' }, h('i', { className: 'fas fa-xmark text-xl' }))),
-                (() => { const sh = shopInfo(); return canQr(sh) ? h('div', { className: 'grid grid-cols-2 gap-1 rounded-xl border p-1 bg-slate-50' },
+                (() => { const sh = shopInfo(); return canQr(sh) && !isN ? h('div', { className: 'grid grid-cols-2 gap-1 rounded-xl border p-1 bg-slate-50' },
                     [['order', 'fa-receipt', 'Đơn hàng'], ['qr', 'fa-qrcode', `Mã QR${amountToPay(o) > 0 ? ' · ' + fmt(amountToPay(o)) + ' đ' : ''}`]].map(([v, ic, t]) =>
                         h('button', { key: v, type: 'button', onClick: () => setViewMode(v), className: `py-2.5 rounded-lg text-sm font-bold ${viewMode === v ? 'bg-white shadow text-emerald-700 ring-2 ring-emerald-300' : 'text-slate-500'}` }, h('i', { className: `fas ${ic} mr-2` }), t)))
                     : null; })(),
                 h('div', { id: 'order-print', className: 'rounded-xl border overflow-hidden bg-slate-50' },
-                    orderImg ? h('img', { src: orderImg, alt: 'Đơn hàng ' + o.no, className: 'w-full block' })
-                        : h('div', { className: 'p-10 text-center text-slate-400' }, h('i', { className: 'fas fa-spinner fa-spin mr-2' }), 'Đang tạo đơn...')),
+                    orderImg ? h('img', { src: orderImg, alt: (isN ? 'Phiếu nhập ' : 'Đơn hàng ') + o.no, className: 'w-full block' })
+                        : h('div', { className: 'p-10 text-center text-slate-400' }, h('i', { className: 'fas fa-spinner fa-spin mr-2' }), isN ? 'Đang tạo phiếu...' : 'Đang tạo đơn...')),
                 h('p', { className: 'text-xs text-slate-500 text-center' }, 'Bấm "Gửi ảnh" rồi chọn Zalo / Messenger. Không gửi được thì bấm "Lưu ảnh" rồi gửi từ thư viện ảnh.'),
                 h('div', { className: 'flex gap-2' }, // 3 nút trên 1 hàng
-                    btn('fa-share-nodes', viewMode === 'qr' && canQr(shopInfo()) ? 'Gửi mã QR' : 'Gửi ảnh', shareOrderImage, 'bg-emerald-600 text-white hover:bg-emerald-700'),
+                    btn('fa-share-nodes', viewMode === 'qr' && canQr(shopInfo()) && !isN ? 'Gửi mã QR' : 'Gửi ảnh', shareOrderImage, 'bg-emerald-600 text-white hover:bg-emerald-700'),
                     btn('fa-download', 'Lưu ảnh', () => saveOrderImage(false), 'bg-white text-slate-800 border border-slate-300 hover:bg-slate-50'),
                     btn('fa-print', 'In / PDF', printOrder, 'bg-slate-800 text-white hover:bg-slate-900')),
+                isN ? nhPayModal() : null,
                 h('div', { className: 'flex empty:hidden' },
+                    isN ? ((!viewOnly && o.total - o.paid > 0) ? btn('fa-hand-holding-dollar', 'Trả tiền nhà cung cấp', () => setNhPay({ id: o.r.id, amount: String(o.total - o.paid), method: 'cash', date: todayStr() }), 'bg-amber-500 text-slate-900 hover:bg-amber-400') : null) :
                     (!viewOnly && !o.isWalkIn && o.total - o.paid > 0 && !o.key.startsWith('T:')) ? btn('fa-hand-holding-dollar', 'Khách trả tiền', () => setPayOrder({ key: o.key, amount: String(o.total - o.paid), method: 'cash', date: todayStr() }), 'bg-amber-500 text-slate-900 hover:bg-amber-400') : null)));
     };
 
@@ -4676,6 +4697,9 @@ function App() {
         const sumQ = list.reduce((a, r) => a + num(r.quantity), 0), sumT = list.reduce((a, r) => a + num(r.totalPrice), 0);
         const PG = 6, pages = Math.max(1, Math.ceil(list.length / PG)), pg = Math.min(nhPg, pages - 1), pageList = list.slice(pg * PG, pg * PG + PG);
         const pager = pagerBar(pg, pages, setNhPg);
+        const viewNhap = r => { setViewMode('order'); setOrderView('N:' + r.id); };
+        // Nút giống hệt tab Đơn hàng: [Trả tiền] [Xem / Gửi] [sửa] [xóa]
+        const viewBtn = r => h('button', { key: 'v', type: 'button', onClick: () => viewNhap(r), title: 'Xem / gửi phiếu nhập', className: 'px-3 py-1.5 rounded-lg bg-emerald-600 text-white text-xs font-bold whitespace-nowrap' }, h('i', { className: 'fas fa-receipt mr-1' }), 'Xem / Gửi');
         const acts = r => [
             canEdit(user, 'records', r) ? iconBtn('fa-pen', () => { handleEditRecord(r); setNhView('tao'); window.scrollTo({ top: 0, behavior: 'smooth' }); }, 'text-blue-600', 'Sửa phiếu') : null,
             canRemove(user, 'records', r) ? iconBtn('fa-trash', () => removeRecord(r), 'text-rose-600', 'Xóa phiếu') : null];
@@ -4686,16 +4710,18 @@ function App() {
                 h('div', null, lbl('Thời gian'), dateFilter(nhS, v => { setNhS(v); setNhPg(0); }, nhE, v => { setNhE(v); setNhPg(0); })),
                 h('input', { type: 'text', value: nhQ, onChange: e => { setNhQ(e.target.value); setNhPg(0); }, placeholder: 'Tìm mã phiếu, loại hàng, nhà cung cấp...', className: 'w-full h-10 px-3 border rounded-xl text-sm' })),
             h('div', { className: 'md:hidden space-y-2' },
-                list.length ? pageList.map(r => h('div', { key: r.id, className: 'p-2.5 rounded-xl border bg-white flex items-center gap-2' },
-                    h('div', { className: 'flex-1 min-w-0 space-y-0.5' },
+                list.length ? pageList.map(r => { const hasSup = !!idOf(recPartner(L, r)), paid = nhapPaidOf(r), left = num(r.totalPrice) - paid;
+                    const [stT, stC] = left <= 0 ? ['Đã trả đủ', 'bg-emerald-100 text-emerald-800'] : paid > 0 ? [`Còn ${fmt(left)} đ`, 'bg-amber-100 text-amber-800'] : ['Chưa trả', 'bg-rose-100 text-rose-800'];
+                    return h('div', { key: r.id, className: 'p-2.5 rounded-xl border bg-white space-y-1.5' },
                         h('div', { className: 'flex justify-between items-baseline gap-2' },
                             h('span', { className: 'flex items-baseline gap-2 min-w-0' }, h('span', { className: 'font-mono font-bold text-sm truncate' }, r.ticketNo || ''), h('span', { className: 'text-xs font-semibold text-slate-500 whitespace-nowrap' }, fmtDayVN(r.date))),
-                            h('span', { className: 'font-black text-sm text-amber-700 whitespace-nowrap' }, dayText(num(r.quantity)))),
-                        h('div', { className: 'flex justify-between items-baseline gap-2 text-xs text-slate-500' },
-                            h('span', { className: 'truncate' }, h('b', { className: 'text-slate-700' }, catNameOf(r)), partnerNameOf(r) ? ' · ' + partnerNameOf(r) : ''),
-                            h('span', { className: 'whitespace-nowrap font-semibold text-slate-700' }, num(r.totalPrice) ? fmt(r.totalPrice) + ' đ' : '')),
-                        nhapPayBadge(r)),
-                    h('div', { className: 'flex shrink-0' }, ...acts(r))))
+                            h('span', { className: 'font-black text-sm whitespace-nowrap' }, num(r.totalPrice) ? fmt(r.totalPrice) + ' đ' : '')),
+                        h('div', { className: 'flex justify-between items-center gap-2 text-xs text-slate-500' },
+                            h('span', { className: 'truncate' }, h('b', { className: 'text-slate-700' }, partnerNameOf(r) || '—'), ` · ${catNameOf(r)} · `, h('b', { className: 'text-amber-700' }, dayText(num(r.quantity)))),
+                            hasSup ? h('span', { className: `px-1.5 py-0.5 rounded-md text-[11px] font-bold whitespace-nowrap ${stC}` }, stT) : null),
+                        h('div', { className: 'flex justify-end items-center gap-1.5' },
+                            hasSup && left > 0 && !viewOnly ? h('button', { type: 'button', onClick: () => setNhPay({ id: r.id, amount: String(left), method: 'cash', date: todayStr() }), className: 'px-3 py-1.5 rounded-lg bg-amber-500 text-slate-900 text-xs font-bold whitespace-nowrap' }, h('i', { className: 'fas fa-hand-holding-dollar mr-1' }), 'Trả tiền') : null,
+                            viewBtn(r), ...acts(r))); })
                     : h('p', { className: 'text-sm text-slate-400 text-center py-4' }, 'Không có phiếu nhập nào'),
                 ),
             h('div', { className: 'hidden md:block' },
@@ -4709,7 +4735,7 @@ function App() {
                         h('td', { className: 'p-3 text-right whitespace-nowrap' }, num(r.price) ? fmt(r.price) : '-'),
                         h('td', { className: 'p-3 text-right whitespace-nowrap font-bold' }, num(r.totalPrice) ? fmt(r.totalPrice) + ' đ' : '-'),
                         h('td', { className: 'p-3 text-xs text-slate-500 max-w-xs truncate' }, r.notes || '-'),
-                        h('td', { className: 'p-3 text-center whitespace-nowrap' }, ...acts(r)))), 'Không có phiếu nhập nào')), pager);
+                        h('td', { className: 'p-3 text-center whitespace-nowrap' }, h('div', { className: 'flex justify-center items-center gap-1.5' }, viewBtn(r), ...acts(r))))), 'Không có phiếu nhập nào')), pager);
     };
     // 2 nút chuyển mục (Tạo / Lịch sử) dùng cho Nhập Hàng & Đơn Hàng
     const subSwitch = (val, set, items, label) => h('div', { role: 'tablist', 'aria-label': label, className: 'grid grid-cols-2 gap-2' },
@@ -4719,7 +4745,7 @@ function App() {
             h('i', { className: `fas ${ic} text-base` }), t)));
     const nhapSwitch = () => subSwitch(nhView, setNhView, [['tao', 'fa-file-circle-plus', 'Tạo phiếu nhập'], ['ls', 'fa-clock-rotate-left', 'Lịch sử nhập']], 'Nhập hàng');
     const renderTicketForm = () => activeTab === 'nhap'
-        ? h('div', { className: 'space-y-3 md:space-y-6' }, viewOnly ? null : nhapSwitch(), (viewOnly || nhView === 'ls') ? renderNhapList() : renderTicketFormInner())
+        ? h('div', { className: 'space-y-3 md:space-y-6' }, orderViewModal(), viewOnly ? null : nhapSwitch(), (viewOnly || nhView === 'ls') ? renderNhapList() : renderTicketFormInner())
         : renderTicketFormInner();
     const renderTicketFormInner = () => {
         const oldRec = records.find(r => String(r.id) === String(formData.id));
@@ -4795,7 +4821,7 @@ function App() {
                         h('p', { className: 'text-lg md:text-2xl font-black text-emerald-600 whitespace-nowrap' }, `${fmt(calculatedTotalPrice())} đ`)),
                     h('button', { type: 'submit', disabled: busy || !!formErr, className: `shrink-0 px-5 md:px-8 py-3 rounded-xl font-bold text-white shadow-lg transition disabled:opacity-50 disabled:cursor-not-allowed ${formErr ? 'bg-slate-500' : activeTab === 'nhap' ? 'bg-emerald-600 hover:bg-emerald-700' : 'bg-blue-600 hover:bg-blue-700'}` },
                         h('i', { className: 'fas ' + (formErr ? 'fa-ban' : busy ? 'fa-spinner fa-spin' : 'fa-save') + ' mr-2' }),
-                        formErr ? 'Không đủ hàng' : formData.id ? 'Cập Nhật Phiếu' : (activeTab === 'nhap' ? 'Lưu Phiếu Nhập' : 'Lưu Phiếu Xuất'))))
+                        formErr ? 'Không đủ hàng' : formData.id ? 'Cập Nhật Phiếu' : (activeTab === 'nhap' ? 'Lưu & Xem Phiếu Nhập' : 'Lưu Phiếu Xuất'))))
         );
     };
 
@@ -5348,7 +5374,8 @@ function App() {
                 others.length ? sec(`Cùng đơn ${o.no} (${o.recs.length} mặt hàng)`, ...others.map(x => row(x.ticketNo, `${catNameOf(x)} · ${dayText(num(x.quantity))} · ${fmt(x.totalPrice)} đ`, 'text-slate-700 font-semibold'))) : null,
                 (r.orderNotes || r.notes) ? sec('Ghi chú', h('p', { className: 'py-2 text-sm text-slate-700 break-words' }, r.orderNotes || r.notes)) : null,
                 h('div', { className: 'flex flex-wrap gap-2 pt-1' },
-                    o ? btn('fa-receipt', 'Xem / Gửi đơn', () => { close(); setViewMode('order'); setOrderView(o.key); }, 'bg-emerald-600 text-white') : null,
+                    o ? btn('fa-receipt', 'Xem / Gửi', () => { close(); setViewMode('order'); setOrderView(o.key); }, 'bg-emerald-600 text-white')
+                        : isNhap ? btn('fa-receipt', 'Xem / Gửi', () => { close(); setViewMode('order'); setOrderView('N:' + r.id); }, 'bg-emerald-600 text-white') : null,
                     !viewOnly && canEdit(user, 'records', r) ? btn('fa-pen', 'Sửa', () => { close(); o ? (setActiveTab('xuat'), editOrder(o.key)) : handleEditRecord(r); }, 'bg-blue-50 text-blue-700') : null,
                     !viewOnly && canRemove(user, 'records', r) ? btn('fa-trash', 'Xóa', () => { close(); removeRecord(r); }, 'bg-rose-50 text-rose-700') : null,
                     btn('fa-xmark', 'Đóng', close, 'bg-slate-100 text-slate-600'))));
